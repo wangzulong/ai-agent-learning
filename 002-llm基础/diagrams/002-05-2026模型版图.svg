@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="640" fill="#f8fafc"/>
+  <text x="480" y="34" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">2026-09 大模型版图：闭源三强 × 开源四杰</text>
+  <text x="480" y="58" text-anchor="middle" font-size="13" fill="#64748b">横轴：获取方式（自托管开放权重 ↔ 云 API）· 纵轴：性价比优先 ↔ 能力优先 · 气泡标注价格（$/1M token，输入/输出）</text>
+
+  <!-- 坐标区 -->
+  <rect x="90" y="84" width="760" height="480" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <!-- 轴 -->
+  <line x1="470" y1="84" x2="470" y2="564" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <line x1="90" y1="324" x2="850" y2="324" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="838" y="106" font-size="12" font-weight="bold" fill="#334155">闭源 API（花钱省心）</text>
+  <text x="102" y="106" font-size="12" font-weight="bold" fill="#334155">开源权重（自托管可控）</text>
+  <text x="112" y="318" font-size="11.5" fill="#64748b">↑ 能力优先</text>
+  <text x="112" y="552" font-size="11.5" fill="#64748b">↓ 性价比优先</text>
+
+  <!-- 闭源旗舰（右上上） -->
+  <circle cx="700" cy="140" r="26" fill="#1d4ed8"/>
+  <text x="700" y="137" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#fff">GPT-6</text>
+  <text x="700" y="150" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#fff">Astra</text>
+  <text x="730" y="132" font-size="10.5" fill="#334155">$10/$50 · 长程Agent旗舰</text>
+
+  <circle cx="780" cy="188" r="24" fill="#2563eb"/>
+  <text x="780" y="185" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">GPT-5.6</text>
+  <text x="780" y="197" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">Sol</text>
+  <text x="700" y="172" font-size="10.5" fill="#334155">质量旗舰 $5/$30</text>
+
+  <circle cx="700" cy="236" r="24" fill="#7c3aed"/>
+  <text x="700" y="233" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">Claude</text>
+  <text x="700" y="245" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">Opus 5</text>
+  <text x="640" y="222" font-size="10.5" fill="#334155">$5/$25 · 1M上下文</text>
+
+  <circle cx="796" cy="252" r="20" fill="#9333ea"/>
+  <text x="796" y="249" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">Fable</text>
+  <text x="796" y="261" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">5.1</text>
+  <text x="736" y="282" font-size="10.5" fill="#334155">$10/$50 · 最强单点推理</text>
+
+  <circle cx="640" cy="196" r="22" fill="#0891b2"/>
+  <text x="640" y="193" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">Gemini</text>
+  <text x="640" y="205" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">3.1 Pro</text>
+  <text x="560" y="182" font-size="10.5" fill="#334155">$2/$12(≤200K)</text>
+
+  <!-- 闭源性价比（右下） -->
+  <circle cx="720" cy="392" r="22" fill="#38bdf8"/>
+  <text x="720" y="389" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">Sonnet 5</text>
+  <text x="720" y="401" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">$2/$10</text>
+  <text x="748" y="380" font-size="10.5" fill="#334155">1M上下文无附加费</text>
+
+  <circle cx="620" cy="440" r="20" fill="#0ea5e9"/>
+  <text x="620" y="437" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">GPT-5.6</text>
+  <text x="620" y="449" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">Terra</text>
+  <text x="548" y="428" font-size="10.5" fill="#334155">$2/$12 主力机型</text>
+
+  <circle cx="740" cy="470" r="18" fill="#22d3ee"/>
+  <text x="740" y="467" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">Luna</text>
+  <text x="740" y="478" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">$0.2/$1.2</text>
+  <text x="766" y="462" font-size="10.5" fill="#334155">OpenAI 成本杀</text>
+
+  <circle cx="560" cy="496" r="18" fill="#06b6d4"/>
+  <text x="560" y="493" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">Gemini</text>
+  <text x="560" y="505" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">Flash系</text>
+  <text x="486" y="486" font-size="10.5" fill="#334155">$0.75/$3.75 起</text>
+
+  <!-- 开源旗舰（左上） -->
+  <circle cx="240" cy="170" r="26" fill="#dc2626"/>
+  <text x="240" y="166" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">DeepSeek</text>
+  <text x="240" y="178" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">V4-Pro</text>
+  <text x="272" y="152" font-size="10.5" fill="#334155">1.6T总参/49B激活·MIT·1M</text>
+
+  <circle cx="150" cy="238" r="22" fill="#ea580c"/>
+  <text x="150" y="235" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">Llama 4</text>
+  <text x="150" y="247" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">Maverick</text>
+  <text x="178" y="222" font-size="10.5" fill="#334155">400B/17B·多模态</text>
+
+  <circle cx="330" cy="262" r="20" fill="#e11d48"/>
+  <text x="330" y="259" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">DeepSeek</text>
+  <text x="330" y="271" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">R2/R1</text>
+  <text x="356" y="252" font-size="10.5" fill="#334155">开源推理专用</text>
+
+  <!-- 开源性价比（左下） -->
+  <circle cx="220" cy="398" r="24" fill="#f59e0b"/>
+  <text x="220" y="395" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">DeepSeek</text>
+  <text x="220" y="407" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">V4-Flash</text>
+  <text x="250" y="382" font-size="10.5" fill="#334155">284B/13B·MIT·1M</text>
+
+  <circle cx="330" cy="470" r="22" fill="#d97706"/>
+  <text x="330" y="467" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">Qwen3.6</text>
+  <text x="330" y="479" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">27B稠密</text>
+  <text x="358" y="456" font-size="10.5" fill="#334155">单卡24GB·中文最强</text>
+
+  <circle cx="150" cy="500" r="20" fill="#f97316"/>
+  <text x="150" y="497" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">Qwen3.6</text>
+  <text x="150" y="509" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">35B-A3B</text>
+  <text x="80" y="532" font-size="10.5" fill="#334155">MoE 3B激活·Apache2.0</text>
+
+  <circle cx="330" cy="540" r="16" fill="#fbbf24"/>
+  <text x="330" y="537" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#fff">Mistral</text>
+  <text x="330" y="548" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#fff">Small 4</text>
+  <text x="352" y="532" font-size="10.5" fill="#334155">119B/6B·欧盟合规选项</text>
+
+  <!-- 底部解读 -->
+  <rect x="36" y="580" width="888" height="48" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="56" y="600" font-size="12.5" font-weight="bold" fill="#0f172a">三条选型主线（详见 07 对比篇）：</text>
+  <text x="56" y="620" font-size="11.5" fill="#475569">① 闭源 API 省心、按量付费，适合绝大多数团队起步；② DeepSeek/Qwen 开源权重=数据主权+成本可控，国产合规友好；③ MoE（总参大/激活小）已是 2026 主流架构，1M 上下文成为旗舰标配。</text>
+</svg>

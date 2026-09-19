@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="600" fill="#f8fafc"/>
+  <text x="480" y="36" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">为什么需要 Prompt 工程：三个翻车现场 → 准确率成本阶梯</text>
+  <text x="480" y="60" text-anchor="middle" font-size="13" fill="#64748b">从"能用"到"敢上生产"的差距，几乎全部来自提示工程与评估，不来自换更贵的模型</text>
+
+  <!-- 三个翻车场景 -->
+  <rect x="36" y="84" width="286" height="150" rx="12" fill="#ffffff" stroke="#fecaca" stroke-width="2"/>
+  <text x="56" y="110" font-size="14" font-weight="bold" fill="#b91c1c">场景① 输出漂移（不确定）</text>
+  <rect x="56" y="122" width="246" height="42" rx="6" fill="#fef2f2"/>
+  <text x="66" y="139" font-size="11" fill="#7f1d1d">同一句话，今天 500 字结构清晰，</text>
+  <text x="66" y="155" font-size="11" fill="#7f1d1d">三天后 1500 字车轱辘话</text>
+  <text x="56" y="186" font-size="11" fill="#475569">病根：无约束输入 + 温度采样</text>
+  <text x="56" y="204" font-size="11" fill="#475569">= 每次都重掷骰子</text>
+
+  <rect x="337" y="84" width="286" height="150" rx="12" fill="#ffffff" stroke="#fecaca" stroke-width="2"/>
+  <text x="357" y="110" font-size="14" font-weight="bold" fill="#b91c1c">场景② 幻觉（编造事实）</text>
+  <rect x="357" y="122" width="246" height="42" rx="6" fill="#fef2f2"/>
+  <text x="367" y="139" font-size="11" fill="#7f1d1d">问"点价模块哪年上线"，</text>
+  <text x="367" y="155" font-size="11" fill="#7f1d1d">一本正经编个年份</text>
+  <text x="357" y="186" font-size="11" fill="#475569">病根：概率续写引擎≠数据库，</text>
+  <text x="357" y="204" font-size="11" fill="#475569">不接地就用"最像答案"的文本回你</text>
+
+  <rect x="638" y="84" width="286" height="150" rx="12" fill="#ffffff" stroke="#fecaca" stroke-width="2"/>
+  <text x="658" y="110" font-size="14" font-weight="bold" fill="#b91c1c">场景③ 玄学调参（一改就崩）</text>
+  <rect x="658" y="122" width="246" height="42" rx="6" fill="#fef2f2"/>
+  <text x="668" y="139" font-size="11" fill="#7f1d1d">调好的提示词，模型一升级</text>
+  <text x="668" y="155" font-size="11" fill="#7f1d1d">输出格式全变</text>
+  <text x="658" y="186" font-size="11" fill="#475569">病根：无评估集、无版本管理、</text>
+  <text x="658" y="204" font-size="11" fill="#475569">无模型差异认知</text>
+
+  <!-- 准确率阶梯 -->
+  <text x="56" y="278" font-size="16" font-weight="bold" fill="#0f172a">准确率成本阶梯（案例：从客户邮件抽取点价申请要素）</text>
+
+  <rect x="56" y="300" width="180" height="46" rx="8" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="146" y="320" text-anchor="middle" font-size="13" font-weight="bold" fill="#334155">随口一句话</text>
+  <text x="146" y="338" text-anchor="middle" font-size="12" fill="#dc2626">~60-70% · 每封都要人核</text>
+  <line x1="236" y1="323" x2="262" y2="323" stroke="#94a3b8" stroke-width="2" marker-end="url(#a1)"/>
+
+  <rect x="264" y="300" width="180" height="46" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="354" y="320" text-anchor="middle" font-size="13" font-weight="bold" fill="#1d4ed8">+ 结构化输出约束</text>
+  <text x="354" y="338" text-anchor="middle" font-size="12" fill="#1e40af">~85-90% · 抽查即可</text>
+  <line x1="444" y1="323" x2="470" y2="323" stroke="#94a3b8" stroke-width="2" marker-end="url(#a1)"/>
+
+  <rect x="472" y="300" width="200" height="46" rx="8" fill="#d1fae5" stroke="#6ee7b7"/>
+  <text x="572" y="320" text-anchor="middle" font-size="13" font-weight="bold" fill="#047857">+ few-shot 边界案例</text>
+  <text x="572" y="338" text-anchor="middle" font-size="12" fill="#065f46">~95%+ · 异常路径人工</text>
+  <line x1="672" y1="323" x2="698" y2="323" stroke="#94a3b8" stroke-width="2" marker-end="url(#a1)"/>
+
+  <rect x="700" y="300" width="200" height="46" rx="8" fill="#fef3c7" stroke="#fcd34d"/>
+  <text x="800" y="320" text-anchor="middle" font-size="13" font-weight="bold" fill="#92400e">+ 评估集与回归测试</text>
+  <text x="800" y="338" text-anchor="middle" font-size="12" fill="#78350f">持续可控 · 可上生产</text>
+
+  <!-- 底部：本质定义 -->
+  <rect x="36" y="384" width="888" height="92" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="56" y="410" font-size="14" font-weight="bold" fill="#0f172a">提示工程的本质定义（一句话版）：</text>
+  <text x="56" y="434" font-size="12.5" fill="#475569">把"不确定性"压到业务可接受范围内的全部手段 —— 写法只是手段之一，评估、版本管理、模型差异管理都是。它对应传统软件工程里的"函数契约 + 单元测试 + 版本管理"三件套。</text>
+  <text x="56" y="458" font-size="11.5" fill="#64748b">自查清单：输出进程序/多人复用/有正确率要求/多模型环境 → 必须上工程化；一次性问答闲聊 → 不需要，别为记而记</text>
+
+  <text x="480" y="508" text-anchor="middle" font-size="12" fill="#475569">费曼检验：为什么提示词要当代码管？—— 它的改动影响线上输出质量，而模型有随机性；不工程化就无从归因、无从回归、无从优化。</text>
+  <text x="480" y="548" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#0f172a">下一步：02 概念篇 → 把"手段"逐个讲透</text>
+</svg>

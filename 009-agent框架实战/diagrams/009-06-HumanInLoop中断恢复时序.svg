@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="ar-b3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker>
+    <marker id="ar-o3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ea580c"/></marker>
+    <marker id="ar-p3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/></marker>
+  </defs>
+  <rect width="960" height="640" fill="#f8fafc"/>
+  <text x="40" y="48" font-size="23" font-weight="bold" fill="#0f172a">009 · Human-in-the-Loop 中断恢复时序（点价建议单审批）</text>
+
+  <!-- 泳道头 -->
+  <rect x="95" y="95" width="150" height="44" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="170" y="122" font-size="12.5" font-weight="bold" fill="#1e40af" text-anchor="middle">Agent 进程</text>
+  <rect x="405" y="95" width="150" height="44" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="480" y="122" font-size="12.5" font-weight="bold" fill="#c2410c" text-anchor="middle">Checkpointer 库</text>
+  <rect x="715" y="95" width="150" height="44" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="790" y="122" font-size="12.5" font-weight="bold" fill="#6d28d9" text-anchor="middle">交易员 / 审批系统</text>
+
+  <!-- 生命线 -->
+  <line x1="170" y1="139" x2="170" y2="545" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4,4"/>
+  <line x1="480" y1="139" x2="480" y2="545" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4,4"/>
+  <line x1="790" y1="139" x2="790" y2="545" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4,4"/>
+
+  <!-- 1 invoke -->
+  <line x1="45" y1="165" x2="162" y2="165" stroke="#2563eb" stroke-width="1.8" marker-end="url(#ar-b3)"/>
+  <text x="100" y="157" font-size="10.5" fill="#1e40af" text-anchor="middle">① invoke(报盘输入, thread_id=PB-001)</text>
+
+  <!-- 2 执行节点（自环） -->
+  <path d="M170,180 C245,180 245,222 178,218" fill="none" stroke="#2563eb" stroke-width="1.8" marker-end="url(#ar-b3)"/>
+  <text x="196" y="203" font-size="10.5" fill="#1e40af">② 顺序执行 router → extract → process → draft</text>
+
+  <!-- 3 interrupt -->
+  <text x="196" y="252" font-size="10.5" font-weight="bold" fill="#dc2626">③ draft 节点内 interrupt(payload = 建议单)</text>
+  <line x1="170" y1="258" x2="190" y2="258" stroke="#dc2626" stroke-width="1.5"/>
+
+  <!-- 4 写 checkpoint -->
+  <line x1="178" y1="295" x2="472" y2="295" stroke="#ea580c" stroke-width="1.8" marker-end="url(#ar-o3)"/>
+  <text x="325" y="287" font-size="10.5" fill="#c2410c" text-anchor="middle">④ 写 checkpoint（挂起状态落盘）</text>
+
+  <!-- 5 invoke 返回 -->
+  <text x="196" y="336" font-size="10.5" fill="#64748b">⑤ invoke 返回 —— 进程可退出 / 可发版 / 可换机器</text>
+
+  <!-- 时间带 -->
+  <rect x="60" y="362" width="840" height="28" fill="#fef9c3"/>
+  <text x="480" y="381" font-size="11" fill="#a16207" text-anchor="middle" font-weight="bold">⏱ 挂起数小时 ~ 数天（状态在库里，不在内存里）</text>
+
+  <!-- 6 resume -->
+  <line x1="782" y1="428" x2="178" y2="428" stroke="#7c3aed" stroke-width="1.8" marker-end="url(#ar-p3)"/>
+  <text x="480" y="420" font-size="10.5" fill="#6d28d9" text-anchor="middle">⑥ invoke( Command(resume=审批结果), 同一 thread_id )</text>
+
+  <!-- 7 读 checkpoint -->
+  <line x1="170" y1="468" x2="472" y2="468" stroke="#ea580c" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#ar-o3)"/>
+  <text x="325" y="460" font-size="10.5" fill="#c2410c" text-anchor="middle">⑦ 读 checkpoint（续跑环境）</text>
+
+  <!-- 8 续跑 -->
+  <path d="M170,486 C245,486 245,524 178,520" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#ar-b3)"/>
+  <text x="196" y="508" font-size="10.5" fill="#059669">⑧ interrupt() 返回审批结果 → 续跑至 END 输出建议单</text>
+
+  <!-- 铁律 -->
+  <rect x="60" y="562" width="840" height="56" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="80" y="584" font-size="11" fill="#0f172a" font-weight="bold">铁律① 恢复必须携带同一 thread_id（存档槽对上才能读档）</text>
+  <text x="80" y="606" font-size="11" fill="#0f172a" font-weight="bold">铁律② resume 的 payload 成为 interrupt() 的返回值　铁律③ 进程死了没事——挂起状态在 checkpointer 里</text>
+</svg>

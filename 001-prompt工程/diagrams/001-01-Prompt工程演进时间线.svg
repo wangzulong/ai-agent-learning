@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="560" fill="#f8fafc"/>
+  <text x="480" y="36" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">Prompt 工程六年演进：从"咒语"到"工程学科"</text>
+  <text x="480" y="60" text-anchor="middle" font-size="13" fill="#64748b">每个节点都是一次能力重心迁移 —— 底部三层是你要带走的核心结论</text>
+
+  <defs>
+    <marker id="a1" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- 时间轴 -->
+  <line x1="60" y1="300" x2="910" y2="300" stroke="#cbd5e1" stroke-width="3"/>
+
+  <!-- 节点1 2020 -->
+  <line x1="105" y1="300" x2="105" y2="240" stroke="#94a3b8" stroke-width="2" marker-end="url(#a1)"/>
+  <rect x="45" y="180" width="120" height="60" rx="10" fill="#2563eb"/>
+  <text x="105" y="203" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#fff">2020 · GPT-3</text>
+  <text x="105" y="221" text-anchor="middle" font-size="10.5" fill="#dbeafe">发现 ICL，提示诞生</text>
+  <text x="105" y="322" text-anchor="middle" font-size="11" fill="#475569">不训练不改权重，</text>
+  <text x="105" y="338" text-anchor="middle" font-size="11" fill="#475569">放几个示例就会任务</text>
+
+  <!-- 节点2 2022 -->
+  <line x1="245" y1="300" x2="245" y2="240" stroke="#94a3b8" stroke-width="2" marker-end="url(#a1)"/>
+  <rect x="185" y="180" width="120" height="60" rx="10" fill="#0891b2"/>
+  <text x="245" y="203" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#fff">2022 · 双支线</text>
+  <text x="245" y="221" text-anchor="middle" font-size="10.5" fill="#cffafe">InstructGPT 听话 + CoT 推理</text>
+  <text x="245" y="322" text-anchor="middle" font-size="11" fill="#475569">指令遵循是训出来的，</text>
+  <text x="245" y="338" text-anchor="middle" font-size="11" fill="#475569">system prompt 从此有效</text>
+
+  <!-- 节点3 2022.11 -->
+  <line x1="385" y1="300" x2="385" y2="240" stroke="#94a3b8" stroke-width="2" marker-end="url(#a1)"/>
+  <rect x="325" y="180" width="120" height="60" rx="10" fill="#7c3aed"/>
+  <text x="385" y="203" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#fff">2022.11 · ChatGPT</text>
+  <text x="385" y="221" text-anchor="middle" font-size="10.5" fill="#ede9fe">走进大众，技巧井喷</text>
+  <text x="385" y="322" text-anchor="middle" font-size="11" fill="#475569">"Prompt Engineer" 岗位热，</text>
+  <text x="385" y="338" text-anchor="middle" font-size="11" fill="#475569">魔法咒语满天飞</text>
+
+  <!-- 节点4 2024 -->
+  <line x1="525" y1="300" x2="525" y2="240" stroke="#94a3b8" stroke-width="2" marker-end="url(#a1)"/>
+  <rect x="465" y="180" width="120" height="60" rx="10" fill="#ea580c"/>
+  <text x="525" y="203" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#fff">2024 · 系统化</text>
+  <text x="525" y="221" text-anchor="middle" font-size="10.5" fill="#ffedd5">The Prompt Report 58 技术</text>
+  <text x="525" y="322" text-anchor="middle" font-size="11" fill="#475569">从玄学走向分类学，</text>
+  <text x="525" y="338" text-anchor="middle" font-size="11" fill="#475569">同时"技巧已死"争论开始</text>
+
+  <!-- 节点5 2024-25 -->
+  <line x1="665" y1="300" x2="665" y2="240" stroke="#94a3b8" stroke-width="2" marker-end="url(#a1)"/>
+  <rect x="605" y="180" width="120" height="60" rx="10" fill="#dc2626"/>
+  <text x="665" y="203" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#fff">2024-25 · 推理模型</text>
+  <text x="665" y="221" text-anchor="middle" font-size="10.5" fill="#fee2e2">o1 / R1 原生思考</text>
+  <text x="665" y="322" text-anchor="middle" font-size="11" fill="#475569">"一步步思考"被内化，</text>
+  <text x="665" y="338" text-anchor="middle" font-size="11" fill="#475569">控制方式迁移到 API 参数</text>
+
+  <!-- 节点6 2025.09 -->
+  <line x1="805" y1="300" x2="805" y2="240" stroke="#94a3b8" stroke-width="2" marker-end="url(#a1)"/>
+  <rect x="745" y="180" width="120" height="60" rx="10" fill="#059669"/>
+  <text x="805" y="203" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#fff">2025-26 · CE 接棒</text>
+  <text x="805" y="221" text-anchor="middle" font-size="10.5" fill="#d1fae5">Context Engineering</text>
+  <text x="805" y="322" text-anchor="middle" font-size="11" fill="#475569">从"写好一句话"到</text>
+  <text x="805" y="338" text-anchor="middle" font-size="11" fill="#475569">"策展每一轮的全部 token"</text>
+
+  <!-- 三层结论 -->
+  <rect x="60" y="388" width="270" height="140" rx="10" fill="#ffffff" stroke="#a7f3d0" stroke-width="2"/>
+  <text x="80" y="414" font-size="13.5" font-weight="bold" fill="#047857">✓ 永远不变（学这个）</text>
+  <text x="80" y="438" font-size="11.5" fill="#334155">清晰指令 · 好示例 · 约束输出格式</text>
+  <text x="80" y="458" font-size="11.5" fill="#334155">结构化六件套 · 先测量再迭代</text>
+  <text x="80" y="478" font-size="11.5" fill="#334155">（所有模型、所有时代有效）</text>
+  <text x="80" y="506" font-size="11" fill="#64748b">→ 03 篇 / 05 篇</text>
+
+  <rect x="345" y="388" width="270" height="140" rx="10" fill="#ffffff" stroke="#fecaca" stroke-width="2"/>
+  <text x="365" y="414" font-size="13.5" font-weight="bold" fill="#b91c1c">✗ 已被模型吃掉（别背了）</text>
+  <text x="365" y="438" font-size="11.5" fill="#334155">情绪勒索 · 角色迷信 · "深呼吸"</text>
+  <text x="365" y="458" font-size="11.5" fill="#334155">手把手 CoT（对推理模型有害）</text>
+  <text x="365" y="478" font-size="11.5" fill="#334155">（训练内化 → 技巧有半衰期）</text>
+  <text x="365" y="506" font-size="11" fill="#64748b">→ 07 篇通用 vs 推理模型</text>
+
+  <rect x="630" y="388" width="270" height="140" rx="10" fill="#ffffff" stroke="#bfdbfe" stroke-width="2"/>
+  <text x="650" y="414" font-size="13.5" font-weight="bold" fill="#1d4ed8">↑ 正在接管（增值方向）</text>
+  <text x="650" y="438" font-size="11.5" fill="#334155">参数化控制（effort/verbosity）</text>
+  <text x="650" y="458" font-size="11.5" fill="#334155">Context Engineering · 评估体系</text>
+  <text x="650" y="478" font-size="11.5" fill="#334155">版本管理 · 成本工程 · 安全纵深</text>
+  <text x="650" y="506" font-size="11" fill="#64748b">→ 04 篇 / 06 篇 / 008 专题</text>
+
+  <text x="480" y="548" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">裁定：prompt 话术在贬值，prompt 工程学科在增值 —— 死的是"背咒语"，活下来的是"工程体系"</text>
+</svg>

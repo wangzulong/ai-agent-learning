@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="620" fill="#f8fafc"/>
+  <text x="480" y="36" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">三家工具调用 API 结构对比（004 对比篇）</text>
+  <text x="480" y="60" text-anchor="middle" font-size="13" fill="#64748b">内容不变变包装 —— 真正会 break 的四件机械事：schema 键名 / system 位置 / 结果回填 / 强制调用参数</text>
+
+  <!-- OpenAI -->
+  <rect x="40" y="88" width="280" height="380" rx="12" fill="#ffffff" stroke="#bfdbfe" stroke-width="2"/>
+  <rect x="40" y="88" width="280" height="42" rx="12" fill="#2563eb"/>
+  <text x="180" y="115" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">OpenAI · Responses API</text>
+  <rect x="56" y="144" width="248" height="66" rx="7" fill="#dbeafe"/>
+  <text x="68" y="164" font-size="10.5" fill="#1e40af">tools: [{type:"function", name, parameters}]</text>
+  <text x="68" y="182" font-size="10" fill="#1d4ed8">扁平结构，name 直接在顶层</text>
+  <text x="68" y="200" font-size="10" fill="#1d4ed8">strict:true 约束解码</text>
+  <rect x="56" y="218" width="248" height="46" rx="7" fill="#e0e7ff"/>
+  <text x="68" y="238" font-size="10.5" fill="#3730a3">输出：function_call item + call_id</text>
+  <text x="68" y="256" font-size="10" fill="#4338ca">stop：无 tool_calls 即终答</text>
+  <rect x="56" y="272" width="248" height="46" rx="7" fill="#e0e7ff"/>
+  <text x="68" y="292" font-size="10.5" fill="#3730a3">回填：function_call_output</text>
+  <text x="68" y="310" font-size="10" fill="#4338ca">靠 call_id 与调用配对</text>
+  <rect x="56" y="326" width="248" height="46" rx="7" fill="#e0e7ff"/>
+  <text x="68" y="346" font-size="10.5" fill="#3730a3">强制：tool_choice = "required" / 指定</text>
+  <text x="68" y="364" font-size="10" fill="#4338ca">parallel_tool_calls 可关</text>
+  <rect x="56" y="380" width="248" height="66" rx="7" fill="#fee2e2"/>
+  <text x="68" y="400" font-size="10.5" font-weight="bold" fill="#b91c1c">易 break 点</text>
+  <text x="68" y="418" font-size="10" fill="#991b1b">system 走 instructions 参数（类 system）</text>
+  <text x="68" y="436" font-size="10" fill="#991b1b">Chat Completions 老格式是嵌套 "function":{}</text>
+
+  <!-- Anthropic -->
+  <rect x="340" y="88" width="280" height="380" rx="12" fill="#ffffff" stroke="#ddd6fe" stroke-width="2"/>
+  <rect x="340" y="88" width="280" height="42" rx="12" fill="#7c3aed"/>
+  <text x="480" y="115" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">Anthropic · Messages</text>
+  <rect x="356" y="144" width="248" height="66" rx="7" fill="#f3e8ff"/>
+  <text x="368" y="164" font-size="10.5" fill="#6d28d9">tools: [{name, description, input_schema}]</text>
+  <text x="368" y="182" font-size="10" fill="#6b21a8">键名是 input_schema（≠ parameters）</text>
+  <text x="368" y="200" font-size="10" fill="#6b21a8">disable_parallel_tool_use 可关并行</text>
+  <rect x="356" y="218" width="248" height="46" rx="7" fill="#ede9fe"/>
+  <text x="368" y="238" font-size="10.5" fill="#5b21b6">输出：tool_use block + id</text>
+  <text x="368" y="256" font-size="10" fill="#6d28d9">stop_reason == "tool_use"</text>
+  <rect x="356" y="272" width="248" height="52" rx="7" fill="#fee2e2"/>
+  <text x="368" y="292" font-size="10.5" font-weight="bold" fill="#b91c1c">回填：tool_result 装在 user 轮！</text>
+  <text x="368" y="310" font-size="10" fill="#991b1b">三家差异最大的一处，务必配 tool_use_id</text>
+  <rect x="356" y="332" width="248" height="46" rx="7" fill="#ede9fe"/>
+  <text x="368" y="352" font-size="10.5" fill="#5b21b6">强制：tool_choice = {type:"tool", name}</text>
+  <text x="368" y="370" font-size="10" fill="#6d28d9">或 {type:"any"} 任选一个</text>
+  <rect x="356" y="386" width="248" height="60" rx="7" fill="#fee2e2"/>
+  <text x="368" y="406" font-size="10.5" font-weight="bold" fill="#b91c1c">易 break 点</text>
+  <text x="368" y="424" font-size="10" fill="#991b1b">system 是独立参数（放 messages 会降级）</text>
+  <text x="368" y="440" font-size="10" fill="#991b1b">prefill 已废弃（4.6+ 报 400，001 篇）</text>
+
+  <!-- Gemini -->
+  <rect x="640" y="88" width="280" height="380" rx="12" fill="#ffffff" stroke="#a5f3fc" stroke-width="2"/>
+  <rect x="640" y="88" width="280" height="42" rx="12" fill="#0891b2"/>
+  <text x="780" y="115" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">Gemini · function calling</text>
+  <rect x="656" y="144" width="248" height="66" rx="7" fill="#cffafe"/>
+  <text x="668" y="164" font-size="10.5" fill="#155e75">tools: [{function_declarations: [...]}]</text>
+  <text x="668" y="182" font-size="10" fill="#0e7490">套一层 function_declarations</text>
+  <text x="668" y="200" font-size="10" fill="#0e7490">type 用大写字符串/内置枚举</text>
+  <rect x="656" y="218" width="248" height="46" rx="7" fill="#e0f2fe"/>
+  <text x="668" y="238" font-size="10.5" fill="#075985">输出：functionCall part（name/args）</text>
+  <text x="668" y="256" font-size="10" fill="#0369a1">可一次返回多个 functionCall</text>
+  <rect x="656" y="272" width="248" height="46" rx="7" fill="#e0f2fe"/>
+  <text x="668" y="292" font-size="10.5" fill="#075985">回填：Part.from_function_response</text>
+  <text x="668" y="310" font-size="10" fill="#0369a1">同会话对象自动维护历史</text>
+  <rect x="656" y="326" width="248" height="46" rx="7" fill="#e0f2fe"/>
+  <text x="668" y="346" font-size="10.5" fill="#075985">强制：tool_config（mode: ANY）</text>
+  <text x="668" y="364" font-size="10" fill="#0369a1">AUTO / ANY / NONE 三档</text>
+  <rect x="656" y="380" width="248" height="66" rx="7" fill="#fee2e2"/>
+  <text x="668" y="400" font-size="10.5" font-weight="bold" fill="#b91c1c">易 break 点</text>
+  <text x="668" y="418" font-size="10" fill="#991b1b">官方明确要求 query last（问题放最后）</text>
+  <text x="668" y="436" font-size="10" fill="#991b1b">结构化输出另有一套 responseSchema</text>
+
+  <!-- 底部迁移口诀 -->
+  <rect x="40" y="494" width="880" height="96" rx="10" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+  <text x="480" y="520" text-anchor="middle" font-size="13" font-weight="bold" fill="#92400e">跨模型迁移口诀：内容（Role/Task/Context/Format）不变，变的是包装</text>
+  <text x="480" y="546" text-anchor="middle" font-size="11.5" fill="#78350f">四件机械事：① schema 键名（parameters / input_schema / function_declarations）② system 位置 ③ 结果回填方式 ④ 强制调用参数名</text>
+  <text x="480" y="572" text-anchor="middle" font-size="11.5" fill="#78350f">DeepSeek / Qwen 兼容 OpenAI 格式：strict 可能只是"建议"，关键参数务必代码层校验（06 篇）</text>
+</svg>

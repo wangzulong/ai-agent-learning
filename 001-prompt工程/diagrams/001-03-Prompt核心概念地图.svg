@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="640" fill="#f8fafc"/>
+  <text x="480" y="36" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">Prompt 工程核心概念地图（12 卡四区）</text>
+  <text x="480" y="60" text-anchor="middle" font-size="13" fill="#64748b">02-概念篇的导航图：四个分区覆盖 12 张概念卡，右上外圈是上位概念 Context Engineering</text>
+
+  <defs>
+    <marker id="a3" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- 中心 -->
+  <circle cx="480" cy="330" r="86" fill="#0f172a"/>
+  <text x="480" y="318" text-anchor="middle" font-size="17" font-weight="bold" fill="#fff">Prompt 工程</text>
+  <text x="480" y="340" text-anchor="middle" font-size="11" fill="#cbd5e1">把不确定性</text>
+  <text x="480" y="357" text-anchor="middle" font-size="11" fill="#cbd5e1">压到业务可接受范围</text>
+
+  <!-- 区1 消息结构（左上） -->
+  <rect x="46" y="92" width="300" height="160" rx="12" fill="#2563eb"/>
+  <text x="66" y="118" font-size="14.5" font-weight="bold" fill="#fff">区① 消息与结构</text>
+  <text x="66" y="142" font-size="11.5" fill="#dbeafe">· 卡1 Prompt = 整体输入前缀</text>
+  <text x="66" y="162" font-size="11.5" fill="#dbeafe">· 卡2 三角色：System(规章)/User/Assistant</text>
+  <text x="66" y="182" font-size="11.5" fill="#dbeafe">· 卡9 模板与变量（数据与指令隔离）</text>
+  <text x="66" y="202" font-size="11.5" fill="#dbeafe">· 卡12 上下文窗口（注意力预算）</text>
+  <text x="66" y="232" font-size="10.5" fill="#93c5fd">指令层级：System &gt; User &gt; 历史（防注入的基础）</text>
+  <line x1="346" y1="220" x2="412" y2="280" stroke="#2563eb" stroke-width="2.5" marker-end="url(#a3)"/>
+
+  <!-- 区2 示例（右上） -->
+  <rect x="614" y="92" width="300" height="160" rx="12" fill="#0891b2"/>
+  <text x="634" y="118" font-size="14.5" font-weight="bold" fill="#fff">区② 示例与学习</text>
+  <text x="634" y="142" font-size="11.5" fill="#cffafe">· 卡4 ICL：靠示范现场学，不改权重</text>
+  <text x="634" y="162" font-size="11.5" fill="#cffafe">· 卡5 Few-shot 六大设计决策</text>
+  <text x="634" y="182" font-size="11.5" fill="#cffafe">（数量/质量/多样性/顺序/格式/分布）</text>
+  <text x="634" y="202" font-size="11.5" fill="#cffafe">· 卡3 Token：一切的地基</text>
+  <text x="634" y="232" font-size="10.5" fill="#67e8f9">示例格式与真实输入严格同构，否则模型学歪</text>
+  <line x1="614" y1="220" x2="548" y2="280" stroke="#0891b2" stroke-width="2.5" marker-end="url(#a3)"/>
+
+  <!-- 区3 思考控制（左下） -->
+  <rect x="46" y="418" width="300" height="160" rx="12" fill="#ea580c"/>
+  <text x="66" y="444" font-size="14.5" font-weight="bold" fill="#fff">区③ 思考与采样</text>
+  <text x="66" y="468" font-size="11.5" fill="#ffedd5">· 卡6 CoT：显式推理（老模型有效）</text>
+  <text x="66" y="488" font-size="11.5" fill="#ffedd5">· 卡11 推理模型 vs 通用模型（2024分野）</text>
+  <text x="66" y="508" font-size="11.5" fill="#ffedd5">· 卡7 采样参数：temperature/top_p</text>
+  <text x="66" y="528" font-size="11.5" fill="#ffedd5">· 新范式：reasoning_effort / verbosity</text>
+  <text x="66" y="558" font-size="10.5" fill="#fdba74">对推理模型写"step by step" = 反模式</text>
+  <line x1="346" y1="450" x2="412" y2="384" stroke="#ea580c" stroke-width="2.5" marker-end="url(#a3)"/>
+
+  <!-- 区4 输出与安全（右下） -->
+  <rect x="614" y="418" width="300" height="160" rx="12" fill="#7c3aed"/>
+  <text x="634" y="444" font-size="14.5" font-weight="bold" fill="#fff">区④ 输出与安全</text>
+  <text x="634" y="468" font-size="11.5" fill="#ede9fe">· 卡8 结构化输出三层强度</text>
+  <text x="634" y="488" font-size="11.5" fill="#ede9fe">（提示示例→Schema+重试→约束解码）</text>
+  <text x="634" y="508" font-size="11.5" fill="#ede9fe">· 卡10 Prompt 注入：直接/间接</text>
+  <text x="634" y="528" font-size="11.5" fill="#ede9fe">· 卡12 Context Engineering（上位概念）</text>
+  <text x="634" y="558" font-size="10.5" fill="#c4b5fd">下游是程序 → 永远用最强的约束解码</text>
+  <line x1="614" y1="450" x2="548" y2="384" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#a3)"/>
+
+  <!-- 顶部外圈：CE -->
+  <rect x="330" y="76" width="300" height="0" fill="none"/>
+  <rect x="300" y="8" width="360" height="40" rx="20" fill="#059669"/>
+  <text x="480" y="33" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">上位概念：Context Engineering（每轮策展全部 token）→ 07 篇 / 008 专题</text>
+
+  <!-- 底部导航 -->
+  <text x="480" y="618" text-anchor="middle" font-size="12" fill="#475569">读卡顺序建议：区① → 区② → 区④ → 区③（先学会"摆结构"，再学"给示例"，再管"输出与安全"，最后玩"思考控制"）</text>
+</svg>

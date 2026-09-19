@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="arrowA" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrowR" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="#f8fafc"/>
+
+  <text x="480" y="38" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">项目 01 架构：点价要素抽取 Agent（001 Prompt + 004 Function Calling）</text>
+  <text x="480" y="62" text-anchor="middle" font-size="12" fill="#64748b">自由文本 → 结构化 JSON，置信度 &lt; 0.7 标黄转人工 ｜ 目标字段级 F1 ≥ 0.95</text>
+
+  <!-- Vue 录入页 -->
+  <rect x="40" y="110" width="170" height="110" rx="10" fill="#ffffff" stroke="#0891b2" stroke-width="1.5"/>
+  <rect x="40" y="110" width="170" height="30" rx="10" fill="#0891b2"/><rect x="40" y="128" width="170" height="12" fill="#0891b2"/>
+  <text x="125" y="130" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">Vue 2.7 录入页</text>
+  <text x="54" y="160" font-size="10.5" fill="#0f172a">交易助理粘贴指令</text>
+  <text x="54" y="180" font-size="10.5" fill="#0f172a">"M01 贴水80 提500吨"</text>
+  <text x="54" y="205" font-size="10.5" fill="#64748b">低置信度字段标黄</text>
+
+  <!-- Java 后端 -->
+  <rect x="270" y="110" width="170" height="110" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <rect x="270" y="110" width="170" height="30" rx="10" fill="#2563eb"/><rect x="270" y="128" width="170" height="12" fill="#2563eb"/>
+  <text x="355" y="130" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">Java CTRM 后端</text>
+  <text x="284" y="160" font-size="10.5" fill="#0f172a">Spring Boot 网关转发</text>
+  <text x="284" y="180" font-size="10.5" fill="#0f172a">鉴权 / 限流 / 审计</text>
+  <text x="284" y="205" font-size="10.5" fill="#64748b">主系统零侵入</text>
+
+  <!-- Python 抽取服务 -->
+  <rect x="500" y="86" width="230" height="160" rx="10" fill="#ffffff" stroke="#7c3aed" stroke-width="2"/>
+  <rect x="500" y="86" width="230" height="30" rx="10" fill="#7c3aed"/><rect x="500" y="104" width="230" height="12" fill="#7c3aed"/>
+  <text x="615" y="106" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">Python 抽取服务 :8101</text>
+  <text x="514" y="136" font-size="10.5" fill="#0f172a">FastAPI + OpenAI SDK</text>
+  <text x="514" y="156" font-size="10.5" fill="#0f172a">SYSTEM Prompt（品种/符号规则）</text>
+  <text x="514" y="176" font-size="10.5" fill="#0f172a">Function Calling 强 schema</text>
+  <text x="514" y="196" font-size="10.5" fill="#0f172a">temperature=0</text>
+  <text x="514" y="222" font-size="10" fill="#64748b">职责：填表，不猜（模糊转人工）</text>
+
+  <!-- LLM -->
+  <rect x="790" y="110" width="130" height="110" rx="10" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="855" y="145" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#7c3aed">LLM</text>
+  <text x="855" y="168" text-anchor="middle" font-size="10.5" fill="#0f172a">调用 submit_pricing</text>
+  <text x="855" y="188" text-anchor="middle" font-size="10.5" fill="#0f172a">get_future_price</text>
+
+  <line x1="210" y1="165" x2="264" y2="165" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowA)"/>
+  <line x1="440" y1="165" x2="494" y2="165" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowA)"/>
+  <line x1="730" y1="150" x2="784" y2="150" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrowA)"/>
+  <line x1="784" y1="185" x2="730" y2="185" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrowA)"/>
+
+  <!-- 规则校验器 -->
+  <rect x="500" y="280" width="230" height="96" rx="10" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <rect x="500" y="280" width="230" height="28" rx="10" fill="#ea580c"/><rect x="500" y="296" width="230" height="12" fill="#ea580c"/>
+  <text x="615" y="298" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">规则校验器 rule_check</text>
+  <text x="514" y="328" font-size="10.5" fill="#0f172a">合约格式正则 / 基差区间 / 数量上限</text>
+  <text x="514" y="350" font-size="10.5" fill="#0f172a">每个问题 -0.3 置信度</text>
+
+  <line x1="615" y1="246" x2="615" y2="274" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowA)"/>
+
+  <!-- 置信度分流 -->
+  <rect x="300" y="410" width="180" height="88" rx="10" fill="#ffffff" stroke="#059669" stroke-width="1.5"/>
+  <rect x="300" y="410" width="180" height="28" rx="10" fill="#059669"/><rect x="300" y="426" width="180" height="12" fill="#059669"/>
+  <text x="390" y="428" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">conf ≥ 0.7 且无问题</text>
+  <text x="316" y="460" font-size="10.5" fill="#0f172a">自动回填 CTRM 点价单</text>
+  <text x="316" y="480" font-size="10.5" fill="#64748b">MySQL ctrm_pricing</text>
+
+  <rect x="540" y="410" width="180" height="88" rx="10" fill="#ffffff" stroke="#dc2626" stroke-width="1.5"/>
+  <rect x="540" y="410" width="180" height="28" rx="10" fill="#dc2626"/><rect x="540" y="426" width="180" height="12" fill="#dc2626"/>
+  <text x="630" y="428" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">conf &lt; 0.7 / 校验失败</text>
+  <text x="556" y="460" font-size="10.5" fill="#0f172a">标黄 + 问题列表 → 人工确认</text>
+  <text x="556" y="480" font-size="10.5" fill="#64748b">绝不静默写库</text>
+
+  <line x1="580" y1="376" x2="430" y2="404" stroke="#059669" stroke-width="2" marker-end="url(#arrowA)"/>
+  <line x1="650" y1="376" x2="650" y2="404" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowR)"/>
+
+  <!-- 评估回路 -->
+  <path d="M 300 454 Q 80 454 80 250 Q 80 170 264 165" fill="none" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrowA)"/>
+  <text x="58" y="320" font-size="10.5" font-weight="bold" fill="#ea580c">坏例入库 →</text>
+  <text x="58" y="340" font-size="10.5" fill="#ea580c">50 条评估集回归</text>
+  <text x="58" y="360" font-size="10.5" fill="#ea580c">F1 回退 2% 禁合并</text>
+
+  <!-- 底注 -->
+  <text x="480" y="522" text-anchor="middle" font-size="10.5" fill="#64748b">灰度：影子模式 → 白名单 2 名交易助理 → 全量 ｜ 降级：服务异常回退纯手工录入（fallback: manual）</text>
+</svg>

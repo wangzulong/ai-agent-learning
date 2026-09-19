@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="archArrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L9,4 L0,8 Z" fill="#2563eb"/>
+    </marker>
+    <marker id="archArrowG" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L9,4 L0,8 Z" fill="#059669"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="620" fill="#f8fafc"/>
+
+  <text x="480" y="40" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">CTRM 库存 MCP Server 架构（贯穿案例）</text>
+  <text x="480" y="64" text-anchor="middle" font-size="12" fill="#64748b">把库存 / 期货价查询封装成 MCP Server，供 Claude Desktop、WorkBuddy 等任意 Agent 客户端即插即用</text>
+
+  <!-- 客户端列 -->
+  <rect x="40" y="100" width="180" height="54" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="130" y="122" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">Claude Desktop</text>
+  <text x="130" y="140" text-anchor="middle" font-size="9.5" fill="#64748b">claude_desktop_config.json</text>
+  <rect x="40" y="170" width="180" height="54" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="130" y="192" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">WorkBuddy / Cursor</text>
+  <text x="130" y="210" text-anchor="middle" font-size="9.5" fill="#64748b">mcp.json：command + args</text>
+  <rect x="40" y="240" width="180" height="54" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="130" y="262" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">公司 Agent 平台</text>
+  <text x="130" y="280" text-anchor="middle" font-size="9.5" fill="#64748b">mcp.json：url 远程接入</text>
+
+  <!-- 传输箭头 -->
+  <line x1="220" y1="127" x2="374" y2="127" stroke="#2563eb" stroke-width="2" marker-end="url(#archArrow)"/>
+  <text x="297" y="120" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#2563eb">stdio（本地子进程）</text>
+  <line x1="220" y1="197" x2="374" y2="197" stroke="#2563eb" stroke-width="2" marker-end="url(#archArrow)"/>
+  <text x="297" y="190" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#2563eb">stdio</text>
+  <line x1="220" y1="267" x2="374" y2="267" stroke="#7c3aed" stroke-width="2" marker-end="url(#archArrow)"/>
+  <text x="297" y="260" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7c3aed">HTTP + OAuth 2.1</text>
+
+  <!-- Server 大盒子 -->
+  <rect x="380" y="90" width="280" height="330" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+  <rect x="380" y="90" width="280" height="36" rx="12" fill="#2563eb"/>
+  <rect x="380" y="112" width="280" height="14" fill="#2563eb"/>
+  <text x="520" y="113" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#ffffff">ctrm-inventory MCP Server</text>
+
+  <rect x="396" y="136" width="248" height="98" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1"/>
+  <text x="408" y="156" font-size="12" font-weight="bold" fill="#2563eb">tools（模型可控）</text>
+  <text x="408" y="175" font-size="10.5" fill="#0f172a">query_inventory(warehouse, sku)</text>
+  <text x="408" y="193" font-size="10.5" fill="#0f172a">query_futures_price(contract)</text>
+  <rect x="408" y="202" width="130" height="20" rx="5" fill="#ecfdf5" stroke="#059669" stroke-width="1"/>
+  <text x="473" y="216" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#059669">readOnlyHint: true</text>
+
+  <rect x="396" y="244" width="248" height="72" rx="8" fill="#ecfeff" stroke="#0891b2" stroke-width="1"/>
+  <text x="408" y="264" font-size="12" font-weight="bold" fill="#0891b2">resource（应用挂载 · 只读）</text>
+  <text x="408" y="284" font-size="10.5" fill="#0f172a">ctrm://inventory/snapshot/{date}</text>
+  <text x="408" y="302" font-size="9.5" fill="#64748b">当日全量库存快照，可整段入上下文</text>
+
+  <rect x="396" y="326" width="248" height="60" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1"/>
+  <text x="408" y="346" font-size="12" font-weight="bold" fill="#7c3aed">prompt（用户选择）</text>
+  <text x="408" y="366" font-size="10.5" fill="#0f172a">analyze_warehouse_risk(warehouse)</text>
+
+  <rect x="396" y="394" width="248" height="20" rx="5" fill="#ffffff" stroke="#2563eb" stroke-width="1"/>
+  <text x="520" y="408" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#2563eb">FastMCP：一次业务，双传输切换</text>
+
+  <!-- 数据层 -->
+  <line x1="660" y1="145" x2="716" y2="145" stroke="#059669" stroke-width="2" marker-end="url(#archArrowG)"/>
+  <text x="688" y="138" text-anchor="middle" font-size="9.5" fill="#64748b">SQL</text>
+  <rect x="720" y="112" width="200" height="66" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="820" y="137" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">CTRM MySQL（生产）</text>
+  <text x="820" y="155" text-anchor="middle" font-size="10" fill="#64748b">只读账号 + 参数白名单</text>
+  <text x="820" y="170" text-anchor="middle" font-size="10" fill="#64748b">占位符 SQL 防注入</text>
+
+  <line x1="660" y1="227" x2="716" y2="227" stroke="#059669" stroke-width="2" marker-end="url(#archArrowG)"/>
+  <rect x="720" y="200" width="200" height="54" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="820" y="222" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">SQLite（演示）</text>
+  <text x="820" y="240" text-anchor="middle" font-size="10" fill="#64748b">ctrm_demo.db</text>
+
+  <line x1="660" y1="309" x2="716" y2="309" stroke="#059669" stroke-width="2" marker-end="url(#archArrowG)"/>
+  <rect x="720" y="282" width="200" height="66" rx="8" fill="#ffffff" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="820" y="307" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">期货行情 API</text>
+  <text x="820" y="325" text-anchor="middle" font-size="10" fill="#64748b">收盘价 / 涨跌幅</text>
+  <text x="820" y="340" text-anchor="middle" font-size="10" fill="#64748b">行情所 Token 由 Server 保管</text>
+
+  <rect x="720" y="368" width="200" height="52" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="820" y="389" text-anchor="middle" font-size="11" font-weight="bold" fill="#b45309">审计日志（HTTP 模式）</text>
+  <text x="820" y="407" text-anchor="middle" font-size="9.5" fill="#64748b">who / when / tool / args / decision</text>
+
+  <!-- 部署形态 -->
+  <rect x="40" y="450" width="430" height="120" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="60" y="476" font-size="13" font-weight="bold" fill="#2563eb">本地部署形态（stdio）</text>
+  <text x="60" y="500" font-size="10.5" fill="#64748b">· 个人开发调试：一条命令启动，随客户端拉起</text>
+  <text x="60" y="519" font-size="10.5" fill="#64748b">· mcp dev → 官方 Inspector 可视化调试</text>
+  <text x="60" y="538" font-size="10.5" fill="#dc2626">· 禁忌：stdout 只走协议消息，调试日志打 stderr</text>
+  <text x="60" y="557" font-size="10.5" fill="#64748b">· 无网络暴露，鉴权依赖本机账号</text>
+
+  <rect x="500" y="450" width="420" height="120" rx="10" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="520" y="476" font-size="13" font-weight="bold" fill="#7c3aed">远程部署形态（Streamable HTTP）</text>
+  <text x="520" y="500" font-size="10.5" fill="#64748b">· 团队共享：统一鉴权、限流与审计</text>
+  <text x="520" y="519" font-size="10.5" fill="#64748b">· OAuth 2.1：PKCE + RFC 8707 audience 绑定</text>
+  <text x="520" y="538" font-size="10.5" fill="#64748b">· 2026-07-28 无状态：免会话存储，可水平扩展</text>
+  <text x="520" y="557" font-size="10.5" fill="#64748b">· 端点 /mcp，网关可按 Mcp-Method 头路由</text>
+
+  <text x="480" y="598" text-anchor="middle" font-size="11" fill="#64748b">完整 Python 代码与 mcp.json 配置见 05-实战篇；查询口径由 Server 唯一实现保障，客户端零业务代码</text>
+</svg>

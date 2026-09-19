@@ -1,0 +1,28 @@
+# ===== WorkBuddy 工作区内部数据（不推送） =====
+.workbuddy/
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+
+# ===== Node =====
+node_modules/
+package-lock.json.bak
+
+# ===== IDE / 编辑器 =====
+.idea/
+.vscode/
+*.swp
+
+# ===== 系统文件 =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== 笔记临时文件 =====
+*.tmp
+~$*

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="arr1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="960" height="560" fill="#f8fafc"/>
+  <text x="480" y="40" text-anchor="middle" font-size="22" font-weight="bold" fill="#0f172a">RAG 技术演进时间线（2020–2026）</text>
+  <text x="480" y="63" text-anchor="middle" font-size="12" fill="#64748b">从端到端训练方法，到 Agent 时代的可授权知识层</text>
+
+  <!-- 时间轴 -->
+  <line x1="40" y1="300" x2="912" y2="300" stroke="#94a3b8" stroke-width="2.5" fill="none" marker-end="url(#arr1)"/>
+
+  <!-- 节点 -->
+  <circle cx="95" cy="300" r="6.5" fill="#2563eb"/>
+  <circle cx="248" cy="300" r="6.5" fill="#0891b2"/>
+  <circle cx="401" cy="300" r="6.5" fill="#7c3aed"/>
+  <circle cx="554" cy="300" r="6.5" fill="#ea580c"/>
+  <circle cx="707" cy="300" r="6.5" fill="#059669"/>
+  <circle cx="860" cy="300" r="6.5" fill="#dc2626"/>
+
+  <!-- 卡1 上：2020 -->
+  <line x1="95" y1="270" x2="95" y2="293" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
+  <rect x="20" y="130" width="150" height="140" rx="10" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+  <text x="32" y="152" font-size="11" font-weight="bold" fill="#2563eb">2020</text>
+  <text x="32" y="172" font-size="13" font-weight="bold" fill="#0f172a">RAG 论文诞生</text>
+  <text x="32" y="194" font-size="10.5" fill="#334155">Lewis et al. NeurIPS</text>
+  <text x="32" y="211" font-size="10.5" fill="#334155">检索器+生成器联合</text>
+  <text x="32" y="228" font-size="10.5" fill="#334155">端到端训练（DPR 同年）</text>
+  <text x="32" y="245" font-size="10.5" fill="#334155">维基百科作知识源</text>
+
+  <!-- 卡2 下：2021-22 -->
+  <line x1="248" y1="307" x2="248" y2="330" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
+  <rect x="173" y="330" width="150" height="140" rx="10" fill="#ffffff" stroke="#a5f3fc" stroke-width="1.5"/>
+  <text x="185" y="352" font-size="11" font-weight="bold" fill="#0891b2">2021–22</text>
+  <text x="185" y="372" font-size="13" font-weight="bold" fill="#0f172a">检索技术沉淀</text>
+  <text x="185" y="394" font-size="10.5" fill="#334155">BERT 双塔架构成熟</text>
+  <text x="185" y="411" font-size="10.5" fill="#334155">稠密检索超越 BM25</text>
+  <text x="185" y="428" font-size="10.5" fill="#334155">向量化范式定型</text>
+
+  <!-- 卡3 上：2023 -->
+  <line x1="401" y1="270" x2="401" y2="293" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
+  <rect x="326" y="130" width="150" height="140" rx="10" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+  <text x="338" y="152" font-size="11" font-weight="bold" fill="#7c3aed">2023</text>
+  <text x="338" y="172" font-size="13" font-weight="bold" fill="#0f172a">工程化元年</text>
+  <text x="338" y="194" font-size="10.5" fill="#334155">ChatGPT 引爆知识需求</text>
+  <text x="338" y="211" font-size="10.5" fill="#334155">LangChain 框架化</text>
+  <text x="338" y="228" font-size="10.5" fill="#334155">向量库生态爆发</text>
+  <text x="338" y="245" font-size="10.5" fill="#334155">Naive RAG 形态确立</text>
+
+  <!-- 卡4 下：2024 -->
+  <line x1="554" y1="307" x2="554" y2="330" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
+  <rect x="479" y="330" width="150" height="140" rx="10" fill="#ffffff" stroke="#fed7aa" stroke-width="1.5"/>
+  <text x="491" y="352" font-size="11" font-weight="bold" fill="#ea580c">2024</text>
+  <text x="491" y="372" font-size="13" font-weight="bold" fill="#0f172a">长上下文冲击</text>
+  <text x="491" y="394" font-size="10.5" fill="#334155">Gemini 百万级上下文</text>
+  <text x="491" y="411" font-size="10.5" fill="#334155">「RAG 已死」质疑</text>
+  <text x="491" y="428" font-size="10.5" fill="#334155">微软 GraphRAG 发布</text>
+  <text x="491" y="445" font-size="10.5" fill="#334155">混合检索+重排定型</text>
+
+  <!-- 卡5 上：2025 -->
+  <line x1="707" y1="270" x2="707" y2="293" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
+  <rect x="632" y="130" width="150" height="140" rx="10" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.5"/>
+  <text x="644" y="152" font-size="11" font-weight="bold" fill="#059669">2025</text>
+  <text x="644" y="172" font-size="13" font-weight="bold" fill="#0f172a">Agentic RAG</text>
+  <text x="644" y="194" font-size="10.5" fill="#334155">检索降级为工具</text>
+  <text x="644" y="211" font-size="10.5" fill="#334155">LazyGraphRAG 发布</text>
+  <text x="644" y="228" font-size="10.5" fill="#334155">索引成本降至 0.1%</text>
+  <text x="644" y="245" font-size="10.5" fill="#334155">多模态 RAG 探索</text>
+
+  <!-- 卡6 下：2026 -->
+  <line x1="860" y1="307" x2="860" y2="330" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
+  <rect x="785" y="330" width="150" height="140" rx="10" fill="#ffffff" stroke="#fecaca" stroke-width="1.5"/>
+  <text x="797" y="352" font-size="11" font-weight="bold" fill="#dc2626">2026</text>
+  <text x="797" y="372" font-size="13" font-weight="bold" fill="#0f172a">检索=Agent 能力</text>
+  <text x="797" y="394" font-size="10.5" fill="#334155">混合路由成为共识</text>
+  <text x="797" y="411" font-size="10.5" fill="#334155">检索融入工具循环</text>
+  <text x="797" y="428" font-size="10.5" fill="#334155">可授权可引用知识层</text>
+
+  <!-- 底注 -->
+  <text x="480" y="510" text-anchor="middle" font-size="11" fill="#64748b">LazyGraphRAG 效果数据来源：Microsoft Research Blog（2025-06 发布，检索于 2026-09）</text>
+  <text x="480" y="530" text-anchor="middle" font-size="11" fill="#64748b">结论：RAG 没有死，它从「系统」降维成 Agent 手里一件趁手的「能力」</text>
+</svg>

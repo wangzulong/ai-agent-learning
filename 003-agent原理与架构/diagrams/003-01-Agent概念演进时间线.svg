@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="560" fill="#f8fafc"/>
+  <text x="480" y="36" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">Agent 概念演进时间线（003 背景篇）</text>
+  <text x="480" y="60" text-anchor="middle" font-size="13" fill="#64748b">从"会接龙"到"会办事"：范式不变量 = LLM + 工具 + 循环，变的是工程化程度</text>
+
+  <defs>
+    <marker id="t1" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <line x1="60" y1="300" x2="910" y2="300" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#t1)"/>
+
+  <circle cx="130" cy="300" r="6" fill="#2563eb"/>
+  <text x="130" y="330" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">2020</text>
+  <rect x="70" y="140" width="120" height="130" rx="9" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="130" y="165" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">GPT-3 / ICL</text>
+  <text x="130" y="188" text-anchor="middle" font-size="10.5" fill="#1d4ed8">只会接龙，</text>
+  <text x="130" y="205" text-anchor="middle" font-size="10.5" fill="#1d4ed8">上下文学习萌芽</text>
+  <text x="130" y="230" text-anchor="middle" font-size="9.5" fill="#64748b">arXiv:2005.14165</text>
+  <line x1="130" y1="270" x2="130" y2="248" stroke="#94a3b8" stroke-width="1.5"/>
+
+  <circle cx="270" cy="300" r="6" fill="#0891b2"/>
+  <text x="270" y="330" text-anchor="middle" font-size="12" font-weight="bold" fill="#155e75">2022-10</text>
+  <rect x="210" y="330" width="120" height="120" rx="9" fill="#cffafe" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="270" y="355" text-anchor="middle" font-size="12" font-weight="bold" fill="#155e75">ReAct 论文</text>
+  <text x="270" y="378" text-anchor="middle" font-size="10.5" fill="#0e7490">推理+行动交替，</text>
+  <text x="270" y="395" text-anchor="middle" font-size="10.5" fill="#0e7490">agent 循环雏形</text>
+  <text x="270" y="420" text-anchor="middle" font-size="9.5" fill="#64748b">arXiv:2210.03629</text>
+
+  <circle cx="410" cy="300" r="6" fill="#059669"/>
+  <text x="410" y="330" text-anchor="middle" font-size="12" font-weight="bold" fill="#065f46">2023</text>
+  <rect x="350" y="140" width="120" height="130" rx="9" fill="#d1fae5" stroke="#059669" stroke-width="1.5"/>
+  <text x="410" y="163" text-anchor="middle" font-size="12" font-weight="bold" fill="#065f46">工具成为标配</text>
+  <text x="410" y="186" text-anchor="middle" font-size="10.5" fill="#047857">Toolformer 自学用工具</text>
+  <text x="410" y="203" text-anchor="middle" font-size="10.5" fill="#047857">OpenAI FC 上 API</text>
+  <text x="410" y="228" text-anchor="middle" font-size="9.5" fill="#64748b">arXiv:2302.04761</text>
+  <line x1="410" y1="270" x2="410" y2="248" stroke="#94a3b8" stroke-width="1.5"/>
+
+  <circle cx="545" cy="300" r="6" fill="#7c3aed"/>
+  <text x="545" y="330" text-anchor="middle" font-size="12" font-weight="bold" fill="#6d28d9">2023-2024</text>
+  <rect x="485" y="330" width="120" height="130" rx="9" fill="#f3e8ff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="545" y="353" text-anchor="middle" font-size="12" font-weight="bold" fill="#6d28d9">第一次狂热</text>
+  <text x="545" y="376" text-anchor="middle" font-size="10.5" fill="#6b21a8">AutoGPT 爆红又退潮：</text>
+  <text x="545" y="393" text-anchor="middle" font-size="10.5" fill="#6b21a8">雪球错误暴露脆弱</text>
+  <text x="545" y="418" text-anchor="middle" font-size="10.5" fill="#6b21a8">Reflexion 反思机制</text>
+  <text x="545" y="440" text-anchor="middle" font-size="9.5" fill="#64748b">arXiv:2303.11366</text>
+
+  <circle cx="680" cy="300" r="6" fill="#ea580c"/>
+  <text x="680" y="330" text-anchor="middle" font-size="12" font-weight="bold" fill="#9a3412">2024-12</text>
+  <rect x="620" y="140" width="120" height="130" rx="9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="680" y="163" text-anchor="middle" font-size="12" font-weight="bold" fill="#9a3412">概念澄清</text>
+  <text x="680" y="186" text-anchor="middle" font-size="10.5" fill="#c2410c">Anthropic 划界：</text>
+  <text x="680" y="203" text-anchor="middle" font-size="10.5" fill="#c2410c">workflow vs agent</text>
+  <text x="680" y="228" text-anchor="middle" font-size="9.5" fill="#64748b">Building effective agents</text>
+  <line x1="680" y1="270" x2="680" y2="248" stroke="#94a3b8" stroke-width="1.5"/>
+
+  <circle cx="830" cy="300" r="6" fill="#dc2626"/>
+  <text x="830" y="330" text-anchor="middle" font-size="12" font-weight="bold" fill="#b91c1c">2025-2026</text>
+  <rect x="770" y="330" width="150" height="130" rx="9" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="845" y="353" text-anchor="middle" font-size="12" font-weight="bold" fill="#b91c1c">工程化时代</text>
+  <text x="845" y="376" text-anchor="middle" font-size="10.5" fill="#991b1b">MCP 互操作标准（006）</text>
+  <text x="845" y="393" text-anchor="middle" font-size="10.5" fill="#991b1b">编码/研究 Agent 成熟</text>
+  <text x="845" y="410" text-anchor="middle" font-size="10.5" fill="#991b1b">Agent SDK 工程件齐全</text>
+  <text x="845" y="435" text-anchor="middle" font-size="10.5" fill="#991b1b">harness 概念流行</text>
+
+  <rect x="70" y="490" width="850" height="46" rx="9" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="495" y="512" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#1e40af">不变量：LLM + 工具 + 循环 + 目标 · 每次热潮退去，留下的都是工程件（评估 / 护栏 / 状态管理）</text>
+  <text x="495" y="530" text-anchor="middle" font-size="11" fill="#1d4ed8">结论：别追概念名词，看它给循环加了哪个工程件</text>
+</svg>

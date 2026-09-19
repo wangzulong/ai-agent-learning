@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 650" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L9,4 L0,8 Z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="650" fill="#f8fafc"/>
+
+  <text x="480" y="42" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">三角色架构：M×N 集成地狱 vs MCP 的 M+N 标准接口</text>
+  <text x="480" y="66" text-anchor="middle" font-size="12" fill="#64748b">左：3 个 AI 应用 × 3 个数据源 = 9 份胶水代码；右：工具包成 Server 写一次，任意客户端接入（USB-C 类比）</text>
+
+  <!-- ============ 左面板：M×N ============ -->
+  <rect x="30" y="80" width="440" height="470" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="250" y="110" text-anchor="middle" font-size="16" font-weight="bold" fill="#dc2626">M×N 集成地狱</text>
+  <text x="250" y="130" text-anchor="middle" font-size="11" fill="#64748b">每一根连线 = 一份私有适配器代码</text>
+
+  <!-- 左：应用列 -->
+  <rect x="55" y="150" width="125" height="46" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="117" y="170" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">Claude Desktop</text>
+  <text x="117" y="187" text-anchor="middle" font-size="10" fill="#64748b">私有工具层 A</text>
+  <rect x="55" y="235" width="125" height="46" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="117" y="255" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">公司 Agent 平台</text>
+  <text x="117" y="272" text-anchor="middle" font-size="10" fill="#64748b">私有插件规范 B</text>
+  <rect x="55" y="320" width="125" height="46" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="117" y="340" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">Vue 智能助手</text>
+  <text x="117" y="357" text-anchor="middle" font-size="10" fill="#64748b">自建网关协议 C</text>
+
+  <!-- 右：数据源列 -->
+  <rect x="320" y="150" width="125" height="46" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="382" y="170" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">CTRM MySQL</text>
+  <text x="382" y="187" text-anchor="middle" font-size="10" fill="#64748b">账号鉴权 1</text>
+  <rect x="320" y="235" width="125" height="46" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="382" y="255" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">期货行情 API</text>
+  <text x="382" y="272" text-anchor="middle" font-size="10" fill="#64748b">Token 鉴权 2</text>
+  <rect x="320" y="320" width="125" height="46" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="382" y="340" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">文档/合同库</text>
+  <text x="382" y="357" text-anchor="middle" font-size="10" fill="#64748b">SSO 鉴权 3</text>
+
+  <!-- 9 条乱线 -->
+  <g stroke="#dc2626" stroke-width="1.2" opacity="0.55">
+    <line x1="180" y1="173" x2="320" y2="173"/>
+    <line x1="180" y1="173" x2="320" y2="258"/>
+    <line x1="180" y1="173" x2="320" y2="343"/>
+    <line x1="180" y1="258" x2="320" y2="173"/>
+    <line x1="180" y1="258" x2="320" y2="258"/>
+    <line x1="180" y1="258" x2="320" y2="343"/>
+    <line x1="180" y1="343" x2="320" y2="173"/>
+    <line x1="180" y1="343" x2="320" y2="258"/>
+    <line x1="180" y1="343" x2="320" y2="343"/>
+  </g>
+  <rect x="235" y="236" width="30" height="22" rx="4" fill="#ffffff" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="250" y="252" text-anchor="middle" font-size="12" font-weight="bold" fill="#dc2626">×9</text>
+
+  <text x="250" y="405" text-anchor="middle" font-size="12" font-weight="bold" fill="#dc2626">痛点：重复开发 · 鉴权碎片化</text>
+  <text x="250" y="425" text-anchor="middle" font-size="12" font-weight="bold" fill="#dc2626">口径漂移 · 不可迁移 · 无统一审计</text>
+  <text x="250" y="452" text-anchor="middle" font-size="10.5" fill="#64748b">任一端升级（模型格式 / 行情 API）→ 两边都要改</text>
+  <text x="250" y="470" text-anchor="middle" font-size="10.5" fill="#64748b">CTRM 三处接入 = 三份可能不一致的查询实现</text>
+
+  <!-- ============ 右面板：M+N ============ -->
+  <rect x="500" y="80" width="430" height="470" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="715" y="110" text-anchor="middle" font-size="16" font-weight="bold" fill="#059669">M+N 标准接口</text>
+  <text x="715" y="130" text-anchor="middle" font-size="11" fill="#64748b">工具写一次（Server），客户端内置协议（Client）</text>
+
+  <!-- 应用列 -->
+  <rect x="515" y="150" width="110" height="46" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="570" y="170" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#0f172a">Claude Desktop</text>
+  <text x="570" y="187" text-anchor="middle" font-size="9.5" fill="#64748b">内含 MCP Client</text>
+  <rect x="515" y="235" width="110" height="46" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="570" y="255" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#0f172a">公司 Agent 平台</text>
+  <text x="570" y="272" text-anchor="middle" font-size="9.5" fill="#64748b">内含 MCP Client</text>
+  <rect x="515" y="320" width="110" height="46" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="570" y="340" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#0f172a">Vue 智能助手</text>
+  <text x="570" y="357" text-anchor="middle" font-size="9.5" fill="#64748b">内含 MCP Client</text>
+
+  <!-- MCP 协议竖带 -->
+  <line x1="625" y1="173" x2="645" y2="173" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <line x1="625" y1="258" x2="645" y2="258" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <line x1="625" y1="343" x2="645" y2="343" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <rect x="645" y="140" width="52" height="230" rx="10" fill="#2563eb"/>
+  <text x="665" y="255" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff" transform="rotate(-90 665 255)">MCP 协议</text>
+  <text x="683" y="255" text-anchor="middle" font-size="9.5" fill="#dbeafe" transform="rotate(-90 683 255)">JSON-RPC 2.0 · stdio / Streamable HTTP</text>
+  <line x1="697" y1="173" x2="715" y2="173" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <line x1="697" y1="258" x2="715" y2="258" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <line x1="697" y1="343" x2="715" y2="343" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- Server 列 -->
+  <rect x="715" y="150" width="195" height="46" rx="8" fill="#ffffff" stroke="#059669" stroke-width="1.5"/>
+  <text x="812" y="170" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#0f172a">CTRM 库存 Server</text>
+  <text x="812" y="187" text-anchor="middle" font-size="10" fill="#64748b">→ MySQL（只读账号）</text>
+  <rect x="715" y="235" width="195" height="46" rx="8" fill="#ffffff" stroke="#059669" stroke-width="1.5"/>
+  <text x="812" y="255" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#0f172a">期货行情 Server</text>
+  <text x="812" y="272" text-anchor="middle" font-size="10" fill="#64748b">→ 行情 API 网关</text>
+  <rect x="715" y="320" width="195" height="46" rx="8" fill="#ffffff" stroke="#059669" stroke-width="1.5"/>
+  <text x="812" y="340" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#0f172a">文档检索 Server</text>
+  <text x="812" y="357" text-anchor="middle" font-size="10" fill="#64748b">→ 向量库（005 检索器）</text>
+
+  <text x="715" y="408" text-anchor="middle" font-size="11" font-weight="bold" fill="#0891b2">USB-C 类比：公口 = MCP Server，母口 = MCP Client（在 Host 内）</text>
+  <text x="715" y="428" text-anchor="middle" font-size="10.5" fill="#64748b">新增应用 → 只实现一次 Client；新增数据源 → 只写一个 Server</text>
+  <text x="715" y="446" text-anchor="middle" font-size="10.5" fill="#64748b">M 个 Client + N 个 Server = M+N，互不牵动</text>
+
+  <!-- 底部总结 -->
+  <rect x="30" y="570" width="900" height="60" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="480" y="594" text-anchor="middle" font-size="13" font-weight="bold" fill="#0f172a">M×N 份胶水代码 → M+N 份标准实现：新增任意一端，另一端零改动</text>
+  <text x="480" y="616" text-anchor="middle" font-size="11.5" fill="#64748b">CTRM 收益：查询口径统一在 Server 唯一实现 · 鉴权与审计收敛 · 换 Agent 客户端只改一段 mcp.json 配置</text>
+</svg>

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="620" fill="#f8fafc"/>
+  <text x="480" y="36" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">Agent 核心循环解剖（003 原理篇）</text>
+  <text x="480" y="60" text-anchor="middle" font-size="13" fill="#64748b">Agent = LLM + 工具 + 循环 + 目标 —— 每一圈都是"取上下文→决策→行动→观察→判断终止"</text>
+
+  <defs>
+    <marker id="c1" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#6366f1"/>
+    </marker>
+    <marker id="c2" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- 循环主体 -->
+  <rect x="60" y="120" width="200" height="84" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="160" y="152" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#1e40af">① 获取上下文</text>
+  <text x="160" y="174" text-anchor="middle" font-size="10.5" fill="#1d4ed8">system + 历史 + 外部状态</text>
+  <text x="160" y="190" text-anchor="middle" font-size="10.5" fill="#1d4ed8">（结构化笔记 / 记忆）</text>
+
+  <rect x="340" y="120" width="200" height="84" rx="10" fill="#f3e8ff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="440" y="152" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#6d28d9">② LLM 决策</text>
+  <text x="440" y="174" text-anchor="middle" font-size="10.5" fill="#6b21a8">选工具 + 生成参数</text>
+  <text x="440" y="190" text-anchor="middle" font-size="10.5" fill="#6b21a8">或判定"任务完成"</text>
+
+  <rect x="340" y="330" width="200" height="84" rx="10" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+  <text x="440" y="362" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#065f46">③ 执行工具</text>
+  <text x="440" y="384" text-anchor="middle" font-size="10.5" fill="#047857">代码层真实执行</text>
+  <text x="440" y="400" text-anchor="middle" font-size="10.5" fill="#047857">schema 校验 · 权限检查</text>
+
+  <rect x="60" y="330" width="200" height="84" rx="10" fill="#cffafe" stroke="#0891b2" stroke-width="2"/>
+  <text x="160" y="362" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#155e75">④ 观察回填</text>
+  <text x="160" y="384" text-anchor="middle" font-size="10.5" fill="#0e7490">tool_result 写回历史</text>
+  <text x="160" y="400" text-anchor="middle" font-size="10.5" fill="#0e7490">过长先截取/摘要</text>
+
+  <line x1="262" y1="162" x2="338" y2="162" stroke="#6366f1" stroke-width="2.5" marker-end="url(#c1)"/>
+  <line x1="440" y1="206" x2="440" y2="328" stroke="#6366f1" stroke-width="2.5" marker-end="url(#c1)"/>
+  <line x1="338" y1="372" x2="262" y2="372" stroke="#6366f1" stroke-width="2.5" marker-end="url(#c1)"/>
+  <line x1="160" y1="328" x2="160" y2="206" stroke="#6366f1" stroke-width="2.5" marker-end="url(#c1)"/>
+  <text x="300" y="150" text-anchor="middle" font-size="10" fill="#6366f1">组装 prompt</text>
+  <text x="458" y="268" text-anchor="start" font-size="10" fill="#6366f1">tool_calls</text>
+  <text x="300" y="390" text-anchor="middle" font-size="10" fill="#6366f1">结果回填</text>
+
+  <!-- 终止判断 -->
+  <polygon points="700,250 810,310 700,370 590,310" fill="#fef3c7" stroke="#f59e0b" stroke-width="2.5"/>
+  <text x="700" y="300" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#92400e">⑤ 终止判断</text>
+  <text x="700" y="322" text-anchor="middle" font-size="10.5" fill="#b45309">完成 / 挂起 / 预算耗尽</text>
+
+  <line x1="542" y1="162" x2="646" y2="272" stroke="#94a3b8" stroke-width="2" marker-end="url(#c2)"/>
+  <text x="600" y="205" font-size="10" fill="#64748b">每次决策后评估</text>
+  <line x1="608" y1="330" x2="542" y2="262" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#c2)"/>
+  <text x="536" y="292" font-size="10" fill="#64748b">未完成→继续循环</text>
+
+  <!-- 三出口 -->
+  <rect x="770" y="120" width="150" height="52" rx="8" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+  <text x="845" y="142" text-anchor="middle" font-size="12" font-weight="bold" fill="#065f46">出口A 正常完成</text>
+  <text x="845" y="160" text-anchor="middle" font-size="10" fill="#047857">final_output 已产出</text>
+  <line x1="790" y1="272" x2="838" y2="176" stroke="#059669" stroke-width="2" marker-end="url(#c2)"/>
+
+  <rect x="770" y="292" width="150" height="52" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="845" y="314" text-anchor="middle" font-size="12" font-weight="bold" fill="#9a3412">出口B 人在环挂起</text>
+  <text x="845" y="332" text-anchor="middle" font-size="10" fill="#c2410c">高危动作等确认</text>
+  <line x1="812" y1="316" x2="768" y2="316" stroke="#ea580c" stroke-width="2" marker-end="url(#c2)"/>
+
+  <rect x="770" y="452" width="150" height="52" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="845" y="474" text-anchor="middle" font-size="12" font-weight="bold" fill="#b91c1c">出口C 预算刹车</text>
+  <text x="845" y="492" text-anchor="middle" font-size="10" fill="#991b1b">MAX_STEPS 优雅降级</text>
+  <line x1="762" y1="356" x2="828" y2="450" stroke="#dc2626" stroke-width="2" marker-end="url(#c2)"/>
+  <text x="860" y="430" font-size="10" fill="#991b1b">防死循环硬上限</text>
+
+  <!-- 外部状态 -->
+  <rect x="60" y="470" width="480" height="106" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="300" y="494" text-anchor="middle" font-size="13" font-weight="bold" fill="#0f172a">状态外置（循环间持久的才是"记忆"）</text>
+  <rect x="80" y="508" width="140" height="52" rx="7" fill="#f1f5f9"/><text x="150" y="528" text-anchor="middle" font-size="10.5" fill="#334155">messages 历史</text><text x="150" y="546" text-anchor="middle" font-size="10" fill="#64748b">对话层，会膨胀</text>
+  <rect x="230" y="508" width="140" height="52" rx="7" fill="#f1f5f9"/><text x="300" y="528" text-anchor="middle" font-size="10.5" fill="#334155">结构化笔记</text><text x="300" y="546" text-anchor="middle" font-size="10" fill="#64748b">任务清单/关键事实</text>
+  <rect x="380" y="508" width="140" height="52" rx="7" fill="#f1f5f9"/><text x="450" y="528" text-anchor="middle" font-size="10.5" fill="#334155">数据库 / 文件</text><text x="450" y="546" text-anchor="middle" font-size="10" fill="#64748b">跨会话真持久</text>
+
+  <text x="480" y="602" text-anchor="middle" font-size="11.5" fill="#64748b">对照 05 篇代码：while 循环体 = ①→②→③→④；循环外 = 计数器、护栏、人工确认队列</text>
+</svg>

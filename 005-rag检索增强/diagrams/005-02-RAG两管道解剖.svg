@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 660" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrC" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7c3aed"/>
+    </marker>
+  </defs>
+  <rect width="960" height="660" fill="#f8fafc"/>
+  <text x="480" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#0f172a">RAG 两管道解剖：索引管道 × 查询管道</text>
+  <text x="480" y="60" text-anchor="middle" font-size="12" fill="#64748b">每一步都标注典型失败模式（红）—— 上游质量决定下游上限</text>
+
+  <!-- ===== 索引管道区 ===== -->
+  <rect x="25" y="78" width="910" height="252" rx="12" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+  <text x="42" y="104" font-size="14" font-weight="bold" fill="#2563eb">① 索引管道（离线 · 一次构建 · 增量维护）</text>
+
+  <!-- 主框：加载 -->
+  <rect x="45" y="116" width="150" height="86" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="120" y="140" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">1 加载</text>
+  <text x="120" y="160" text-anchor="middle" font-size="10.5" fill="#334155">PDF/docx/DB → 文本</text>
+  <text x="120" y="177" text-anchor="middle" font-size="10.5" fill="#334155">保留页码与表格结构</text>
+  <rect x="45" y="222" width="150" height="64" rx="6" fill="#fef2f2" stroke="#fecaca" stroke-width="1"/>
+  <text x="120" y="240" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#dc2626">✕ 扫描件无文字层</text>
+  <text x="120" y="258" text-anchor="middle" font-size="10.5" fill="#b91c1c">→ 补 OCR 预检</text>
+  <line x1="195" y1="159" x2="222" y2="159" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrA)"/>
+
+  <!-- 主框：清洗 -->
+  <rect x="225" y="116" width="150" height="86" rx="8" fill="#ffffff" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="300" y="140" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">2 清洗</text>
+  <text x="300" y="160" text-anchor="middle" font-size="10.5" fill="#334155">去页眉页脚·断行修复</text>
+  <text x="300" y="177" text-anchor="middle" font-size="10.5" fill="#334155">表格转 Markdown</text>
+  <rect x="225" y="222" width="150" height="64" rx="6" fill="#fef2f2" stroke="#fecaca" stroke-width="1"/>
+  <text x="300" y="240" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#dc2626">✕ 页眉混入正文</text>
+  <text x="300" y="258" text-anchor="middle" font-size="10.5" fill="#b91c1c">→ 幽灵句污染召回</text>
+  <line x1="375" y1="159" x2="402" y2="159" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrA)"/>
+
+  <!-- 主框：分块（杠杆） -->
+  <rect x="405" y="116" width="150" height="86" rx="8" fill="#fffbeb" stroke="#ea580c" stroke-width="2"/>
+  <text x="480" y="140" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">3 分块 ★杠杆</text>
+  <text x="480" y="160" text-anchor="middle" font-size="10.5" fill="#334155">递归分隔符 + overlap</text>
+  <text x="480" y="177" text-anchor="middle" font-size="10.5" fill="#334155">400~600 字起点</text>
+  <rect x="405" y="222" width="150" height="64" rx="6" fill="#fef2f2" stroke="#fecaca" stroke-width="1"/>
+  <text x="480" y="240" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#dc2626">✕ 条款/表格切断</text>
+  <text x="480" y="258" text-anchor="middle" font-size="10.5" fill="#b91c1c">→ 分隔符+父子块</text>
+  <line x1="555" y1="159" x2="582" y2="159" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrA)"/>
+
+  <!-- 主框：向量化 -->
+  <rect x="585" y="116" width="150" height="86" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="660" y="140" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">4 向量化</text>
+  <text x="660" y="160" text-anchor="middle" font-size="10.5" fill="#334155">批量嵌入 batch 64~256</text>
+  <text x="660" y="177" text-anchor="middle" font-size="10.5" fill="#334155">记录模型名与版本</text>
+  <rect x="585" y="222" width="150" height="64" rx="6" fill="#fef2f2" stroke="#fecaca" stroke-width="1"/>
+  <text x="660" y="240" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#dc2626">✕ 静默截断·模型错配</text>
+  <text x="660" y="258" text-anchor="middle" font-size="10.5" fill="#b91c1c">→ 截断告警+版本校验</text>
+  <line x1="735" y1="159" x2="762" y2="159" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrA)"/>
+
+  <!-- 主框：入库 -->
+  <rect x="765" y="116" width="150" height="86" rx="8" fill="#ffffff" stroke="#059669" stroke-width="1.5"/>
+  <text x="840" y="140" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">5 入库</text>
+  <text x="840" y="160" text-anchor="middle" font-size="10.5" fill="#334155">向量+原文+元数据</text>
+  <text x="840" y="177" text-anchor="middle" font-size="10.5" fill="#334155">BM25 倒排同步建</text>
+  <rect x="765" y="222" width="150" height="64" rx="6" fill="#fef2f2" stroke="#fecaca" stroke-width="1"/>
+  <text x="840" y="240" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#dc2626">✕ 权限元数据缺失</text>
+  <text x="840" y="258" text-anchor="middle" font-size="10.5" fill="#b91c1c">→ 越权！schema 校验</text>
+
+  <!-- ===== 查询管道区 ===== -->
+  <rect x="25" y="360" width="910" height="282" rx="12" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"/>
+  <text x="42" y="386" font-size="14" font-weight="bold" fill="#059669">② 查询管道（在线 · 每次问答执行）</text>
+
+  <!-- 用户问题 -->
+  <rect x="45" y="415" width="88" height="46" rx="23" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <text x="89" y="443" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#0f172a">用户问题</text>
+  <line x1="133" y1="438" x2="158" y2="438" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrA)"/>
+
+  <!-- 改写 -->
+  <rect x="163" y="398" width="130" height="80" rx="8" fill="#ffffff" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="228" y="418" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">改写</text>
+  <text x="228" y="437" text-anchor="middle" font-size="10.5" fill="#334155">指代消解 / 多查询</text>
+  <text x="228" y="460" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#dc2626">✕ 丢主语</text>
+  <line x1="293" y1="438" x2="313" y2="438" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrA)"/>
+
+  <!-- 召回双路 -->
+  <rect x="318" y="398" width="176" height="80" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="406" y="414" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">召回（双路）</text>
+  <rect x="330" y="420" width="152" height="20" rx="4" fill="#dbeafe" stroke="#93c5fd" stroke-width="1"/>
+  <text x="406" y="434" text-anchor="middle" font-size="10.5" fill="#1e40af">向量路 · top20（语义）</text>
+  <rect x="330" y="446" width="152" height="20" rx="4" fill="#ffedd5" stroke="#fdba74" stroke-width="1"/>
+  <text x="406" y="460" text-anchor="middle" font-size="10.5" fill="#9a3412">BM25 路 · top20（精确）</text>
+  <line x1="494" y1="438" x2="517" y2="438" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrA)"/>
+
+  <!-- 融合 -->
+  <rect x="522" y="398" width="130" height="80" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="587" y="418" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">融合 RRF</text>
+  <text x="587" y="437" text-anchor="middle" font-size="10.5" fill="#334155">score=Σ1/(60+rank)</text>
+  <text x="587" y="460" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#dc2626">✕ 量纲混加=噪声</text>
+  <line x1="652" y1="438" x2="675" y2="438" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrA)"/>
+
+  <!-- 重排 -->
+  <rect x="680" y="398" width="135" height="80" rx="8" fill="#ffffff" stroke="#059669" stroke-width="1.5"/>
+  <text x="747" y="418" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">重排</text>
+  <text x="747" y="437" text-anchor="middle" font-size="10.5" fill="#334155">cross-encoder 取 top5</text>
+  <text x="747" y="460" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#dc2626">✕ 领域不匹配</text>
+
+  <!-- 蛇形转折：重排 → 打包 -->
+  <path d="M 815 438 L 868 438 L 868 592 L 824 592" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrB)"/>
+
+  <!-- 打包 -->
+  <rect x="680" y="560" width="135" height="64" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="747" y="580" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">打包</text>
+  <text x="747" y="597" text-anchor="middle" font-size="10.5" fill="#334155">预算装填·重点放两头</text>
+  <text x="747" y="615" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#dc2626">✕ 超预算丢答案块</text>
+  <line x1="680" y1="592" x2="602" y2="592" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrA)"/>
+
+  <!-- 生成 -->
+  <rect x="445" y="560" width="150" height="64" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="520" y="580" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">生成（接地）</text>
+  <text x="520" y="597" text-anchor="middle" font-size="10.5" fill="#334155">只依据资料·允许拒答</text>
+  <text x="520" y="615" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#dc2626">✕ 越界发挥→模板约束</text>
+  <line x1="445" y1="592" x2="372" y2="592" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrA)"/>
+
+  <!-- 答案 -->
+  <rect x="225" y="569" width="140" height="46" rx="23" fill="#059669" stroke="#047857" stroke-width="1.5"/>
+  <text x="295" y="590" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#ffffff">带引用答案</text>
+  <text x="295" y="606" text-anchor="middle" font-size="10" fill="#d1fae5">[资料n] · 可审计</text>
+
+  <!-- 中部隔离说明 -->
+  <line x1="45" y1="344" x2="915" y2="344" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6 4" fill="none"/>
+  <text x="480" y="338" text-anchor="middle" font-size="11" fill="#64748b">索引质量决定查询上限 —— 调参之前先保证索引管道干净（各环节失败模式速查见 03-原理篇）</text>
+</svg>

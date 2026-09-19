@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="620" fill="#f8fafc"/>
+  <text x="480" y="36" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">三大执行模式对比：ReAct × Plan-and-Execute × Reflexion（003 进阶篇）</text>
+  <text x="480" y="60" text-anchor="middle" font-size="13" fill="#64748b">同一个循环骨架，三种"思考怎么参与循环"的策略 —— 面试高频对比题</text>
+
+  <defs>
+    <marker id="m1" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <path d="M0,0 L9,3.5 L0,7 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- ReAct -->
+  <rect x="40" y="86" width="280" height="420" rx="12" fill="#ffffff" stroke="#bfdbfe" stroke-width="2"/>
+  <rect x="40" y="86" width="280" height="44" rx="12" fill="#2563eb"/>
+  <text x="180" y="114" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#fff">ReAct（2022）</text>
+  <rect x="70" y="150" width="90" height="34" rx="6" fill="#dbeafe"/><text x="115" y="172" text-anchor="middle" font-size="11" fill="#1e40af">思考 Thought</text>
+  <line x1="162" y1="167" x2="186" y2="167" stroke="#64748b" stroke-width="2" marker-end="url(#m1)"/>
+  <rect x="190" y="150" width="90" height="34" rx="6" fill="#d1fae5"/><text x="235" y="172" text-anchor="middle" font-size="11" fill="#065f46">行动 Action</text>
+  <line x1="235" y1="186" x2="235" y2="210" stroke="#64748b" stroke-width="2" marker-end="url(#m1)"/>
+  <rect x="190" y="214" width="90" height="34" rx="6" fill="#cffafe"/><text x="235" y="236" text-anchor="middle" font-size="11" fill="#155e75">观察 Obs</text>
+  <line x1="188" y1="231" x2="164" y2="231" stroke="#64748b" stroke-width="2" marker-end="url(#m1)"/>
+  <line x1="115" y1="212" x2="115" y2="186" stroke="#64748b" stroke-width="2" marker-end="url(#m1)"/>
+  <text x="180" y="272" text-anchor="middle" font-size="11" fill="#64748b">↑ 思考-行动-观察 小循环反复</text>
+  <text x="56" y="308" font-size="11.5" font-weight="bold" fill="#0f172a">每一步都"边想边做"</text>
+  <text x="56" y="330" font-size="11" fill="#334155">✓ 路径未知、探索型任务</text>
+  <text x="56" y="348" font-size="11" fill="#334155">✓ 实现最简单，一张 prompt 就能跑</text>
+  <text x="56" y="372" font-size="11" fill="#dc2626">✗ 步数多，错误中途放大</text>
+  <text x="56" y="390" font-size="11" fill="#dc2626">✗ 轨迹难审计（想到哪算哪）</text>
+  <rect x="56" y="410" width="248" height="76" rx="8" fill="#dbeafe"/>
+  <text x="68" y="432" font-size="10.5" font-weight="bold" fill="#1e40af">点价场景：陌生邮件格式</text>
+  <text x="68" y="450" font-size="10.5" fill="#1d4ed8">先抽要素→发现缺品种→再查术语表</text>
+  <text x="68" y="468" font-size="10.5" fill="#1d4ed8">→补抽→查库存，边走边修正</text>
+
+  <!-- Plan and Execute -->
+  <rect x="340" y="86" width="280" height="420" rx="12" fill="#ffffff" stroke="#a7f3d0" stroke-width="2"/>
+  <rect x="340" y="86" width="280" height="44" rx="12" fill="#059669"/>
+  <text x="480" y="114" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#fff">Plan-and-Execute</text>
+  <rect x="370" y="146" width="220" height="40" rx="6" fill="#d1fae5"/><text x="480" y="171" text-anchor="middle" font-size="11" fill="#065f46"> Planner：先产出全量计划清单</text>
+  <line x1="480" y1="188" x2="480" y2="208" stroke="#64748b" stroke-width="2" marker-end="url(#m1)"/>
+  <rect x="380" y="212" width="200" height="28" rx="6" fill="#f1f5f9"/><text x="480" y="231" text-anchor="middle" font-size="10.5" fill="#334155">1. 抽取要素 2. 查库存 3. 查价…</text>
+  <rect x="380" y="246" width="200" height="28" rx="6" fill="#f1f5f9"/><text x="480" y="265" text-anchor="middle" font-size="10.5" fill="#334155">逐项执行（可并行可替换执行器）</text>
+  <text x="356" y="308" font-size="11.5" font-weight="bold" fill="#0f172a">先规划，后执行，计划即文档</text>
+  <text x="356" y="330" font-size="11" fill="#334155">✓ 结构化多步任务，中途可审计</text>
+  <text x="356" y="348" font-size="11" fill="#334155">✓ 计划可人工审核后再放行</text>
+  <text x="356" y="372" font-size="11" fill="#dc2626">✗ 现实偏离计划时需 replan</text>
+  <text x="356" y="390" font-size="11" fill="#dc2626">✗ Planner 质量决定上限</text>
+  <rect x="356" y="410" width="248" height="76" rx="8" fill="#d1fae5"/>
+  <text x="368" y="432" font-size="10.5" font-weight="bold" fill="#065f46">点价场景：批量建单</text>
+  <text x="368" y="450" font-size="10.5" fill="#047857">交易员先看计划清单（拆几行、用什么</text>
+  <text x="368" y="468" font-size="10.5" fill="#047857">合约），点头后才执行</text>
+
+  <!-- Reflexion -->
+  <rect x="640" y="86" width="280" height="420" rx="12" fill="#ffffff" stroke="#ddd6fe" stroke-width="2"/>
+  <rect x="640" y="86" width="280" height="44" rx="12" fill="#7c3aed"/>
+  <text x="780" y="114" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#fff">Reflexion（2023）</text>
+  <rect x="670" y="150" width="100" height="34" rx="6" fill="#f3e8ff"/><text x="720" y="172" text-anchor="middle" font-size="11" fill="#6d28d9">尝试 Act</text>
+  <line x1="772" y1="167" x2="796" y2="167" stroke="#64748b" stroke-width="2" marker-end="url(#m1)"/>
+  <rect x="800" y="150" width="90" height="34" rx="6" fill="#ffedd5"/><text x="845" y="172" text-anchor="middle" font-size="11" fill="#9a3412">评估 Eval</text>
+  <line x1="845" y1="186" x2="845" y2="214" stroke="#64748b" stroke-width="2" marker-end="url(#m1)"/>
+  <rect x="795" y="218" width="100" height="34" rx="6" fill="#fee2e2"/><text x="845" y="240" text-anchor="middle" font-size="11" fill="#b91c1c">反思 Reflect</text>
+  <line x1="793" y1="235" x2="772" y2="235" stroke="#64748b" stroke-width="2" marker-end="url(#m1)"/>
+  <rect x="670" y="252" width="120" height="40" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="4,3"/>
+  <text x="730" y="270" text-anchor="middle" font-size="11" fill="#334155">持久记忆</text>
+  <text x="730" y="286" text-anchor="middle" font-size="10" fill="#64748b">存"上次为什么失败"</text>
+  <line x1="730" y1="250" x2="730" y2="234" stroke="#64748b" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#m1)"/>
+  <line x1="843" y1="254" x2="843" y2="244" stroke="#64748b" stroke-width="1.5"/>
+  <text x="656" y="318" font-size="11.5" font-weight="bold" fill="#0f172a">失败写进记忆，下次带上先验</text>
+  <text x="656" y="340" font-size="11" fill="#334155">✓ 多次尝试的任务，重试不止是重掷骰子</text>
+  <text x="656" y="358" font-size="11" fill="#334155">✓ 反思存在循环外，不污染本轮上下文</text>
+  <text x="656" y="382" font-size="11" fill="#dc2626">✗ 成本 ×N（每轮全跑一遍）</text>
+  <text x="656" y="400" font-size="11" fill="#dc2626">✗ 反思本身也可能错，需校验</text>
+  <rect x="656" y="410" width="248" height="76" rx="8" fill="#f3e8ff"/>
+  <text x="668" y="432" font-size="10.5" font-weight="bold" fill="#6d28d9">点价场景：评估不过关的建单</text>
+  <text x="668" y="450" font-size="10.5" fill="#6b21a8">第一轮基差方向搞反 → 反思写"注意</text>
+  <text x="668" y="468" font-size="10.5" fill="#6b21a8">贴水为负" → 第二轮修正</text>
+
+  <text x="480" y="540" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">记忆锚点：ReAct 是"边想边走"，Plan-Execute 是"先看地图再走"，Reflexion 是"摔倒记下来下次绕开"</text>
+  <text x="480" y="566" text-anchor="middle" font-size="11" fill="#64748b">生产中常组合：Plan-Execute 做骨架 + ReAct 做执行器 + Reflexion 做重试增强（框架在 009 篇对照）</text>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="ar-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker>
+  </defs>
+  <rect width="960" height="620" fill="#f8fafc"/>
+  <text x="40" y="48" font-size="23" font-weight="bold" fill="#0f172a">009 · Agent 框架演进时间线（2023–2026）</text>
+  <text x="40" y="74" font-size="12" fill="#64748b">共识 = 循环 + 状态 + 工具；分歧 = 胶水层取舍维度不同</text>
+
+  <!-- 时间轴 -->
+  <line x1="60" y1="300" x2="900" y2="300" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar-b)"/>
+  <circle cx="155" cy="300" r="6" fill="#2563eb"/>
+  <circle cx="375" cy="300" r="6" fill="#7c3aed"/>
+  <circle cx="595" cy="300" r="6" fill="#0891b2"/>
+  <circle cx="815" cy="300" r="6" fill="#ea580c"/>
+
+  <!-- 连接线 -->
+  <line x1="155" y1="292" x2="155" y2="274" stroke="#2563eb" stroke-width="1.5"/>
+  <line x1="375" y1="308" x2="375" y2="326" stroke="#7c3aed" stroke-width="1.5"/>
+  <line x1="595" y1="292" x2="595" y2="274" stroke="#0891b2" stroke-width="1.5"/>
+  <line x1="815" y1="308" x2="815" y2="326" stroke="#ea580c" stroke-width="1.5"/>
+
+  <!-- 2023 卡片 -->
+  <rect x="53" y="95" width="205" height="178" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <rect x="53" y="95" width="205" height="30" rx="8" fill="#dbeafe"/>
+  <text x="65" y="115" font-size="13" font-weight="bold" fill="#2563eb">2023 · 胶水时代</text>
+  <text x="65" y="146" font-size="10.5" fill="#334155">LangChain agents 爆红</text>
+  <text x="65" y="165" font-size="10.5" fill="#334155">AgentExecutor 黑盒循环</text>
+  <text x="65" y="184" font-size="10.5" fill="#334155">AutoGen 论文发布（多Agent）</text>
+  <text x="65" y="206" font-size="10.5" fill="#dc2626">痛点：状态不可见</text>
+  <text x="65" y="224" font-size="10.5" fill="#dc2626">循环不可控 · 出错不能恢复</text>
+
+  <!-- 2024 卡片 -->
+  <rect x="273" y="330" width="205" height="178" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5"/>
+  <rect x="273" y="330" width="205" height="30" rx="8" fill="#ede9fe"/>
+  <text x="285" y="350" font-size="13" font-weight="bold" fill="#7c3aed">2024 · 状态机时代</text>
+  <text x="285" y="381" font-size="10.5" fill="#334155">LangGraph 发布（2024-01）</text>
+  <text x="285" y="400" font-size="10.5" fill="#334155">v0.1 引入持久化 · HITL</text>
+  <text x="285" y="419" font-size="10.5" fill="#334155">CrewAI 角色范式走红</text>
+  <text x="285" y="441" font-size="10.5" fill="#0f172a" font-weight="bold">Agent = 状态机 成共识</text>
+  <text x="285" y="459" font-size="10.5" fill="#64748b">节点显式 · 边可查 · 可恢复</text>
+
+  <!-- 2025 卡片 -->
+  <rect x="493" y="95" width="205" height="178" rx="8" fill="#ffffff" stroke="#0891b2" stroke-width="1.5"/>
+  <rect x="493" y="95" width="205" height="30" rx="8" fill="#cffafe"/>
+  <text x="505" y="115" font-size="13" font-weight="bold" fill="#0891b2">2025 · 正式版元年</text>
+  <text x="505" y="146" font-size="10.5" fill="#334155">OpenAI Agents SDK（03）</text>
+  <text x="505" y="165" font-size="10.5" fill="#334155">Spring AI 1.0 GA（05）</text>
+  <text x="505" y="184" font-size="10.5" fill="#334155">LangGraph 1.0 GA（10-22）</text>
+  <text x="505" y="206" font-size="10.5" fill="#334155">MAF 公开预览（10）</text>
+  <text x="505" y="224" font-size="10.5" fill="#dc2626">AutoGen 转入维护模式</text>
+
+  <!-- 2026 卡片 -->
+  <rect x="713" y="330" width="205" height="178" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <rect x="713" y="330" width="205" height="30" rx="8" fill="#ffedd5"/>
+  <text x="725" y="350" font-size="13" font-weight="bold" fill="#ea580c">2026 · 分化沉淀</text>
+  <text x="725" y="381" font-size="10.5" fill="#334155">LangGraph 1.2.x 迭代中</text>
+  <text x="725" y="400" font-size="10.5" fill="#334155">MAF 1.0 GA（2026-04-03）</text>
+  <text x="725" y="419" font-size="10.5" fill="#334155">Spring AI 2.0 · LC4j 1.18</text>
+  <text x="725" y="441" font-size="10.5" fill="#0f172a" font-weight="bold">格局收敛为四梯队</text>
+  <text x="725" y="459" font-size="10.5" fill="#64748b">图编排/官方SDK/角色/Java</text>
+
+  <!-- 底部总结 -->
+  <rect x="53" y="545" width="854" height="42" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="480" y="571" font-size="12" fill="#0f172a" text-anchor="middle" font-weight="bold">框架多 ≠ 没有共识：循环+状态+工具的胶水层取舍维度太多，2026 年已收敛为四个稳定梯队</text>
+</svg>

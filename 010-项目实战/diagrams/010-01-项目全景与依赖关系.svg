@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="arrowBlue" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#64748b"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#7c3aed"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="640" fill="#f8fafc"/>
+
+  <text x="480" y="38" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">010 项目实战全景：六项目依赖关系与能力回扣</text>
+  <text x="480" y="62" text-anchor="middle" font-size="12" fill="#64748b">主线 01 → 03 → 06（抽取服务 → 邮件触发 → 多 Agent 组装）｜支线 02 / 04 / 05 相对独立</text>
+
+  <!-- 主线标注带 -->
+  <rect x="60" y="90" width="560" height="26" rx="13" fill="#2563eb" opacity="0.12"/>
+  <text x="340" y="108" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#2563eb">主线：能 力 递 进 通 道（建议按序）</text>
+  <rect x="660" y="90" width="240" height="26" rx="13" fill="#059669" opacity="0.12"/>
+  <text x="780" y="108" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#059669">支线：随时可单独开业</text>
+
+  <!-- 01 点价抽取 -->
+  <rect x="60" y="150" width="220" height="150" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <rect x="60" y="150" width="220" height="34" rx="10" fill="#2563eb"/>
+  <rect x="60" y="172" width="220" height="12" fill="#2563eb"/>
+  <text x="170" y="172" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#ffffff">01 点价要素抽取 Agent</text>
+  <text x="74" y="205" font-size="11" fill="#0f172a">指令文本 → 结构化点价单 JSON</text>
+  <text x="74" y="224" font-size="11" fill="#0f172a">难度 ★★　投入 2 周</text>
+  <rect x="74" y="236" width="86" height="20" rx="10" fill="#2563eb" opacity="0.1"/>
+  <text x="117" y="250" text-anchor="middle" font-size="10.5" fill="#2563eb">001 Prompt</text>
+  <rect x="168" y="236" width="98" height="20" rx="10" fill="#7c3aed" opacity="0.1"/>
+  <text x="217" y="250" text-anchor="middle" font-size="10.5" fill="#7c3aed">004 FuncCall</text>
+  <text x="74" y="282" font-size="10.5" fill="#64748b">端口 8101 ｜ F1 ≥ 0.95</text>
+
+  <!-- 03 邮件分流 -->
+  <rect x="370" y="150" width="220" height="150" rx="10" fill="#ffffff" stroke="#0891b2" stroke-width="1.5"/>
+  <rect x="370" y="150" width="220" height="34" rx="10" fill="#0891b2"/>
+  <rect x="370" y="172" width="220" height="12" fill="#0891b2"/>
+  <text x="480" y="172" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#ffffff">03 客商邮件分流路由</text>
+  <text x="384" y="205" font-size="11" fill="#0f172a">四分类 → 三条处理链 + 人工兜底</text>
+  <text x="384" y="224" font-size="11" fill="#0f172a">难度 ★★　投入 2 周</text>
+  <rect x="384" y="236" width="86" height="20" rx="10" fill="#0891b2" opacity="0.12"/>
+  <text x="427" y="250" text-anchor="middle" font-size="10.5" fill="#0891b2">003 Routing</text>
+  <text x="384" y="282" font-size="10.5" fill="#64748b">端口 8103 ｜ 准确率 ≥ 0.95</text>
+
+  <!-- 06 评审小组 -->
+  <rect x="680" y="150" width="220" height="150" rx="10" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5"/>
+  <rect x="680" y="150" width="220" height="34" rx="10" fill="#7c3aed"/>
+  <rect x="680" y="172" width="220" height="12" fill="#7c3aed"/>
+  <text x="790" y="172" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#ffffff">06 点价评审小组多Agent</text>
+  <text x="694" y="205" font-size="11" fill="#0f172a">主管 + 交易/风控/物流 三Worker</text>
+  <text x="694" y="224" font-size="11" fill="#0f172a">难度 ★★★★　投入 4 周</text>
+  <rect x="694" y="236" width="86" height="20" rx="10" fill="#7c3aed" opacity="0.12"/>
+  <text x="737" y="250" text-anchor="middle" font-size="10.5" fill="#7c3aed">007 多Agent</text>
+  <text x="694" y="282" font-size="10.5" fill="#64748b">端口 8106 ｜ 一致率 ≥ 85%</text>
+
+  <!-- 主线箭头 -->
+  <line x1="280" y1="225" x2="364" y2="225" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <text x="322" y="216" text-anchor="middle" font-size="10.5" fill="#2563eb">抽取服务</text>
+  <line x1="590" y1="225" x2="674" y2="225" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <text x="632" y="216" text-anchor="middle" font-size="10.5" fill="#2563eb">邮件触发</text>
+
+  <!-- 弱依赖 04 → 06 -->
+  <path d="M 690 470 Q 800 440 800 306" fill="none" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrowPurple)"/>
+  <text x="822" y="400" font-size="10.5" fill="#7c3aed">MCP 工具复用</text>
+
+  <!-- 02 合同审查 -->
+  <rect x="60" y="380" width="220" height="150" rx="10" fill="#ffffff" stroke="#059669" stroke-width="1.5"/>
+  <rect x="60" y="380" width="220" height="34" rx="10" fill="#059669"/>
+  <rect x="60" y="402" width="220" height="12" fill="#059669"/>
+  <text x="170" y="402" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#ffffff">02 贸易合同审查助手</text>
+  <text x="74" y="435" font-size="11" fill="#0f172a">合同 PDF → 风险点报告+原文引用</text>
+  <text x="74" y="454" font-size="11" fill="#0f172a">难度 ★★★　投入 3 周</text>
+  <rect x="74" y="466" width="86" height="20" rx="10" fill="#2563eb" opacity="0.1"/>
+  <text x="117" y="480" text-anchor="middle" font-size="10.5" fill="#2563eb">001 Prompt</text>
+  <rect x="168" y="466" width="98" height="20" rx="10" fill="#059669" opacity="0.12"/>
+  <text x="217" y="480" text-anchor="middle" font-size="10.5" fill="#059669">005 RAG</text>
+  <text x="74" y="512" font-size="10.5" fill="#64748b">端口 8102 ｜ 召回 ≥ 0.9</text>
+
+  <!-- 04 库存问答 -->
+  <rect x="370" y="380" width="220" height="150" rx="10" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <rect x="370" y="380" width="220" height="34" rx="10" fill="#ea580c"/>
+  <rect x="370" y="402" width="220" height="12" fill="#ea580c"/>
+  <text x="480" y="402" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#ffffff">04 CTRM库存知识问答</text>
+  <text x="384" y="435" font-size="11" fill="#0f172a">库存数据 + 制度文档 双源问答</text>
+  <text x="384" y="454" font-size="11" fill="#0f172a">难度 ★★★　投入 3 周</text>
+  <rect x="384" y="466" width="86" height="20" rx="10" fill="#059669" opacity="0.12"/>
+  <text x="427" y="480" text-anchor="middle" font-size="10.5" fill="#059669">005 RAG</text>
+  <rect x="478" y="466" width="98" height="20" rx="10" fill="#ea580c" opacity="0.12"/>
+  <text x="527" y="480" text-anchor="middle" font-size="10.5" fill="#ea580c">006 MCP</text>
+  <text x="384" y="512" font-size="10.5" fill="#64748b">端口 8104 ｜ 数值零容错</text>
+
+  <!-- 05 费用审核 -->
+  <rect x="680" y="380" width="220" height="150" rx="10" fill="#ffffff" stroke="#dc2626" stroke-width="1.5"/>
+  <rect x="680" y="380" width="220" height="34" rx="10" fill="#dc2626"/>
+  <rect x="680" y="402" width="220" height="12" fill="#dc2626"/>
+  <text x="790" y="402" text-anchor="middle" font-size="13.5" font-weight="bold" fill="#ffffff">05 费用审核 Copilot</text>
+  <text x="694" y="435" font-size="11" fill="#0f172a">硬规则代码 + LLM 软审查 状态图</text>
+  <text x="694" y="454" font-size="11" fill="#0f172a">难度 ★★★　投入 3 周</text>
+  <rect x="694" y="466" width="86" height="20" rx="10" fill="#0891b2" opacity="0.12"/>
+  <text x="737" y="480" text-anchor="middle" font-size="10.5" fill="#0891b2">003 Routing</text>
+  <rect x="788" y="466" width="98" height="20" rx="10" fill="#dc2626" opacity="0.12"/>
+  <text x="837" y="480" text-anchor="middle" font-size="10.5" fill="#dc2626">009 LangGraph</text>
+  <text x="694" y="512" font-size="10.5" fill="#64748b">端口 8105 ｜ 检出 ≥ 0.95</text>
+
+  <!-- 底部说明 -->
+  <rect x="60" y="556" width="840" height="56" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+  <circle cx="86" cy="576" r="4" fill="#2563eb"/>
+  <text x="98" y="580" font-size="11" fill="#0f172a">实线 = 强依赖（接口复用）　</text>
+  <circle cx="86" cy="598" r="4" fill="#7c3aed"/>
+  <text x="98" y="602" font-size="11" fill="#0f172a">虚线 = 弱依赖（工具可复用可后补）</text>
+  <text x="330" y="580" font-size="11" fill="#64748b">002 数据工程 与 008 评估可观测为贯穿地基：</text>
+  <text x="330" y="602" font-size="11" fill="#64748b">假数据生成练 002，评估集+监控+坏例闭环练 008，六个项目全部覆盖。</text>
+</svg>

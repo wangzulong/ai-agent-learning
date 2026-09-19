@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 700" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="700" fill="#f8fafc"/>
+  <defs>
+    <marker id="arB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#2563eb"/>
+    </marker>
+    <marker id="arC" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#0891b2"/>
+    </marker>
+    <marker id="arP" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#7c3aed"/>
+    </marker>
+    <marker id="arO" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#ea580c"/>
+    </marker>
+  </defs>
+  <text x="480" y="34" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">四种协作拓扑对比：星型 · 流水线 · 层级 · 网状</text>
+  <text x="480" y="57" text-anchor="middle" font-size="11" fill="#64748b">拓扑决定「谁跟谁能说话」——也决定了瓶颈、成本与可观测性</text>
+
+  <!-- 左上：星型 -->
+  <rect x="30" y="74" width="440" height="282" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="30" y="74" width="440" height="8" rx="4" fill="#2563eb"/>
+  <text x="250" y="106" text-anchor="middle" font-size="14" font-weight="bold" fill="#0f172a">星型（中心化编排 · Orchestrator-Worker）</text>
+  <rect x="210" y="118" width="80" height="26" rx="8" fill="#2563eb"/>
+  <text x="250" y="135" text-anchor="middle" font-size="11" font-weight="bold" fill="#ffffff">Orchestrator</text>
+  <line x1="230" y1="144" x2="120" y2="182" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arB)"/>
+  <line x1="250" y1="144" x2="250" y2="182" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arB)"/>
+  <line x1="270" y1="144" x2="380" y2="182" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arB)"/>
+  <rect x="80" y="184" width="80" height="26" rx="8" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="120" y="201" text-anchor="middle" font-size="10.5" fill="#1e40af">Worker A</text>
+  <rect x="210" y="184" width="80" height="26" rx="8" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="250" y="201" text-anchor="middle" font-size="10.5" fill="#1e40af">Worker B</text>
+  <rect x="340" y="184" width="80" height="26" rx="8" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="380" y="201" text-anchor="middle" font-size="10.5" fill="#1e40af">Worker C</text>
+  <text x="250" y="234" text-anchor="middle" font-size="11" fill="#059669">优：拆解派活汇总一处管，可控、易观测、好审计</text>
+  <text x="250" y="254" text-anchor="middle" font-size="11" fill="#dc2626">缺：中心是瓶颈也是单点，挂了全停</text>
+  <text x="250" y="274" text-anchor="middle" font-size="11" fill="#2563eb">适用：任务可拆解、结果要汇总——点价评审小组</text>
+  <text x="250" y="294" text-anchor="middle" font-size="10.5" fill="#64748b">类比：项目主管带三个专员，活分下去、报告交上来</text>
+  <text x="250" y="330" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#1e40af">首选默认型：90% 的业务多 Agent 场景从它开始</text>
+
+  <!-- 右上：流水线 -->
+  <rect x="490" y="74" width="440" height="282" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="490" y="74" width="440" height="8" rx="4" fill="#0891b2"/>
+  <text x="710" y="106" text-anchor="middle" font-size="14" font-weight="bold" fill="#0f172a">流水线（Pipeline · 串行接力）</text>
+  <rect x="514" y="140" width="80" height="30" rx="8" fill="#0891b2"/>
+  <text x="554" y="159" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#ffffff">抽取员</text>
+  <rect x="622" y="140" width="80" height="30" rx="8" fill="#0891b2"/>
+  <text x="662" y="159" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#ffffff">清洗员</text>
+  <rect x="730" y="140" width="80" height="30" rx="8" fill="#0891b2"/>
+  <text x="770" y="159" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#ffffff">审核员</text>
+  <rect x="838" y="140" width="70" height="30" rx="8" fill="#0891b2"/>
+  <text x="873" y="159" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#ffffff">报告员</text>
+  <line x1="594" y1="155" x2="616" y2="155" stroke="#0891b2" stroke-width="2" marker-end="url(#arC)"/>
+  <line x1="702" y1="155" x2="724" y2="155" stroke="#0891b2" stroke-width="2" marker-end="url(#arC)"/>
+  <line x1="810" y1="155" x2="832" y2="155" stroke="#0891b2" stroke-width="2" marker-end="url(#arC)"/>
+  <line x1="554" y1="170" x2="554" y2="196" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="710" y="216" text-anchor="middle" font-size="10" fill="#94a3b8">上一站的输出 = 下一站的输入（结构化传递）</text>
+  <text x="710" y="246" text-anchor="middle" font-size="11" fill="#059669">优：职责单一可测试，节点可插拔、可回放</text>
+  <text x="710" y="266" text-anchor="middle" font-size="11" fill="#dc2626">缺：吞吐卡在最慢节点；前段出错全链污染</text>
+  <text x="710" y="286" text-anchor="middle" font-size="11" fill="#0891b2">适用：固定 SOP——抽取→清洗→审核→报告</text>
+  <text x="710" y="306" text-anchor="middle" font-size="10.5" fill="#64748b">类比：工厂流水线，一人一道工序，不越位</text>
+  <text x="710" y="336" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#0e7490">最稳型：流程确定时优先固化成流水线</text>
+
+  <!-- 左下：层级 -->
+  <rect x="30" y="372" width="440" height="282" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="30" y="372" width="440" height="8" rx="4" fill="#7c3aed"/>
+  <text x="250" y="404" text-anchor="middle" font-size="14" font-weight="bold" fill="#0f172a">层级（树形 · 分治 Hierarchical）</text>
+  <rect x="215" y="414" width="70" height="24" rx="7" fill="#7c3aed"/>
+  <text x="250" y="430" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#ffffff">Root</text>
+  <line x1="230" y1="438" x2="150" y2="464" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arP)"/>
+  <line x1="270" y1="438" x2="350" y2="464" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arP)"/>
+  <rect x="110" y="466" width="80" height="24" rx="7" fill="#f3e8ff" stroke="#c4b5fd"/>
+  <text x="150" y="482" text-anchor="middle" font-size="10" fill="#5b21b6">组长甲</text>
+  <rect x="310" y="466" width="80" height="24" rx="7" fill="#f3e8ff" stroke="#c4b5fd"/>
+  <text x="350" y="482" text-anchor="middle" font-size="10" fill="#5b21b6">组长乙</text>
+  <line x1="130" y1="490" x2="90" y2="512" stroke="#7c3aed" stroke-width="1.2" marker-end="url(#arP)"/>
+  <line x1="170" y1="490" x2="210" y2="512" stroke="#7c3aed" stroke-width="1.2" marker-end="url(#arP)"/>
+  <line x1="330" y1="490" x2="290" y2="512" stroke="#7c3aed" stroke-width="1.2" marker-end="url(#arP)"/>
+  <line x1="370" y1="490" x2="410" y2="512" stroke="#7c3aed" stroke-width="1.2" marker-end="url(#arP)"/>
+  <rect x="55" y="514" width="70" height="22" rx="6" fill="#faf5ff" stroke="#ddd6fe"/>
+  <text x="90" y="529" text-anchor="middle" font-size="9.5" fill="#6d28d9">组员</text>
+  <rect x="175" y="514" width="70" height="22" rx="6" fill="#faf5ff" stroke="#ddd6fe"/>
+  <text x="210" y="529" text-anchor="middle" font-size="9.5" fill="#6d28d9">组员</text>
+  <rect x="255" y="514" width="70" height="22" rx="6" fill="#faf5ff" stroke="#ddd6fe"/>
+  <text x="290" y="529" text-anchor="middle" font-size="9.5" fill="#6d28d9">组员</text>
+  <rect x="375" y="514" width="70" height="22" rx="6" fill="#faf5ff" stroke="#ddd6fe"/>
+  <text x="410" y="529" text-anchor="middle" font-size="9.5" fill="#6d28d9">组员</text>
+  <text x="250" y="560" text-anchor="middle" font-size="11" fill="#059669">优：分治可扩展，超大任务层层拆到可执行</text>
+  <text x="250" y="580" text-anchor="middle" font-size="11" fill="#dc2626">缺：信息层层衰减，延迟与成本逐级叠加</text>
+  <text x="250" y="600" text-anchor="middle" font-size="11" fill="#7c3aed">适用：超大广度任务——全库盘点、全站巡检</text>
+  <text x="250" y="620" text-anchor="middle" font-size="10.5" fill="#64748b">类比：公司组织架构，逐级汇报、逐级拆解</text>
+  <text x="250" y="646" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#6d28d9">规模型：任务大到一层拆不动时才升级到它</text>
+
+  <!-- 右下：网状 -->
+  <rect x="490" y="372" width="440" height="282" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="490" y="372" width="440" height="8" rx="4" fill="#ea580c"/>
+  <text x="710" y="404" text-anchor="middle" font-size="14" font-weight="bold" fill="#0f172a">网状（去中心 · 对等 Mesh）</text>
+  <circle cx="620" cy="440" r="16" fill="#ea580c"/>
+  <circle cx="800" cy="440" r="16" fill="#ea580c"/>
+  <circle cx="710" cy="480" r="16" fill="#ea580c"/>
+  <circle cx="640" cy="524" r="16" fill="#ea580c"/>
+  <circle cx="780" cy="524" r="16" fill="#ea580c"/>
+  <line x1="634" y1="448" x2="696" y2="472" stroke="#ea580c" stroke-width="1.4"/>
+  <line x1="786" y1="448" x2="724" y2="472" stroke="#ea580c" stroke-width="1.4"/>
+  <line x1="636" y1="440" x2="784" y2="440" stroke="#ea580c" stroke-width="1.4"/>
+  <line x1="630" y1="454" x2="650" y2="510" stroke="#ea580c" stroke-width="1.4"/>
+  <line x1="790" y1="454" x2="770" y2="510" stroke="#ea580c" stroke-width="1.4"/>
+  <line x1="656" y1="518" x2="764" y2="518" stroke="#ea580c" stroke-width="1.4"/>
+  <line x1="702" y1="494" x2="648" y2="514" stroke="#ea580c" stroke-width="1.4"/>
+  <line x1="718" y1="494" x2="772" y2="514" stroke="#ea580c" stroke-width="1.4"/>
+  <text x="710" y="560" text-anchor="middle" font-size="11" fill="#059669">优：无单点有弹性，对等协作可辩论、可互审</text>
+  <text x="710" y="580" text-anchor="middle" font-size="11" fill="#dc2626">缺：两两通信 O(n²)，成本高、难观测、易死循环</text>
+  <text x="710" y="600" text-anchor="middle" font-size="11" fill="#ea580c">适用：对等讨论、交叉验证、群聊式决策</text>
+  <text x="710" y="620" text-anchor="middle" font-size="10.5" fill="#64748b">类比：圆桌会议人人可发言——热闹但容易跑题</text>
+  <text x="710" y="646" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#c2410c">慎用型：除非真需要「辩论」，否则别选</text>
+
+  <!-- 底部结论 -->
+  <rect x="120" y="662" width="720" height="30" rx="8" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="480" y="682" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">选型口诀：能流水线就流水线，要汇总用星型，大到一层拆不动用层级，真要辩论才上网状</text>
+</svg>

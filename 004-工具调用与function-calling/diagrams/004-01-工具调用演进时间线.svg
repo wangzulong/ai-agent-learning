@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="560" fill="#f8fafc"/>
+  <text x="480" y="36" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">工具调用演进时间线（004 背景篇）</text>
+  <text x="480" y="60" text-anchor="middle" font-size="13" fill="#64748b">不变量只有一句：模型输出"调用意图"，执行永远在客户端 —— 变的是定义格式与分发方式</text>
+
+  <defs>
+    <marker id="t4" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <line x1="60" y1="300" x2="910" y2="300" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#t4)"/>
+
+  <circle cx="130" cy="300" r="6" fill="#2563eb"/>
+  <text x="130" y="330" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">2023-02</text>
+  <rect x="70" y="140" width="130" height="130" rx="9" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="135" y="165" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">Toolformer</text>
+  <text x="135" y="188" text-anchor="middle" font-size="10.5" fill="#1d4ed8">模型自学在文本里</text>
+  <text x="135" y="205" text-anchor="middle" font-size="10.5" fill="#1d4ed8">插入 API 调用</text>
+  <text x="135" y="230" text-anchor="middle" font-size="9.5" fill="#64748b">arXiv:2302.04761</text>
+  <line x1="135" y1="270" x2="135" y2="248" stroke="#94a3b8" stroke-width="1.5"/>
+
+  <circle cx="280" cy="300" r="6" fill="#0891b2"/>
+  <text x="280" y="330" text-anchor="middle" font-size="12" font-weight="bold" fill="#155e75">2023-06</text>
+  <rect x="215" y="330" width="130" height="120" rx="9" fill="#cffafe" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="280" y="355" text-anchor="middle" font-size="12" font-weight="bold" fill="#155e75">function calling</text>
+  <text x="280" y="378" text-anchor="middle" font-size="10.5" fill="#0e7490">OpenAI 上 API，</text>
+  <text x="280" y="395" text-anchor="middle" font-size="10.5" fill="#0e7490">工具从此成为标配</text>
+  <text x="280" y="420" text-anchor="middle" font-size="9.5" fill="#64748b">JSON Schema 定义</text>
+
+  <circle cx="425" cy="300" r="6" fill="#059669"/>
+  <text x="425" y="330" text-anchor="middle" font-size="12" font-weight="bold" fill="#065f46">2024</text>
+  <rect x="360" y="140" width="130" height="130" rx="9" fill="#d1fae5" stroke="#059669" stroke-width="1.5"/>
+  <text x="425" y="163" text-anchor="middle" font-size="12" font-weight="bold" fill="#065f46">工程化补全</text>
+  <text x="425" y="186" text-anchor="middle" font-size="10.5" fill="#047857">strict 结构化输出</text>
+  <text x="425" y="203" text-anchor="middle" font-size="10.5" fill="#047857">并行工具调用</text>
+  <text x="425" y="220" text-anchor="middle" font-size="10.5" fill="#047857">强制调用 tool_choice</text>
+  <text x="425" y="246" text-anchor="middle" font-size="9.5" fill="#64748b">约束解码保 schema</text>
+  <line x1="425" y1="270" x2="425" y2="248" stroke="#94a3b8" stroke-width="1.5"/>
+
+  <circle cx="570" cy="300" r="6" fill="#7c3aed"/>
+  <text x="570" y="330" text-anchor="middle" font-size="12" font-weight="bold" fill="#6d28d9">2024-11</text>
+  <rect x="505" y="330" width="130" height="120" rx="9" fill="#f3e8ff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="570" y="355" text-anchor="middle" font-size="12" font-weight="bold" fill="#6d28d9">MCP 开源</text>
+  <text x="570" y="378" text-anchor="middle" font-size="10.5" fill="#6b21a8">Anthropic 提出，</text>
+  <text x="570" y="395" text-anchor="middle" font-size="10.5" fill="#6b21a8">工具分发标准化</text>
+  <text x="570" y="420" text-anchor="middle" font-size="9.5" fill="#64748b">→ 006 专题</text>
+
+  <circle cx="715" cy="300" r="6" fill="#ea580c"/>
+  <text x="715" y="330" text-anchor="middle" font-size="12" font-weight="bold" fill="#9a3412">2025</text>
+  <rect x="650" y="140" width="130" height="130" rx="9" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="715" y="163" text-anchor="middle" font-size="12" font-weight="bold" fill="#9a3412">全行业采纳</text>
+  <text x="715" y="186" text-anchor="middle" font-size="10.5" fill="#c2410c">OpenAI / Google</text>
+  <text x="715" y="203" text-anchor="middle" font-size="10.5" fill="#c2410c">接入 MCP</text>
+  <text x="715" y="228" text-anchor="middle" font-size="10.5" fill="#c2410c">内置工具爆发：</text>
+  <text x="715" y="245" text-anchor="middle" font-size="10.5" fill="#c2410c">联网/代码解释器</text>
+  <line x1="715" y1="270" x2="715" y2="248" stroke="#94a3b8" stroke-width="1.5"/>
+
+  <circle cx="855" cy="300" r="6" fill="#dc2626"/>
+  <text x="855" y="330" text-anchor="middle" font-size="12" font-weight="bold" fill="#b91c1c">2026</text>
+  <rect x="790" y="330" width="140" height="120" rx="9" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="860" y="355" text-anchor="middle" font-size="12" font-weight="bold" fill="#b91c1c">两层格局定型</text>
+  <text x="860" y="378" text-anchor="middle" font-size="10.5" fill="#991b1b">FC：模型怎么调工具</text>
+  <text x="860" y="395" text-anchor="middle" font-size="10.5" fill="#991b1b">MCP：工具怎么分发</text>
+  <text x="860" y="420" text-anchor="middle" font-size="10.5" fill="#991b1b">不互斥，分工明确</text>
+
+  <rect x="70" y="490" width="850" height="46" rx="9" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="495" y="512" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#1e40af">给 Java 开发者的一句话：function calling = 把"方法签名"暴露给模型，由框架代跑"反射调用"那一层</text>
+  <text x="495" y="530" text-anchor="middle" font-size="11" fill="#1d4ed8">本篇只讲 FC 这一层；工具的跨应用分发标准（MCP）在 006 篇展开</text>
+</svg>

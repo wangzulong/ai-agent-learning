@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="arrD" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect width="960" height="600" fill="#f8fafc"/>
+  <text x="480" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#0f172a">RAG 评估：RAGAS 四指标 × 失败模式对照</text>
+  <text x="480" y="60" text-anchor="middle" font-size="12" fill="#64748b">指标低分 → 定位病灶 → 对症修复（低分定位口诀见底部）</text>
+
+  <text x="40" y="92" font-size="11.5" font-weight="bold" fill="#64748b">评估指标（RAGAS）</text>
+  <text x="560" y="92" font-size="11.5" font-weight="bold" fill="#64748b">失败模式与对症修复</text>
+
+  <!-- 左卡1 忠实度 -->
+  <rect x="40" y="100" width="270" height="96" rx="8" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.5"/>
+  <text x="56" y="124" font-size="12.5" font-weight="bold" fill="#059669">忠实度 Faithfulness</text>
+  <text x="56" y="146" font-size="10.5" fill="#334155">测：答案是否忠于召回资料</text>
+  <text x="56" y="164" font-size="10.5" fill="#64748b">算：答案拆句，逐条核对资料支持</text>
+  <text x="56" y="184" font-size="10.5" font-weight="bold" fill="#dc2626">低分病灶：生成越界（幻觉）</text>
+
+  <!-- 左卡2 答案相关性 -->
+  <rect x="40" y="212" width="270" height="96" rx="8" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+  <text x="56" y="236" font-size="12.5" font-weight="bold" fill="#2563eb">答案相关性 Answer Relevancy</text>
+  <text x="56" y="258" font-size="10.5" fill="#334155">测：答案是否切题</text>
+  <text x="56" y="276" font-size="10.5" fill="#64748b">算：由答案反推问题，比相似度</text>
+  <text x="56" y="296" font-size="10.5" font-weight="bold" fill="#dc2626">低分病灶：生成答偏 / prompt 松</text>
+
+  <!-- 左卡3 上下文精确率 -->
+  <rect x="40" y="324" width="270" height="96" rx="8" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+  <text x="56" y="348" font-size="12.5" font-weight="bold" fill="#7c3aed">上下文精确率 Context Precision</text>
+  <text x="56" y="370" font-size="10.5" fill="#334155">测：相关块是否排在召回前列</text>
+  <text x="56" y="388" font-size="10.5" fill="#64748b">算：按对金标准的贡献排名加权</text>
+  <text x="56" y="408" font-size="10.5" font-weight="bold" fill="#dc2626">低分病灶：融合/重排失效</text>
+
+  <!-- 左卡4 上下文召回率 -->
+  <rect x="40" y="436" width="270" height="96" rx="8" fill="#ffffff" stroke="#a5f3fc" stroke-width="1.5"/>
+  <text x="56" y="460" font-size="12.5" font-weight="bold" fill="#0891b2">上下文召回率 Context Recall</text>
+  <text x="56" y="482" font-size="10.5" fill="#334155">测：金标准信息是否都被召回</text>
+  <text x="56" y="500" font-size="10.5" fill="#64748b">算：金标准句与召回块覆盖匹配</text>
+  <text x="56" y="520" font-size="10.5" font-weight="bold" fill="#dc2626">低分病灶：检索漏召回</text>
+
+  <!-- 对照箭头 -->
+  <line x1="310" y1="148" x2="552" y2="148" stroke="#94a3b8" stroke-width="2" stroke-dasharray="7 5" fill="none" marker-end="url(#arrD)"/>
+  <line x1="310" y1="260" x2="552" y2="260" stroke="#94a3b8" stroke-width="2" stroke-dasharray="7 5" fill="none" marker-end="url(#arrD)"/>
+  <line x1="310" y1="372" x2="552" y2="372" stroke="#94a3b8" stroke-width="2" stroke-dasharray="7 5" fill="none" marker-end="url(#arrD)"/>
+  <line x1="310" y1="484" x2="552" y2="484" stroke="#94a3b8" stroke-width="2" stroke-dasharray="7 5" fill="none" marker-end="url(#arrD)"/>
+
+  <!-- 右卡1 -->
+  <rect x="560" y="100" width="360" height="96" rx="8" fill="#ffffff" stroke="#059669" stroke-width="1.5"/>
+  <text x="576" y="124" font-size="12.5" font-weight="bold" fill="#0f172a">失败 A：生成越界</text>
+  <text x="576" y="146" font-size="10.5" fill="#64748b">症状：编造数字、资料里没有的自由发挥</text>
+  <text x="576" y="168" font-size="10.5" fill="#334155">修复：接地模板（限范围+标出处）</text>
+  <text x="576" y="186" font-size="10.5" fill="#334155">+ temperature 0.1 + 允许拒答</text>
+
+  <!-- 右卡2 -->
+  <rect x="560" y="212" width="360" height="96" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="576" y="236" font-size="12.5" font-weight="bold" fill="#0f172a">失败 B：答非所问</text>
+  <text x="576" y="258" font-size="10.5" fill="#64748b">症状：答案与问题对不上、跑题</text>
+  <text x="576" y="280" font-size="10.5" fill="#334155">修复：prompt 强约束 + query 改写</text>
+  <text x="576" y="298" font-size="10.5" fill="#334155">+ 多轮对话先做指代消解</text>
+
+  <!-- 右卡3 -->
+  <rect x="560" y="324" width="360" height="96" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="576" y="348" font-size="12.5" font-weight="bold" fill="#0f172a">失败 C：好块被压后</text>
+  <text x="576" y="370" font-size="10.5" fill="#64748b">症状：召回列表里有答案，模型却答错</text>
+  <text x="576" y="392" font-size="10.5" fill="#334155">修复：调 rerank / 换重排模型</text>
+  <text x="576" y="410" font-size="10.5" fill="#334155">+ 候选封顶 top50 控成本</text>
+
+  <!-- 右卡4 -->
+  <rect x="560" y="436" width="360" height="96" rx="8" fill="#ffffff" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="576" y="460" font-size="12.5" font-weight="bold" fill="#0f172a">失败 D：召回缺失</text>
+  <text x="576" y="482" font-size="10.5" fill="#64748b">症状：正确块根本没进候选（最隐蔽）</text>
+  <text x="576" y="504" font-size="10.5" fill="#334155">修复：加 BM25 路 + 多查询改写</text>
+  <text x="576" y="522" font-size="10.5" fill="#334155">+ 调分块（先查切块！见 005-04）</text>
+
+  <!-- 底部口诀 -->
+  <rect x="40" y="544" width="880" height="48" rx="8" fill="#fffbeb" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="480" y="565" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">定位口诀：recall 低修索引 · precision 低修重排 · faithfulness 低修生成 · relevancy 低两头查</text>
+  <text x="480" y="584" text-anchor="middle" font-size="10.5" fill="#64748b">评估集 ≥100 题 + 金标准块 + 拒答题占 10~15% —— 评估集建设与索引维护详见 06 生产篇</text>
+</svg>

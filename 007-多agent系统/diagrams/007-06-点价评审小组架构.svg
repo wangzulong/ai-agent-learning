@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 660" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="660" fill="#f8fafc"/>
+  <defs>
+    <marker id="arB2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#2563eb"/>
+    </marker>
+    <marker id="arG2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#059669"/>
+    </marker>
+  </defs>
+  <text x="480" y="36" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">贯穿案例架构：点价评审小组（主管 + 三 Worker）</text>
+  <text x="480" y="59" text-anchor="middle" font-size="11" fill="#64748b">星型拓扑：主管拆任务并行派发，三个专员各出一份结构化交付物，主管交叉核对后汇总</text>
+
+  <!-- 输入 -->
+  <rect x="310" y="80" width="340" height="50" rx="10" fill="#ffffff" stroke="#94a3b8" stroke-dasharray="6 3"/>
+  <text x="480" y="101" text-anchor="middle" font-size="12" font-weight="bold" fill="#334155">输入：CTRM 点价单</text>
+  <text x="480" y="120" text-anchor="middle" font-size="10" fill="#64748b">合同号 · 品种 · 数量 · 客户 · 基准价 · 点价时点</text>
+
+  <line x1="480" y1="130" x2="480" y2="154" stroke="#2563eb" stroke-width="2" marker-end="url(#arB2)"/>
+
+  <!-- 主管 -->
+  <rect x="290" y="156" width="380" height="76" rx="12" fill="#2563eb"/>
+  <text x="480" y="184" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">主管 Agent（Orchestrator）</text>
+  <text x="480" y="206" text-anchor="middle" font-size="10.5" fill="#dbeafe">拆解评审任务 · 定义输出 Schema · asyncio.gather 并行派发</text>
+  <text x="480" y="224" text-anchor="middle" font-size="10.5" fill="#dbeafe">轮次上限 2 · 交叉核对 · 汇总校验不通过打回重做</text>
+
+  <!-- 派发箭头 -->
+  <line x1="400" y1="232" x2="200" y2="272" stroke="#2563eb" stroke-width="1.8" marker-end="url(#arB2)"/>
+  <line x1="480" y1="232" x2="480" y2="272" stroke="#2563eb" stroke-width="1.8" marker-end="url(#arB2)"/>
+  <line x1="560" y1="232" x2="760" y2="272" stroke="#2563eb" stroke-width="1.8" marker-end="url(#arB2)"/>
+  <text x="270" y="248" font-size="10" fill="#2563eb">handoff①带上下文派发</text>
+  <text x="492" y="256" font-size="10" fill="#2563eb">handoff②</text>
+  <text x="620" y="248" font-size="10" fill="#2563eb">handoff③</text>
+
+  <!-- 三个 worker -->
+  <rect x="60" y="274" width="260" height="122" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="60" y="274" width="260" height="7" rx="3.5" fill="#0891b2"/>
+  <text x="190" y="302" text-anchor="middle" font-size="13" font-weight="bold" fill="#0f172a">抽取员 Agent</text>
+  <text x="76" y="326" font-size="10.5" fill="#64748b">职责：合同要素抽取——品种/数量/</text>
+  <text x="76" y="344" font-size="10.5" fill="#64748b">价格条款/溢短装/点价方式</text>
+  <text x="76" y="366" font-size="10" fill="#0891b2">交付物：extraction.json（Schema 校验）</text>
+  <text x="76" y="384" font-size="10" fill="#94a3b8">工具：合同读取 + CTRM 查询</text>
+
+  <rect x="350" y="274" width="260" height="122" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="350" y="274" width="260" height="7" rx="3.5" fill="#dc2626"/>
+  <text x="480" y="302" text-anchor="middle" font-size="13" font-weight="bold" fill="#0f172a">风控员 Agent</text>
+  <text x="366" y="326" font-size="10.5" fill="#64748b">职责：授信额度/敞口占用/对手方</text>
+  <text x="366" y="344" font-size="10.5" fill="#64748b">黑名单/付款条款风险点核查</text>
+  <text x="366" y="366" font-size="10" fill="#dc2626">交付物：risk.json（风险等级+理由）</text>
+  <text x="366" y="384" font-size="10" fill="#94a3b8">工具：授信查询 + 名单核查</text>
+
+  <rect x="640" y="274" width="260" height="122" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="640" y="274" width="260" height="7" rx="3.5" fill="#ea580c"/>
+  <text x="770" y="302" text-anchor="middle" font-size="13" font-weight="bold" fill="#0f172a">定价员 Agent</text>
+  <text x="656" y="326" font-size="10.5" fill="#64748b">职责：基准价偏离度/市场行情</text>
+  <text x="656" y="344" font-size="10.5" fill="#64748b">比对/点价窗口合理性判断</text>
+  <text x="656" y="366" font-size="10" fill="#ea580c">交付物：pricing.json（偏离率+结论）</text>
+  <text x="656" y="384" font-size="10" fill="#94a3b8">工具：行情 API + 历史成交库</text>
+
+  <!-- 回收箭头 -->
+  <line x1="200" y1="396" x2="380" y2="440" stroke="#059669" stroke-width="1.8" marker-end="url(#arG2)"/>
+  <line x1="480" y1="396" x2="480" y2="440" stroke="#059669" stroke-width="1.8" marker-end="url(#arG2)"/>
+  <line x1="760" y1="396" x2="580" y2="440" stroke="#059669" stroke-width="1.8" marker-end="url(#arG2)"/>
+  <text x="240" y="428" font-size="10" fill="#059669">返回 artifact（只带摘要）</text>
+  <text x="492" y="424" font-size="10" fill="#059669">artifact</text>
+  <text x="640" y="428" font-size="10" fill="#059669">artifact</text>
+
+  <!-- 汇总 -->
+  <rect x="250" y="442" width="460" height="76" rx="12" fill="#059669"/>
+  <text x="480" y="470" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">主管汇总：三份 artifact 交叉核对</text>
+  <text x="480" y="492" text-anchor="middle" font-size="10.5" fill="#d1fae5">生成评审意见 review.json：结论 / 风险点 / 定价建议 / 置信度 / 引用依据</text>
+  <text x="480" y="510" text-anchor="middle" font-size="10.5" fill="#d1fae5">字段缺失或口径冲突 → 定向打回对应 Worker（最多 1 轮）</text>
+
+  <line x1="480" y1="518" x2="480" y2="542" stroke="#059669" stroke-width="2" marker-end="url(#arG2)"/>
+
+  <!-- 输出 -->
+  <rect x="310" y="544" width="340" height="50" rx="10" fill="#ecfdf5" stroke="#a7f3d0"/>
+  <text x="480" y="565" text-anchor="middle" font-size="12" font-weight="bold" fill="#065f46">输出：结构化评审意见 → 人工复核（HITL）</text>
+  <text x="480" y="584" text-anchor="middle" font-size="10" fill="#047857">通过后归档 CTRM，全过程 trace_id 可回放</text>
+
+  <!-- 右侧原则标注 -->
+  <rect x="700" y="80" width="230" height="150" rx="10" fill="#fffbeb" stroke="#fcd34d"/>
+  <text x="815" y="104" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#92400e">工程护栏</text>
+  <text x="714" y="126" font-size="10" fill="#78350f">· 三个 Worker 并行，互不共享上下文</text>
+  <text x="714" y="146" font-size="10" fill="#78350f">· 每个 handoff 必填：任务+数据+Schema</text>
+  <text x="714" y="166" font-size="10" fill="#78350f">· 每条消息带 trace_id 与耗时</text>
+  <text x="714" y="186" font-size="10" fill="#78350f">· Token 预算：单评审 ≤ 上限值</text>
+  <text x="714" y="206" font-size="10" fill="#78350f">· Worker 模型用小杯，主管用大杯</text>
+</svg>

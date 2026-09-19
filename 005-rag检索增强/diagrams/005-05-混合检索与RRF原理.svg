@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="arrV" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrO" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ea580c"/>
+    </marker>
+    <marker id="arrP" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7c3aed"/>
+    </marker>
+  </defs>
+  <rect width="960" height="600" fill="#f8fafc"/>
+  <text x="480" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#0f172a">混合检索与 RRF 融合原理</text>
+  <text x="480" y="60" text-anchor="middle" font-size="12" fill="#64748b">BM25 管精确匹配，向量管语义泛化；按名次融合，重排收口</text>
+
+  <!-- 用户问题 -->
+  <rect x="40" y="250" width="110" height="70" rx="10" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <text x="95" y="280" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">用户问题</text>
+  <text x="95" y="300" text-anchor="middle" font-size="10.5" fill="#64748b">「保证金比例」</text>
+
+  <!-- 向量路 -->
+  <path d="M 150 268 L 182 268 L 182 153 L 211 153" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arrV)"/>
+  <rect x="215" y="105" width="170" height="96" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="300" y="130" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#2563eb">向量检索（语义）</text>
+  <text x="300" y="152" text-anchor="middle" font-size="10.5" fill="#334155">embedding → ANN → top-20</text>
+  <text x="300" y="172" text-anchor="middle" font-size="10.5" fill="#64748b">擅长：同义改写、语义泛化</text>
+  <text x="300" y="190" text-anchor="middle" font-size="10.5" fill="#dc2626">弱：合约代码等精确串</text>
+
+  <!-- BM25 路 -->
+  <path d="M 150 302 L 182 302 L 182 423 L 211 423" stroke="#ea580c" stroke-width="2" fill="none" marker-end="url(#arrO)"/>
+  <rect x="215" y="375" width="170" height="96" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="300" y="400" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ea580c">BM25 检索（关键词）</text>
+  <text x="300" y="422" text-anchor="middle" font-size="10.5" fill="#334155">jieba 分词 → 倒排 → top-20</text>
+  <text x="300" y="442" text-anchor="middle" font-size="10.5" fill="#64748b">擅长：编号、品名、数值</text>
+  <text x="300" y="460" text-anchor="middle" font-size="10.5" fill="#dc2626">弱：同义改写就抓瞎</text>
+
+  <!-- 向量 top 列表 -->
+  <path d="M 385 153 L 441 153" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arrV)"/>
+  <rect x="445" y="95" width="150" height="155" rx="8" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="520" y="117" text-anchor="middle" font-size="12" font-weight="bold" fill="#2563eb">向量 top</text>
+  <text x="460" y="140" font-size="10.5" fill="#334155">1  块C · 升贴水计算</text>
+  <text x="460" y="161" font-size="10.5" fill="#334155">2  块A · 点价流程</text>
+  <rect x="452" y="170" width="136" height="18" rx="4" fill="#ffedd5"/>
+  <text x="460" y="183" font-size="10.5" font-weight="bold" fill="#9a3412">3  块D · 保证金比例</text>
+  <text x="460" y="207" font-size="10.5" fill="#334155">4  块F · 合同条款</text>
+  <text x="520" y="235" text-anchor="middle" font-size="10" fill="#64748b">语义近但非逐字命中</text>
+
+  <!-- BM25 top 列表 -->
+  <path d="M 385 423 L 441 423" stroke="#ea580c" stroke-width="2" fill="none" marker-end="url(#arrO)"/>
+  <rect x="445" y="350" width="150" height="155" rx="8" fill="#ffffff" stroke="#fdba74" stroke-width="1.5"/>
+  <text x="520" y="372" text-anchor="middle" font-size="12" font-weight="bold" fill="#ea580c">BM25 top</text>
+  <rect x="452" y="382" width="136" height="18" rx="4" fill="#ffedd5"/>
+  <text x="460" y="395" font-size="10.5" font-weight="bold" fill="#9a3412">1  块D · 保证金比例</text>
+  <text x="460" y="419" font-size="10.5" fill="#334155">2  块F · 合同条款</text>
+  <text x="460" y="440" font-size="10.5" fill="#334155">3  块B · 历史案例</text>
+  <text x="460" y="461" font-size="10.5" fill="#334155">4  块E · 操作手册</text>
+  <text x="520" y="490" text-anchor="middle" font-size="10" fill="#64748b">术语逐字命中排前</text>
+
+  <!-- RRF 框 -->
+  <path d="M 595 172 L 625 172 L 625 262 L 651 262" stroke="#7c3aed" stroke-width="2" fill="none" marker-end="url(#arrP)"/>
+  <path d="M 595 427 L 625 427 L 625 308 L 651 308" stroke="#7c3aed" stroke-width="2" fill="none" marker-end="url(#arrP)"/>
+  <rect x="655" y="230" width="130" height="110" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.8"/>
+  <text x="720" y="254" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#7c3aed">RRF 融合</text>
+  <text x="720" y="277" text-anchor="middle" font-size="11" fill="#334155">score = Σ 1/(k+rank)</text>
+  <text x="720" y="294" text-anchor="middle" font-size="10.5" fill="#64748b">k 常取 60</text>
+  <text x="720" y="320" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7c3aed">只用名次 · 免疫量纲</text>
+
+  <!-- RRF 计算示例 -->
+  <text x="720" y="372" text-anchor="middle" font-size="10.5" fill="#334155">块D = 1/(60+3) + 1/(60+1)</text>
+  <text x="720" y="390" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">≈ 0.032 → 双路共识登顶</text>
+
+  <!-- 融合列表 -->
+  <path d="M 785 285 L 831 285" stroke="#7c3aed" stroke-width="2" fill="none" marker-end="url(#arrP)"/>
+  <rect x="835" y="215" width="100" height="140" rx="8" fill="#ffffff" stroke="#c4b5fd" stroke-width="1.5"/>
+  <text x="885" y="238" text-anchor="middle" font-size="12" font-weight="bold" fill="#7c3aed">融合 top</text>
+  <rect x="842" y="248" width="86" height="18" rx="4" fill="#ffedd5"/>
+  <text x="848" y="261" font-size="10.5" font-weight="bold" fill="#9a3412">1 块D ★共识</text>
+  <text x="848" y="285" font-size="10.5" fill="#334155">2  块F</text>
+  <text x="848" y="306" font-size="10.5" fill="#334155">3  块C</text>
+  <text x="848" y="327" font-size="10.5" fill="#334155">4  块A</text>
+
+  <!-- 底部说明 -->
+  <rect x="40" y="520" width="880" height="52" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="480" y="542" text-anchor="middle" font-size="11" fill="#0f172a">融合 top-50 → rerank（cross-encoder）精排 → top5 进 LLM</text>
+  <text x="480" y="562" text-anchor="middle" font-size="10.5" fill="#64748b">成本控制：重排只跑候选 top50；对比实验见 05 实战篇代码 rrf_fuse()</text>
+</svg>

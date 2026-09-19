@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="620" fill="#f8fafc"/>
+  <defs>
+    <marker id="arrowB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#2563eb"/>
+    </marker>
+  </defs>
+  <text x="480" y="38" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">单 Agent 的天花板与「该不该拆」的信号</text>
+  <text x="480" y="61" text-anchor="middle" font-size="11" fill="#64748b">先承认单 Agent 的极限，再对照双清单决定要不要上多 Agent</text>
+
+  <!-- 左列：四大天花板 -->
+  <text x="250" y="95" text-anchor="middle" font-size="14" font-weight="bold" fill="#dc2626">单 Agent 的四大天花板</text>
+
+  <rect x="40" y="110" width="420" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="40" y="110" width="6" height="100" rx="3" fill="#2563eb"/>
+  <text x="62" y="136" font-size="13" font-weight="bold" fill="#0f172a">① 上下文装不下</text>
+  <text x="62" y="157" font-size="11" fill="#64748b">长任务的中间结果、检索资料、工具返回</text>
+  <text x="62" y="175" font-size="11" fill="#64748b">全部堆进一个窗口，早期信息被稀释</text>
+  <text x="62" y="196" font-size="10.5" fill="#2563eb">CTRM 类比：评审要查 20 份单据，一屏放不下</text>
+
+  <rect x="40" y="224" width="420" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="40" y="224" width="6" height="100" rx="3" fill="#7c3aed"/>
+  <text x="62" y="250" font-size="13" font-weight="bold" fill="#0f172a">② 工具太多，选择混乱</text>
+  <text x="62" y="271" font-size="11" fill="#64748b">工具超过十几个，模型选错率明显上升</text>
+  <text x="62" y="289" font-size="11" fill="#64748b">描述互相打架，参数更容易填错</text>
+  <text x="62" y="310" font-size="10.5" fill="#7c3aed">拆开后每个 Agent 只带 3~5 个专属工具</text>
+
+  <rect x="40" y="338" width="420" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="40" y="338" width="6" height="100" rx="3" fill="#0891b2"/>
+  <text x="62" y="364" font-size="13" font-weight="bold" fill="#0f172a">③ 串行慢，一条链跑到底</text>
+  <text x="62" y="385" font-size="11" fill="#64748b">步骤互相等待：先查库、再算价、再写报告</text>
+  <text x="62" y="403" font-size="11" fill="#64748b">总耗时 = 各步之和，无法并行提速</text>
+  <text x="62" y="424" font-size="10.5" fill="#0891b2">多 Agent 可 asyncio.gather 并行分头干</text>
+
+  <rect x="40" y="452" width="420" height="100" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="40" y="452" width="6" height="100" rx="3" fill="#ea580c"/>
+  <text x="62" y="478" font-size="13" font-weight="bold" fill="#0f172a">④ 职责混杂，Prompt 膨胀</text>
+  <text x="62" y="499" font-size="11" fill="#64748b">抽取 + 风控 + 定价塞进同一个 Prompt</text>
+  <text x="62" y="517" font-size="11" fill="#64748b">规则互相干扰，角色没有归属感</text>
+  <text x="62" y="538" font-size="10.5" fill="#ea580c">一个 Agent 一个角色，Prompt 各自聚焦</text>
+
+  <!-- 中间箭头 -->
+  <line x1="466" y1="312" x2="492" y2="312" stroke="#2563eb" stroke-width="3" marker-end="url(#arrowB)"/>
+
+  <!-- 右列：信号清单 -->
+  <text x="710" y="95" text-anchor="middle" font-size="14" font-weight="bold" fill="#0f172a">该不该拆？对照两张信号清单</text>
+
+  <!-- 绿色：该拆 -->
+  <rect x="500" y="110" width="420" height="182" rx="10" fill="#ecfdf5" stroke="#a7f3d0"/>
+  <text x="522" y="136" font-size="13" font-weight="bold" fill="#059669">✔ 拆分信号（满足 2 条以上再拆）</text>
+  <text x="522" y="160" font-size="11" fill="#065f46">· 任务可分解为边界清晰的独立子任务</text>
+  <text x="522" y="181" font-size="11" fill="#065f46">· 子任务互相独立，能并行省时间</text>
+  <text x="522" y="202" font-size="11" fill="#065f46">· 不同子任务需要不同的工具或专长</text>
+  <text x="522" y="223" font-size="11" fill="#065f46">· 单 Agent 的上下文确实装不下了</text>
+  <text x="522" y="244" font-size="11" fill="#065f46">· 需要多视角交叉验证（如风控 + 定价）</text>
+  <text x="522" y="272" font-size="10.5" fill="#047857">点价评审：抽取/风控/定价三类子任务独立、可并行 → 适合拆</text>
+
+  <!-- 红色：不该拆 -->
+  <rect x="500" y="306" width="420" height="182" rx="10" fill="#fef2f2" stroke="#fecaca"/>
+  <text x="522" y="332" font-size="13" font-weight="bold" fill="#dc2626">✘ 不该拆的信号（Anthropic 观点）</text>
+  <text x="522" y="356" font-size="11" fill="#7f1d1d">· 能单 Agent 就单 Agent——多 Agent 是双刃剑</text>
+  <text x="522" y="377" font-size="11" fill="#7f1d1d">· 多 Agent Token 消耗约为单 Agent 的 15 倍</text>
+  <text x="522" y="398" font-size="11" fill="#7f1d1d">· 子任务强耦合、要共享大量上下文</text>
+  <text x="522" y="419" font-size="11" fill="#7f1d1d">· 一次问答能解决的事（拆了纯属浪费）</text>
+  <text x="522" y="440" font-size="11" fill="#7f1d1d">· 需要严格确定性：直接写代码而非堆 Agent</text>
+  <text x="522" y="468" font-size="10.5" fill="#b91c1c">来源：Anthropic《How we built our multi-agent research system》(2025-06)</text>
+
+  <!-- 底部裁定 -->
+  <rect x="120" y="510" width="720" height="72" rx="10" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="480" y="538" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e40af">裁定顺序：先优化 Prompt 与工具 → 不行再试「工作流固化」→ 确需并行与专长分工才上多 Agent</text>
+  <text x="480" y="562" text-anchor="middle" font-size="11" fill="#64748b">拆的收益 = 并行提速 + 上下文隔离；拆的代价 = 15 倍 Token + 协调复杂度。赚不赚，先算账再动工</text>
+</svg>

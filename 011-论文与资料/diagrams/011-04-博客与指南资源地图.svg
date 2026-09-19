@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="580" fill="#f8fafc"/>
+  <text x="480" y="40" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">博客与指南资源地图</text>
+  <text x="480" y="64" text-anchor="middle" font-size="12" fill="#64748b">厂商一手实践 × 个人深度 × 社区广度 · 中心圆 = 最小订阅组合</text>
+
+  <!-- 左上 Anthropic -->
+  <rect x="36" y="92" width="410" height="212" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <rect x="36" y="92" width="410" height="36" rx="10" fill="#2563eb"/>
+  <rect x="36" y="114" width="410" height="14" fill="#2563eb"/>
+  <text x="241" y="116" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">Anthropic 工程博客（一手实践）</text>
+  <text x="52" y="152" font-size="11.5" font-weight="bold" fill="#0f172a">Building effective agents</text>
+  <text x="52" y="170" font-size="10.5" fill="#64748b">workflow vs agent · 反过度设计的"宪法" · ★★★</text>
+  <text x="52" y="196" font-size="11.5" font-weight="bold" fill="#0f172a">Effective context engineering</text>
+  <text x="52" y="214" font-size="10.5" fill="#64748b">注意力是稀缺资源：压缩 / 子 agent / 记忆 · ★★★</text>
+  <text x="52" y="240" font-size="11.5" font-weight="bold" fill="#0f172a">Multi-agent research system</text>
+  <text x="52" y="258" font-size="10.5" fill="#64748b">真实生产复盘：收益与 token 成本 · ★★★</text>
+  <text x="52" y="284" font-size="11.5" font-weight="bold" fill="#0f172a">Writing tools for agents</text>
+  <text x="52" y="298" font-size="10.5" fill="#64748b">给模型写工具的风格学 · ★★</text>
+
+  <!-- 右上 OpenAI -->
+  <rect x="514" y="92" width="410" height="212" rx="10" fill="#ffffff" stroke="#059669" stroke-width="1.5"/>
+  <rect x="514" y="92" width="410" height="36" rx="10" fill="#059669"/>
+  <rect x="514" y="114" width="410" height="14" fill="#059669"/>
+  <text x="719" y="116" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">OpenAI 官方指南</text>
+  <text x="530" y="152" font-size="11.5" font-weight="bold" fill="#0f172a">A practical guide to building agents</text>
+  <text x="530" y="170" font-size="10.5" fill="#64748b">何时该/不该上 agent · 护栏设计 · ★★★</text>
+  <text x="530" y="196" font-size="11.5" font-weight="bold" fill="#0f172a">GPT-5 prompting guide</text>
+  <text x="530" y="214" font-size="10.5" fill="#64748b">官方定义"好提示词"：agentic 控制 · ★★</text>
+  <text x="530" y="240" font-size="11.5" font-weight="bold" fill="#0f172a">OpenAI Cookbook</text>
+  <text x="530" y="258" font-size="10.5" fill="#64748b">RAG / eval / function calling 可运行样板 · ★★</text>
+  <text x="530" y="284" font-size="11.5" font-weight="bold" fill="#0f172a">企业落地清单（resources 页）</text>
+  <text x="530" y="298" font-size="10.5" fill="#64748b">给非技术干系人的科普材料 · ★</text>
+
+  <!-- 左下 个人必订 -->
+  <rect x="36" y="330" width="410" height="214" rx="10" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5"/>
+  <rect x="36" y="330" width="410" height="36" rx="10" fill="#7c3aed"/>
+  <rect x="36" y="352" width="410" height="14" fill="#7c3aed"/>
+  <text x="241" y="354" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">个人必订（深度）</text>
+  <text x="52" y="390" font-size="11.5" font-weight="bold" fill="#0f172a">Lilian Weng — lilianweng.github.io</text>
+  <text x="52" y="407" font-size="10.5" fill="#64748b">Agent = 规划+记忆+工具 的权威框架 · ★★★</text>
+  <text x="52" y="432" font-size="11.5" font-weight="bold" fill="#0f172a">Simon Willison — simonwillison.net</text>
+  <text x="52" y="449" font-size="10.5" fill="#64748b">最快实测 + prompt injection 安全雷达 · ★★★</text>
+  <text x="52" y="474" font-size="11.5" font-weight="bold" fill="#0f172a">Andrej Karpathy — YouTube</text>
+  <text x="52" y="491" font-size="10.5" fill="#64748b">LLM 全栈直觉最佳视频（Deep Dive 3.5h）· ★★★</text>
+  <text x="52" y="516" font-size="11.5" font-weight="bold" fill="#0f172a">Latent Space / Interconnects / Chip Huyen / Hamel</text>
+  <text x="52" y="533" font-size="10.5" fill="#64748b">访谈 · 开源分析 · 系统设计 · evals 实战 · ★★</text>
+
+  <!-- 右下 社区雷达 -->
+  <rect x="514" y="330" width="410" height="214" rx="10" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <rect x="514" y="330" width="410" height="36" rx="10" fill="#ea580c"/>
+  <rect x="514" y="352" width="410" height="14" fill="#ea580c"/>
+  <text x="719" y="354" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">社区雷达（广度）</text>
+  <text x="530" y="390" font-size="11.5" font-weight="bold" fill="#0f172a">Hugging Face Daily Papers</text>
+  <text x="530" y="407" font-size="10.5" fill="#64748b">发现"下一篇该精读谁"的主雷达 · ★★★</text>
+  <text x="530" y="432" font-size="11.5" font-weight="bold" fill="#0f172a">AlphaXiv</text>
+  <text x="530" y="449" font-size="10.5" fill="#64748b">论文导读 + 全文问答，英文吃力的好帮手 · ★★</text>
+  <text x="530" y="474" font-size="11.5" font-weight="bold" fill="#0f172a">AI News（swyx）/ r/LocalLLaMA</text>
+  <text x="530" y="491" font-size="10.5" fill="#64748b">一封邮件扫天下 + 修罗场式真实反馈 · ★★</text>
+  <text x="530" y="516" font-size="11.5" font-weight="bold" fill="#0f172a">中文快讯：机器之心 / 量子位</text>
+  <text x="530" y="533" font-size="10.5" fill="#64748b">通勤一刷，深度以英文源为准 · ★</text>
+
+  <!-- 中心圆 -->
+  <circle cx="480" cy="317" r="70" fill="#0f172a" stroke="#f8fafc" stroke-width="5"/>
+  <text x="480" y="294" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">最小订阅组合</text>
+  <text x="480" y="314" text-anchor="middle" font-size="11" fill="#e2e8f0">Simon Willison + Lilian</text>
+  <text x="480" y="332" text-anchor="middle" font-size="11" fill="#e2e8f0">Latent Space + HF Papers</text>
+  <text x="480" y="354" text-anchor="middle" font-size="10.5" fill="#94a3b8">每周固定 15~30 分钟</text>
+
+  <!-- 底部提示 -->
+  <rect x="36" y="556" width="888" height="0" fill="none"/>
+  <text x="480" y="570" text-anchor="middle" font-size="11.5" fill="#64748b">RSS 订阅 &gt; 算法推荐：把情报源固定下来，每天只看一次，全订会淹死</text>
+</svg>

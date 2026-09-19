@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 660" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#334155"/>
+    </marker>
+  </defs>
+  <rect width="960" height="660" fill="#f8fafc"/>
+  <text x="480" y="40" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">Agent 论文知识地图</text>
+  <text x="480" y="64" text-anchor="middle" font-size="12" fill="#64748b">十篇必读论文 × 专题分区 · 箭头 = 思想传承 · ★ = 优先级（★★★ 先读）</text>
+
+  <!-- 列1 基础与提示工程 -->
+  <rect x="28" y="88" width="210" height="470" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="133" y="114" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#1d4ed8">基础与提示工程</text>
+  <rect x="44" y="132" width="178" height="106" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="133" y="154" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">GPT-3 few-shot</text>
+  <text x="133" y="171" text-anchor="middle" font-size="10.5" fill="#64748b">2020 · OpenAI</text>
+  <text x="133" y="192" text-anchor="middle" font-size="10.5" fill="#334155">few-shot 开启</text>
+  <text x="133" y="208" text-anchor="middle" font-size="10.5" fill="#334155">in-context learning</text>
+  <text x="133" y="230" text-anchor="middle" font-size="11" font-weight="bold" fill="#ea580c">★★★ · 衔接 002</text>
+  <rect x="44" y="342" width="178" height="106" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="133" y="364" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">The Prompt Report</text>
+  <text x="133" y="381" text-anchor="middle" font-size="10.5" fill="#64748b">2024 · OpenAI 等 40 机构</text>
+  <text x="133" y="402" text-anchor="middle" font-size="10.5" fill="#334155">58 种 prompting 技术</text>
+  <text x="133" y="418" text-anchor="middle" font-size="10.5" fill="#334155">统一术语字典</text>
+  <text x="133" y="440" text-anchor="middle" font-size="11" font-weight="bold" fill="#ea580c">★★ · 衔接 001</text>
+
+  <!-- 列2 推理增强 -->
+  <rect x="256" y="88" width="228" height="470" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="370" y="114" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#6d28d9">推理增强</text>
+  <rect x="272" y="136" width="196" height="100" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="370" y="157" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">Chain-of-Thought ★★★</text>
+  <text x="370" y="174" text-anchor="middle" font-size="10.5" fill="#64748b">2022 · Google Brain</text>
+  <text x="370" y="194" text-anchor="middle" font-size="10.5" fill="#334155">写出推理步骤</text>
+  <text x="370" y="210" text-anchor="middle" font-size="10.5" fill="#334155">GSM8K 17.9% → 56.9%</text>
+  <rect x="272" y="286" width="196" height="100" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="370" y="307" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">Self-Consistency ★★</text>
+  <text x="370" y="324" text-anchor="middle" font-size="10.5" fill="#64748b">2022 · Google Brain</text>
+  <text x="370" y="344" text-anchor="middle" font-size="10.5" fill="#334155">多样采样 + 投票</text>
+  <text x="370" y="360" text-anchor="middle" font-size="10.5" fill="#334155">GSM8K 再 +17.9%</text>
+  <rect x="272" y="436" width="196" height="100" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="370" y="457" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">Tree of Thoughts ★★</text>
+  <text x="370" y="474" text-anchor="middle" font-size="10.5" fill="#64748b">2023 · Princeton / DeepMind</text>
+  <text x="370" y="494" text-anchor="middle" font-size="10.5" fill="#334155">分支 · 评估 · 回溯</text>
+  <text x="370" y="510" text-anchor="middle" font-size="10.5" fill="#334155">24 点：4% → 74%</text>
+
+  <!-- 列3 Agent 行为 -->
+  <rect x="502" y="88" width="228" height="470" rx="10" fill="#ffedd5" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="616" y="114" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#c2410c">Agent 行为</text>
+  <rect x="518" y="136" width="196" height="100" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="616" y="157" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">ReAct ★★★</text>
+  <text x="616" y="174" text-anchor="middle" font-size="10.5" fill="#64748b">2022 · Princeton / Google</text>
+  <text x="616" y="194" text-anchor="middle" font-size="10.5" fill="#334155">Thought ↔ Action 交替</text>
+  <text x="616" y="210" text-anchor="middle" font-size="10.5" fill="#334155">现代 Agent 的骨架</text>
+  <rect x="518" y="286" width="196" height="100" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="616" y="307" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">Toolformer ★★</text>
+  <text x="616" y="324" text-anchor="middle" font-size="10.5" fill="#64748b">2023 · Meta AI</text>
+  <text x="616" y="344" text-anchor="middle" font-size="10.5" fill="#334155">自监督学会调 API</text>
+  <text x="616" y="360" text-anchor="middle" font-size="10.5" fill="#334155">6B+工具 胜大模型</text>
+  <rect x="518" y="436" width="196" height="100" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="616" y="457" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">Reflexion ★★★</text>
+  <text x="616" y="474" text-anchor="middle" font-size="10.5" fill="#64748b">2023 · NEU / MIT</text>
+  <text x="616" y="494" text-anchor="middle" font-size="10.5" fill="#334155">失败 → 反思 → 存记忆</text>
+  <text x="616" y="510" text-anchor="middle" font-size="10.5" fill="#334155">HumanEval 91%</text>
+
+  <!-- 列4 知识与记忆 -->
+  <rect x="748" y="88" width="184" height="470" rx="10" fill="#cffafe" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="840" y="114" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0e7490">知识与记忆</text>
+  <rect x="762" y="136" width="156" height="112" rx="8" fill="#ffffff" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="840" y="158" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">RAG 原论文 ★★★</text>
+  <text x="840" y="175" text-anchor="middle" font-size="10.5" fill="#64748b">2020 · Meta AI</text>
+  <text x="840" y="196" text-anchor="middle" font-size="10.5" fill="#334155">先检索再生成</text>
+  <text x="840" y="212" text-anchor="middle" font-size="10.5" fill="#334155">开卷考试范式</text>
+  <text x="840" y="234" text-anchor="middle" font-size="10.5" fill="#334155">衔接 006</text>
+  <rect x="762" y="302" width="156" height="100" rx="8" fill="#ffffff" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="840" y="323" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">MemGPT ★★</text>
+  <text x="840" y="340" text-anchor="middle" font-size="10.5" fill="#64748b">2023 · UC Berkeley</text>
+  <text x="840" y="360" text-anchor="middle" font-size="10.5" fill="#334155">OS 分页思想管记忆</text>
+  <text x="840" y="376" text-anchor="middle" font-size="10.5" fill="#334155">衔接 007</text>
+  <rect x="762" y="452" width="156" height="84" rx="8" fill="#ffffff" stroke="#0891b2" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="840" y="480" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#0e7490">多 Agent / MCP / 评估</text>
+  <text x="840" y="500" text-anchor="middle" font-size="10.5" fill="#64748b">演进快 → 见</text>
+  <text x="840" y="516" text-anchor="middle" font-size="10.5" fill="#64748b">02-扩展论文索引</text>
+
+  <!-- 传承箭头 -->
+  <path d="M 222 200 L 266 190" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#ar)"/>
+  <path d="M 468 186 L 512 186" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#ar)"/>
+  <path d="M 370 236 L 370 280" fill="none" stroke="#7c3aed" stroke-width="2" marker-end="url(#ar)"/>
+  <path d="M 370 386 L 370 430" fill="none" stroke="#7c3aed" stroke-width="2" marker-end="url(#ar)"/>
+  <path d="M 616 286 L 616 242" fill="none" stroke="#ea580c" stroke-width="2" marker-end="url(#ar)"/>
+  <path d="M 518 210 L 496 210 L 496 486 L 512 486" fill="none" stroke="#ea580c" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#ar)"/>
+  <path d="M 840 248 L 840 296" fill="none" stroke="#0891b2" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- 图例 -->
+  <rect x="28" y="578" width="904" height="56" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <path d="M 52 606 L 96 606" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="106" y="610" font-size="11" fill="#334155">思想传承</text>
+  <path d="M 196 606 L 240 606" fill="none" stroke="#ea580c" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#ar)"/>
+  <text x="250" y="610" font-size="11" fill="#334155">工程化延伸 / 绕行关系</text>
+  <text x="424" y="610" font-size="11" fill="#334155">★★★ = 必读优先</text>
+  <text x="562" y="610" font-size="11" fill="#64748b">完整传承与影响见每篇精读卡的"影响"与"衔接"节</text>
+  <text x="562" y="626" font-size="10.5" fill="#64748b">MCP / 多 Agent / 评估演进快，以 03-博客清单为雷达</text>
+</svg>

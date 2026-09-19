@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="primArrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L9,4 L0,8 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="580" fill="#f8fafc"/>
+
+  <text x="480" y="40" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">三原语设计边界：tools / resources / prompts 什么时候做成什么</text>
+  <text x="480" y="64" text-anchor="middle" font-size="12" fill="#64748b">总纲：tools 回答"做什么"（有动作）· resources 回答"读什么"（只读）· prompts 回答"怎么问"（模板）</text>
+
+  <!-- tools 卡 -->
+  <rect x="40" y="88" width="270" height="352" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <rect x="40" y="88" width="270" height="46" rx="12" fill="#2563eb"/>
+  <rect x="40" y="112" width="270" height="22" fill="#2563eb"/>
+  <text x="175" y="110" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff">Tools 工具</text>
+  <text x="175" y="127" text-anchor="middle" font-size="10.5" fill="#dbeafe">模型可控 · 有副作用</text>
+
+  <text x="56" y="160" font-size="10.5" font-weight="bold" fill="#64748b">触发者</text>
+  <text x="56" y="178" font-size="11.5" fill="#0f172a">模型推理时按需决定调用</text>
+  <text x="56" y="202" font-size="10.5" font-weight="bold" fill="#64748b">副作用</text>
+  <text x="56" y="220" font-size="11.5" fill="#0f172a">有：查询库、下单、发审批</text>
+  <text x="56" y="244" font-size="10.5" font-weight="bold" fill="#64748b">数据形态</text>
+  <text x="56" y="262" font-size="11.5" fill="#0f172a">动作 + 参数（JSON Schema）+ 结果</text>
+  <text x="56" y="286" font-size="10.5" font-weight="bold" fill="#64748b">CTRM 例</text>
+  <text x="56" y="304" font-size="10.5" fill="#2563eb">query_inventory(warehouse, sku)</text>
+  <text x="56" y="321" font-size="10.5" fill="#2563eb">query_futures_price(contract)</text>
+  <text x="56" y="345" font-size="10.5" font-weight="bold" fill="#64748b">协议方法</text>
+  <text x="56" y="363" font-size="11.5" fill="#0f172a">tools/list → tools/call</text>
+  <rect x="56" y="380" width="238" height="24" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1"/>
+  <text x="175" y="396" text-anchor="middle" font-size="10" font-weight="bold" fill="#2563eb">注解：readOnlyHint / destructiveHint</text>
+  <text x="175" y="426" text-anchor="middle" font-size="10.5" fill="#64748b">用户审批链路必须覆盖写操作</text>
+
+  <!-- resources 卡 -->
+  <rect x="345" y="88" width="270" height="352" rx="12" fill="#ffffff" stroke="#0891b2" stroke-width="2"/>
+  <rect x="345" y="88" width="270" height="46" rx="12" fill="#0891b2"/>
+  <rect x="345" y="112" width="270" height="22" fill="#0891b2"/>
+  <text x="480" y="110" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff">Resources 资源</text>
+  <text x="480" y="127" text-anchor="middle" font-size="10.5" fill="#cffafe">应用可控 · 只读上下文</text>
+
+  <text x="361" y="160" font-size="10.5" font-weight="bold" fill="#64748b">触发者</text>
+  <text x="361" y="178" font-size="11.5" fill="#0f172a">应用挂载 / 用户选择附带</text>
+  <text x="361" y="202" font-size="10.5" font-weight="bold" fill="#64748b">副作用</text>
+  <text x="361" y="220" font-size="11.5" fill="#0f172a">无：纯只读，可缓存可订阅</text>
+  <text x="361" y="244" font-size="10.5" font-weight="bold" fill="#64748b">数据形态</text>
+  <text x="361" y="262" font-size="11.5" fill="#0f172a">URI 定位的内容（含模板 URI）</text>
+  <text x="361" y="286" font-size="10.5" font-weight="bold" fill="#64748b">CTRM 例</text>
+  <text x="361" y="304" font-size="10.5" fill="#0891b2">ctrm://inventory/snapshot/{date}</text>
+  <text x="361" y="321" font-size="10.5" fill="#64748b">当日全量库存快照（005 检索器）</text>
+  <text x="361" y="345" font-size="10.5" font-weight="bold" fill="#64748b">协议方法</text>
+  <text x="361" y="363" font-size="11.5" fill="#0f172a">resources/list → resources/read</text>
+  <rect x="361" y="380" width="238" height="24" rx="6" fill="#ecfeff" stroke="#0891b2" stroke-width="1"/>
+  <text x="480" y="396" text-anchor="middle" font-size="10" font-weight="bold" fill="#0891b2">变更推送：notifications/updated</text>
+  <text x="480" y="426" text-anchor="middle" font-size="10.5" fill="#64748b">整段挂上下文，利于提示缓存</text>
+
+  <!-- prompts 卡 -->
+  <rect x="650" y="88" width="270" height="352" rx="12" fill="#ffffff" stroke="#7c3aed" stroke-width="2"/>
+  <rect x="650" y="88" width="270" height="46" rx="12" fill="#7c3aed"/>
+  <rect x="650" y="112" width="270" height="22" fill="#7c3aed"/>
+  <text x="785" y="110" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff">Prompts 模板</text>
+  <text x="785" y="127" text-anchor="middle" font-size="10.5" fill="#ddd6fe">用户可控 · 标准化问法</text>
+
+  <text x="666" y="160" font-size="10.5" font-weight="bold" fill="#64748b">触发者</text>
+  <text x="666" y="178" font-size="11.5" fill="#0f172a">用户在 UI 中显式选择</text>
+  <text x="666" y="202" font-size="10.5" font-weight="bold" fill="#64748b">副作用</text>
+  <text x="666" y="220" font-size="11.5" fill="#0f172a">无：只是组装好的提示文本</text>
+  <text x="666" y="244" font-size="10.5" font-weight="bold" fill="#64748b">数据形态</text>
+  <text x="666" y="262" font-size="11.5" fill="#0f172a">参数化文本模板（可含指令）</text>
+  <text x="666" y="286" font-size="10.5" font-weight="bold" fill="#64748b">CTRM 例</text>
+  <text x="666" y="304" font-size="10.5" fill="#7c3aed">analyze_warehouse_risk(仓库)</text>
+  <text x="666" y="321" font-size="10.5" fill="#64748b">一键生成库存风险分析问法</text>
+  <text x="666" y="345" font-size="10.5" font-weight="bold" fill="#64748b">协议方法</text>
+  <text x="666" y="363" font-size="11.5" fill="#0f172a">prompts/list → prompts/get</text>
+  <rect x="666" y="380" width="238" height="24" rx="6" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1"/>
+  <text x="785" y="396" text-anchor="middle" font-size="10" font-weight="bold" fill="#7c3aed">把团队最佳问法沉淀为资产</text>
+  <text x="785" y="426" text-anchor="middle" font-size="10.5" fill="#64748b">不解决权限，高危操作仍须 tool+审批</text>
+
+  <!-- 选型口诀 -->
+  <rect x="40" y="462" width="880" height="96" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="60" y="486" font-size="12.5" font-weight="bold" fill="#0f172a">选型口诀（按顺序自问）</text>
+  <rect x="60" y="496" width="264" height="26" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1"/>
+  <text x="192" y="513" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#2563eb">有副作用 / 参数化查询 → tool</text>
+  <line x1="328" y1="509" x2="348" y2="509" stroke="#64748b" stroke-width="1.5" marker-end="url(#primArrow)"/>
+  <rect x="352" y="496" width="264" height="26" rx="6" fill="#ecfeff" stroke="#0891b2" stroke-width="1"/>
+  <text x="484" y="513" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#0891b2">只读快照 / 可缓存上下文 → resource</text>
+  <line x1="620" y1="509" x2="640" y2="509" stroke="#64748b" stroke-width="1.5" marker-end="url(#primArrow)"/>
+  <rect x="644" y="496" width="264" height="26" rx="6" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1"/>
+  <text x="776" y="513" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#7c3aed">标准化问法 / 复用话术 → prompt</text>
+  <text x="480" y="544" text-anchor="middle" font-size="11" font-weight="bold" fill="#dc2626">坑：别把参数化查询做成 resource（模型无法按需触发）；别把高危操作藏进 prompt（不解决权限）</text>
+</svg>

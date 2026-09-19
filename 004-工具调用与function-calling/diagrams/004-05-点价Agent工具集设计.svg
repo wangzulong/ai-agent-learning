@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="560" fill="#f8fafc"/>
+  <text x="480" y="36" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">贯穿案例：点价 Agent 工具集设计（004 问题篇 / 003 实战篇）</text>
+  <text x="480" y="60" text-anchor="middle" font-size="13" fill="#64748b">四个工具、读写分级、权限最小化 —— 工具面设计就是给模型划跑道</text>
+
+  <!-- 工具1 抽取 -->
+  <rect x="40" y="96" width="440" height="120" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="56" y="122" font-size="13" font-weight="bold" fill="#1e40af">① extract_email_elements</text>
+  <text x="470" y="122" text-anchor="end" font-size="11" fill="#059669">读 · 低风险 · 可全自动</text>
+  <text x="56" y="146" font-size="10.5" fill="#1d4ed8">从邮件抽取要素（品种/数量/基差/合约月）→ JSON</text>
+  <text x="56" y="166" font-size="10.5" fill="#1d4ed8">enum 约束品种；缺失返回 null 禁止编造</text>
+  <text x="56" y="190" font-size="10" fill="#64748b">描述要点：措辞不规范时优先使用；非点价邮件返回空</text>
+
+  <!-- 工具2 库存 -->
+  <rect x="40" y="232" width="440" height="120" rx="10" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+  <text x="56" y="258" font-size="13" font-weight="bold" fill="#065f46">② query_inventory</text>
+  <text x="470" y="258" text-anchor="end" font-size="11" fill="#059669">读 · 低风险 · 只读 DB 账号</text>
+  <text x="56" y="282" font-size="10.5" fill="#047857">按品种查可用量与仓库；返回 top20 + page 参数</text>
+  <text x="56" y="302" font-size="10.5" fill="#047857">品种无效返回 available_varieties（可自纠）</text>
+  <text x="56" y="326" font-size="10" fill="#64748b">描述要点："不要用它查期货价"（边界声明防误选）</text>
+
+  <!-- 工具3 期货价 -->
+  <rect x="40" y="368" width="440" height="120" rx="10" fill="#cffafe" stroke="#0891b2" stroke-width="2"/>
+  <text x="56" y="394" font-size="13" font-weight="bold" fill="#155e75">③ query_futures_price</text>
+  <text x="470" y="394" text-anchor="end" font-size="11" fill="#059669">读 · 低风险 · 缓存 60s</text>
+  <text x="56" y="418" font-size="10.5" fill="#0e7490">查合约最新价与基差参考；只回 4 个字段</text>
+  <text x="56" y="438" font-size="10.5" fill="#0e7490">（合约/最新价/基差/时间戳）——摘要投影省 token</text>
+  <text x="56" y="462" font-size="10" fill="#64748b">描述要点：返回数据的"时间戳"让模型判断新鲜度</text>
+
+  <!-- 工具4 建单（高危） -->
+  <rect x="500" y="96" width="420" height="392" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="516" y="122" font-size="13" font-weight="bold" fill="#b91c1c">④ submit_pricing_proposal</text>
+  <text x="906" y="122" text-anchor="end" font-size="11" fill="#dc2626">写 · 高风险 · 强制人工确认</text>
+  <text x="516" y="148" font-size="10.5" fill="#991b1b">生成点价建议单 → 挂 pending → 交易员确认后落库</text>
+  <rect x="516" y="164" width="388" height="140" rx="8" fill="#ffffff"/>
+  <text x="530" y="186" font-size="11.5" font-weight="bold" fill="#0f172a">高危工具五件套（06 篇 P0 清单）</text>
+  <text x="530" y="208" font-size="10.5" fill="#334155">1. 参数预算：单笔数量 ≤ 历史最大 ×1.2（代码校验）</text>
+  <text x="530" y="228" font-size="10.5" fill="#334155">2. 幂等：客户端 request_id 去重（重试不重复建单）</text>
+  <text x="530" y="248" font-size="10.5" fill="#334155">3. 时间窗：仅业务时段开放</text>
+  <text x="530" y="268" font-size="10.5" fill="#334155">4. 审计：100% 落审计表（谁/何时/参数/谁确认）</text>
+  <text x="530" y="288" font-size="10.5" fill="#334155">5. 注入演练：对抗样本进评估集，模型升级必跑</text>
+  <rect x="516" y="318" width="388" height="66" rx="8" fill="#fffbeb"/>
+  <text x="530" y="340" font-size="10.5" font-weight="bold" fill="#92400e">为什么建议单不直接落库？</text>
+  <text x="530" y="360" font-size="10.5" fill="#78350f">写操作 + 高风险 → 分级自主（003 篇）：失败成本从</text>
+  <text x="530" y="378" font-size="10.5" fill="#78350f">"错误点价"降到"人工看一眼建议单"</text>
+  <text x="516" y="416" font-size="10" fill="#64748b">描述要点：写明"挂起后等待确认，无需重试"（防重复提交）</text>
+  <text x="516" y="446" font-size="10.5" fill="#991b1b">错误信息示例：超出预算上限 → "单笔上限 5000 吨，收到</text>
+  <text x="516" y="464" font-size="10.5" fill="#991b1b">8000 吨。请调低数量后重试，勿重试相同参数"（可自纠）</text>
+
+  <!-- 底部 -->
+  <rect x="40" y="500" width="880" height="42" rx="9" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="480" y="527" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">设计心法：三个只读工具给模型"眼睛"，一个受控写工具给模型"手" —— 跑道画好，幻觉撞不了墙</text>
+</svg>

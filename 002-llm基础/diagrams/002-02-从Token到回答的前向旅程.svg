@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 460" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="460" fill="#f8fafc"/>
+  <text x="480" y="36" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">一次生成 = 从 Token 到回答的完整前向旅程</text>
+  <text x="480" y="60" text-anchor="middle" font-size="13" fill="#64748b">模型每次只做一件事：读入前文，预测下一个 token —— 然后把预测结果拼回前文，再来一遍</text>
+
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrRed" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <!-- 主流水线 -->
+  <rect x="40" y="90" width="118" height="88" rx="10" fill="#0ea5e9"/>
+  <text x="99" y="122" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#fff">① 输入文本</text>
+  <text x="99" y="143" text-anchor="middle" font-size="11" fill="#e0f2fe">"点价数量</text>
+  <text x="99" y="160" text-anchor="middle" font-size="11" fill="#e0f2fe">是 500 吨"</text>
+
+  <line x1="158" y1="134" x2="188" y2="134" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)"/>
+
+  <rect x="190" y="90" width="118" height="88" rx="10" fill="#0891b2"/>
+  <text x="249" y="122" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#fff">② 分词器</text>
+  <text x="249" y="143" text-anchor="middle" font-size="11" fill="#cffafe">BPE 切成 token</text>
+  <text x="249" y="160" text-anchor="middle" font-size="11" fill="#cffafe">[点价][数量][是]</text>
+
+  <line x1="308" y1="134" x2="338" y2="134" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)"/>
+
+  <rect x="340" y="90" width="118" height="88" rx="10" fill="#7c3aed"/>
+  <text x="399" y="122" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#fff">③ 嵌入向量</text>
+  <text x="399" y="143" text-anchor="middle" font-size="11" fill="#ede9fe">每个 token 变成</text>
+  <text x="399" y="160" text-anchor="middle" font-size="11" fill="#ede9fe">一串数字(向量)</text>
+
+  <line x1="458" y1="134" x2="488" y2="134" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Transformer 块（放大） -->
+  <rect x="490" y="78" width="200" height="112" rx="10" fill="#ea580c"/>
+  <text x="590" y="102" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#fff">④ N 层 Transformer 块</text>
+  <rect x="506" y="112" width="168" height="30" rx="6" fill="#c2410c"/>
+  <text x="590" y="132" text-anchor="middle" font-size="11.5" fill="#ffedd5">自注意力：token 互相看</text>
+  <rect x="506" y="148" width="168" height="30" rx="6" fill="#c2410c"/>
+  <text x="590" y="168" text-anchor="middle" font-size="11.5" fill="#ffedd5">前馈网络：逐个深加工</text>
+
+  <line x1="690" y1="134" x2="720" y2="134" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)"/>
+
+  <rect x="722" y="90" width="100" height="88" rx="10" fill="#059669"/>
+  <text x="772" y="122" text-anchor="middle" font-size="14.5" font-weight="bold" fill="#fff">⑤ Logits</text>
+  <text x="772" y="143" text-anchor="middle" font-size="11" fill="#d1fae5">词表里每个 token</text>
+  <text x="772" y="160" text-anchor="middle" font-size="11" fill="#d1fae5">的原始得分</text>
+
+  <line x1="822" y1="134" x2="852" y2="134" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)"/>
+
+  <rect x="854" y="90" width="86" height="88" rx="10" fill="#16a34a"/>
+  <text x="897" y="118" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">⑥ 采样</text>
+  <text x="897" y="138" text-anchor="middle" font-size="11" fill="#dcfce7">softmax→概率</text>
+  <text x="897" y="155" text-anchor="middle" font-size="11" fill="#dcfce7">掷骰子选中</text>
+  <text x="897" y="172" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">"500"</text>
+
+  <!-- 循环箭头 -->
+  <path d="M 897 178 L 897 250 L 99 250 L 99 186" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="7,5" marker-end="url(#arrRed)"/>
+  <rect x="330" y="236" width="300" height="28" rx="14" fill="#fee2e2" stroke="#fca5a5"/>
+  <text x="480" y="255" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#b91c1c">把 "500" 拼回输入，重复整个过程 —— 自回归生成</text>
+
+  <!-- 人话注解条 -->
+  <rect x="40" y="292" width="900" height="150" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="60" y="318" font-size="13.5" font-weight="bold" fill="#0f172a">每一步的人话翻译（费曼版）：</text>
+  <text x="60" y="343" font-size="12" fill="#334155">· <tspan font-weight="bold" fill="#0891b2">分词</tspan>：模型不认识"字"，只认识 token——把文本切成它词表里的标准积木块（中文字≈0.6~1个token）</text>
+  <text x="60" y="366" font-size="12" fill="#334155">· <tspan font-weight="bold" fill="#7c3aed">嵌入</tspan>：把每个积木块变成高维空间里的一个坐标点，意思相近的词坐标相近（"升贴水"和"溢价"是邻居）</text>
+  <text x="60" y="389" font-size="12" fill="#334155">· <tspan font-weight="bold" fill="#ea580c">注意力</tspan>：每个 token 环顾四周，决定"该重点关注句子里谁"——"是"会重点看"数量"和"500"</text>
+  <text x="60" y="412" font-size="12" fill="#334155">· <tspan font-weight="bold" fill="#16a34a">采样</tspan>：得分变概率后掷骰子——temperature 就是骰子的"歪度"；模型输出内容=重复这个过程几十~几千次</text>
+  <text x="60" y="435" font-size="12" fill="#334155">· <tspan font-weight="bold" fill="#dc2626">循环</tspan>：没有"思考完再输出"，只有"一个 token 一个 token 往外蹦"——这是理解流式输出和成本结构的钥匙</text>
+</svg>

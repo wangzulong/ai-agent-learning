@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="640" fill="#f8fafc"/>
+  <text x="40" y="48" font-size="23" font-weight="bold" fill="#0f172a">009 · 六框架选型对比（2026-09 现状）</text>
+  <text x="40" y="72" font-size="12" fill="#64748b">同一副五层骨架的不同取舍 —— 版本与现状均有来源标注（见 07 对比篇）</text>
+
+  <!-- 卡1 LangGraph -->
+  <rect x="45" y="95" width="280" height="200" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <rect x="45" y="95" width="280" height="34" rx="10" fill="#dbeafe"/>
+  <text x="63" y="118" font-size="15" font-weight="bold" fill="#2563eb">LangGraph</text>
+  <text x="63" y="152" font-size="10.5" fill="#64748b">1.0 GA 2025-10-22 · 1.2.x 迭代中</text>
+  <text x="63" y="176" font-size="11" fill="#334155">显式状态图：State + 节点 + 条件边</text>
+  <text x="63" y="196" font-size="11" fill="#334155">checkpointer + interrupt 内置</text>
+  <text x="63" y="226" font-size="10.5" fill="#059669">优：重状态 / HITL / 审计首选</text>
+  <text x="63" y="246" font-size="10.5" fill="#dc2626">劣：学习曲线陡 · 图思维门槛</text>
+  <text x="63" y="274" font-size="10" fill="#64748b">背书：Uber · LinkedIn · Klarna</text>
+
+  <!-- 卡2 OpenAI Agents SDK -->
+  <rect x="345" y="95" width="280" height="200" rx="10" fill="#ffffff" stroke="#0891b2" stroke-width="2"/>
+  <rect x="345" y="95" width="280" height="34" rx="10" fill="#cffafe"/>
+  <text x="363" y="118" font-size="15" font-weight="bold" fill="#0891b2">OpenAI Agents SDK</text>
+  <text x="363" y="152" font-size="10.5" fill="#64748b">2025-03 发布 · 替代实验性 Swarm</text>
+  <text x="363" y="176" font-size="11" fill="#334155">轻量四件套：tool · handoff</text>
+  <text x="363" y="196" font-size="11" fill="#334155">guardrail · tracing</text>
+  <text x="363" y="226" font-size="10.5" fill="#059669">优：最轻量 · 官方出品 · 上手快</text>
+  <text x="363" y="246" font-size="10.5" fill="#dc2626">劣：无内置持久化 · 锁 OpenAI 生态</text>
+  <text x="363" y="274" font-size="10" fill="#64748b">适合：单 Agent + 工具的轻需求</text>
+
+  <!-- 卡3 CrewAI -->
+  <rect x="645" y="95" width="280" height="200" rx="10" fill="#ffffff" stroke="#7c3aed" stroke-width="2"/>
+  <rect x="645" y="95" width="280" height="34" rx="10" fill="#ede9fe"/>
+  <text x="663" y="118" font-size="15" font-weight="bold" fill="#7c3aed">CrewAI</text>
+  <text x="663" y="152" font-size="10.5" fill="#64748b">1.15.x · 宣称 1200 万+ 日执行</text>
+  <text x="663" y="176" font-size="11" fill="#334155">Role / Goal / Backstory 角色团队</text>
+  <text x="663" y="196" font-size="11" fill="#334155">任务按角色分配 · 隐式上下文</text>
+  <text x="663" y="226" font-size="10.5" fill="#059669">优：起步最快 · 配置最少</text>
+  <text x="663" y="246" font-size="10.5" fill="#dc2626">劣：无原生 checkpoint · 控制流弱</text>
+  <text x="663" y="274" font-size="10" fill="#64748b">常见路径：原型用 CrewAI → 迁 LangGraph</text>
+
+  <!-- 卡4 AutoGen → MAF -->
+  <rect x="45" y="315" width="280" height="200" rx="10" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+  <rect x="45" y="315" width="280" height="34" rx="10" fill="#fee2e2"/>
+  <text x="63" y="338" font-size="15" font-weight="bold" fill="#dc2626">AutoGen / AG2 → MAF</text>
+  <text x="63" y="372" font-size="10.5" fill="#64748b">维护模式 · 并入 Microsoft Agent Framework</text>
+  <text x="63" y="396" font-size="11" fill="#334155">MAF 1.0 GA 2026-04-03（.NET/Python）</text>
+  <text x="63" y="416" font-size="11" fill="#334155">对话消息流多 Agent 鼻祖 · actor 化</text>
+  <text x="63" y="446" font-size="10.5" fill="#059669">优：group chat 协商范式成熟</text>
+  <text x="63" y="466" font-size="10.5" fill="#dc2626">注意：AutoGen 本体不再加新功能</text>
+  <text x="63" y="494" font-size="10" fill="#64748b">建议：新项目走 MAF / 老项目看迁移指南</text>
+
+  <!-- 卡5 Spring AI -->
+  <rect x="345" y="315" width="280" height="200" rx="10" fill="#ffffff" stroke="#059669" stroke-width="2"/>
+  <rect x="345" y="315" width="280" height="34" rx="10" fill="#d1fae5"/>
+  <text x="363" y="338" font-size="15" font-weight="bold" fill="#059669">Spring AI</text>
+  <text x="363" y="372" font-size="10.5" fill="#64748b">1.0 GA 2025-05 · 2.0 GA（Boot 4 + A2A）</text>
+  <text x="363" y="396" font-size="11" fill="#334155">ChatClient + Advisor 链 · @Tool</text>
+  <text x="363" y="416" font-size="11" fill="#334155">Micrometer / OTel 原生可观测</text>
+  <text x="363" y="446" font-size="10.5" fill="#059669">优：Spring 全家桶零成本融合</text>
+  <text x="363" y="466" font-size="10.5" fill="#dc2626">劣：编排 / HITL 仍在追赶</text>
+  <text x="363" y="494" font-size="10" fill="#64748b">把 LLM 当成新一代 JDBC 的官方路线</text>
+
+  <!-- 卡6 LangChain4j -->
+  <rect x="645" y="315" width="280" height="200" rx="10" fill="#ffffff" stroke="#ea580c" stroke-width="2"/>
+  <rect x="645" y="315" width="280" height="34" rx="10" fill="#ffedd5"/>
+  <text x="663" y="338" font-size="15" font-weight="bold" fill="#ea580c">LangChain4j</text>
+  <text x="663" y="372" font-size="10.5" fill="#64748b">1.15 ~ 1.18 · agentic 模块</text>
+  <text x="663" y="396" font-size="11" fill="#334155">AI Services 接口声明式 · Workflow</text>
+  <text x="663" y="416" font-size="11" fill="#334155">MCP 原生 · 框架中立（Quarkus 可用）</text>
+  <text x="663" y="446" font-size="10.5" fill="#059669">优：Java 社区最活跃 · Provider 最广</text>
+  <text x="663" y="466" font-size="10.5" fill="#dc2626">劣：无内置持久化中断</text>
+  <text x="663" y="494" font-size="10" fill="#64748b">适合：不绑 Spring 的 Java 团队</text>
+
+  <!-- 结论条 -->
+  <rect x="45" y="540" width="880" height="44" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="2"/>
+  <text x="485" y="568" font-size="12.5" fill="#0f172a" text-anchor="middle" font-weight="bold">结论：轻需求 → OpenAI Agents SDK ｜ 重状态 → LangGraph ｜ Java 团队 → Spring AI（重 HITL 配 Python 编排服务化）</text>
+  <text x="45" y="612" font-size="10" fill="#64748b">版本现状来源：aiwiki.ai（2026-09 检索）· CSDN 六框架对比（2026-08）· fast.io Java 框架榜（2026）· 守株阁（2026-05）· LangChain 融资公告</text>
+</svg>

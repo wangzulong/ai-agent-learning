@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 660" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="ar5" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#94a3b8"/>
+    </marker>
+    <marker id="ar5s" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#0f172a"/>
+    </marker>
+  </defs>
+  <rect width="960" height="660" fill="#f8fafc"/>
+  <text x="480" y="40" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">十二周阅读路线图</text>
+  <text x="480" y="64" text-anchor="middle" font-size="12" fill="#64748b">在职节奏 每周 3~5 小时 · 专题为纲 论文为目 · W6 缓冲 · 虚线 = 周序推进</text>
+
+  <!-- 行1 阶段一（蓝） -->
+  <rect x="36" y="92" width="290" height="104" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <rect x="36" y="92" width="290" height="24" rx="10" fill="#2563eb"/>
+  <rect x="36" y="106" width="290" height="10" fill="#2563eb"/>
+  <text x="50" y="109" font-size="11.5" font-weight="bold" fill="#ffffff">W1 · 大模型地基（002）</text>
+  <text x="52" y="138" font-size="10.5" fill="#334155">精读卡 #9 GPT-3 few-shot</text>
+  <text x="52" y="156" font-size="10.5" fill="#334155">配套：Building effective agents 首读</text>
+  <text x="52" y="180" font-size="10.5" fill="#059669" font-weight="bold">产出：workflow vs agent 一页笔记</text>
+
+  <rect x="335" y="92" width="290" height="104" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <rect x="335" y="92" width="290" height="24" rx="10" fill="#2563eb"/>
+  <rect x="335" y="106" width="290" height="10" fill="#2563eb"/>
+  <text x="349" y="109" font-size="11.5" font-weight="bold" fill="#ffffff">W2 · 提示工程（001）</text>
+  <text x="351" y="138" font-size="10.5" fill="#334155">精读卡 #8 Chain-of-Thought（前两遍）</text>
+  <text x="351" y="156" font-size="10.5" fill="#334155">配套：Prompt Report 第 1~2 节</text>
+  <text x="351" y="180" font-size="10.5" fill="#059669" font-weight="bold">产出：用 CoT 改写一个真实提示词</text>
+
+  <rect x="634" y="92" width="290" height="104" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <rect x="634" y="92" width="290" height="24" rx="10" fill="#2563eb"/>
+  <rect x="634" y="106" width="290" height="10" fill="#2563eb"/>
+  <text x="648" y="109" font-size="11.5" font-weight="bold" fill="#ffffff">W3 · 推理增强（003）</text>
+  <text x="650" y="138" font-size="10.5" fill="#334155">精读卡 #5 Self-Consistency</text>
+  <text x="650" y="156" font-size="10.5" fill="#334155">配套：李宏毅生成式 AI 讲 1~2</text>
+  <text x="650" y="180" font-size="10.5" fill="#059669" font-weight="bold">产出：投票采样小实验</text>
+
+  <!-- 行2 阶段二（橙） -->
+  <rect x="36" y="212" width="290" height="104" rx="10" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <rect x="36" y="212" width="290" height="24" rx="10" fill="#ea580c"/>
+  <rect x="36" y="226" width="290" height="10" fill="#ea580c"/>
+  <text x="50" y="229" font-size="11.5" font-weight="bold" fill="#ffffff">W4 · Agent 骨架（004）</text>
+  <text x="52" y="258" font-size="10.5" fill="#334155">精读卡 #1 ReAct（三遍全走）</text>
+  <text x="52" y="276" font-size="10.5" fill="#334155">配套：Writing tools for agents</text>
+  <text x="52" y="300" font-size="10.5" fill="#059669" font-weight="bold">产出：手写 20 行 ReAct 循环</text>
+
+  <rect x="335" y="212" width="290" height="104" rx="10" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <rect x="335" y="212" width="290" height="24" rx="10" fill="#ea580c"/>
+  <rect x="335" y="226" width="290" height="10" fill="#ea580c"/>
+  <text x="349" y="229" font-size="11.5" font-weight="bold" fill="#ffffff">W5 · 工具调用（004）</text>
+  <text x="351" y="258" font-size="10.5" fill="#334155">精读卡 #3 Toolformer</text>
+  <text x="351" y="276" font-size="10.5" fill="#334155">配套：A practical guide to building agents</text>
+  <text x="351" y="300" font-size="10.5" fill="#059669" font-weight="bold">产出：给循环加 2 个工具</text>
+
+  <rect x="634" y="212" width="290" height="104" rx="10" fill="#fff7ed" stroke="#dc2626" stroke-width="1.5"/>
+  <rect x="634" y="212" width="290" height="24" rx="10" fill="#dc2626"/>
+  <rect x="634" y="226" width="290" height="10" fill="#dc2626"/>
+  <text x="648" y="229" font-size="11.5" font-weight="bold" fill="#ffffff">W6 · 缓冲 / 期中复盘</text>
+  <text x="650" y="258" font-size="10.5" fill="#334155">补前五周欠账（降速不跳周）</text>
+  <text x="650" y="276" font-size="10.5" fill="#334155">读 Willison 近一个月文章挑 3 篇</text>
+  <text x="650" y="300" font-size="10.5" fill="#dc2626" font-weight="bold">产出：500 字复盘 + 进度标注</text>
+
+  <!-- 行3 阶段三（紫） -->
+  <rect x="36" y="332" width="290" height="104" rx="10" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5"/>
+  <rect x="36" y="332" width="290" height="24" rx="10" fill="#7c3aed"/>
+  <rect x="36" y="346" width="290" height="10" fill="#7c3aed"/>
+  <text x="50" y="349" font-size="11.5" font-weight="bold" fill="#ffffff">W7 · 反思与自我改进（005）</text>
+  <text x="52" y="378" font-size="10.5" fill="#334155">精读卡 #2 Reflexion</text>
+  <text x="52" y="396" font-size="10.5" fill="#334155">配套：Lilian Weng《LLM Powered Agents》</text>
+  <text x="52" y="420" font-size="10.5" fill="#059669" font-weight="bold">产出：给 W4 的 agent 加失败反思</text>
+
+  <rect x="335" y="332" width="290" height="104" rx="10" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5"/>
+  <rect x="335" y="332" width="290" height="24" rx="10" fill="#7c3aed"/>
+  <rect x="335" y="346" width="290" height="10" fill="#7c3aed"/>
+  <text x="349" y="349" font-size="11.5" font-weight="bold" fill="#ffffff">W8 · 规划与搜索（005）</text>
+  <text x="351" y="378" font-size="10.5" fill="#334155">精读卡 #4 Tree of Thoughts</text>
+  <text x="351" y="396" font-size="10.5" fill="#334155">配套：Karpathy《Deep Dive into LLMs》</text>
+  <text x="351" y="420" font-size="10.5" fill="#059669" font-weight="bold">产出：分支 + 回溯伪代码</text>
+
+  <rect x="634" y="332" width="290" height="104" rx="10" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5"/>
+  <rect x="634" y="332" width="290" height="24" rx="10" fill="#7c3aed"/>
+  <rect x="634" y="346" width="290" height="10" fill="#7c3aed"/>
+  <text x="648" y="349" font-size="11.5" font-weight="bold" fill="#ffffff">W9 · 检索增强（006）</text>
+  <text x="650" y="378" font-size="10.5" fill="#334155">精读卡 #6 RAG 原论文</text>
+  <text x="650" y="396" font-size="10.5" fill="#334155">配套：HF Daily Papers 扫一周</text>
+  <text x="650" y="420" font-size="10.5" fill="#059669" font-weight="bold">产出：CTRM 合同文档最小 RAG</text>
+
+  <!-- 行4 阶段四（青） -->
+  <rect x="36" y="452" width="290" height="104" rx="10" fill="#ffffff" stroke="#0891b2" stroke-width="1.5"/>
+  <rect x="36" y="452" width="290" height="24" rx="10" fill="#0891b2"/>
+  <rect x="36" y="466" width="290" height="10" fill="#0891b2"/>
+  <text x="50" y="469" font-size="11.5" font-weight="bold" fill="#ffffff">W10 · 记忆管理（007）</text>
+  <text x="52" y="498" font-size="10.5" fill="#334155">精读卡 #7 MemGPT</text>
+  <text x="52" y="516" font-size="10.5" fill="#334155">配套：Effective context engineering</text>
+  <text x="52" y="540" font-size="10.5" fill="#059669" font-weight="bold">产出：分层记忆架构草图</text>
+
+  <rect x="335" y="452" width="290" height="104" rx="10" fill="#ffffff" stroke="#0891b2" stroke-width="1.5"/>
+  <rect x="335" y="452" width="290" height="24" rx="10" fill="#0891b2"/>
+  <rect x="335" y="466" width="290" height="10" fill="#0891b2"/>
+  <text x="349" y="469" font-size="11.5" font-weight="bold" fill="#ffffff">W11 · 多智能体（008）</text>
+  <text x="351" y="498" font-size="10.5" fill="#334155">扩展索引：MetaGPT / AutoGen 摘要</text>
+  <text x="351" y="516" font-size="10.5" fill="#334155">配套：Anthropic 多 agent 复盘</text>
+  <text x="351" y="540" font-size="10.5" fill="#059669" font-weight="bold">产出：何时用多 agent 决策笔记</text>
+
+  <rect x="634" y="452" width="290" height="104" rx="10" fill="#ffffff" stroke="#0891b2" stroke-width="1.5"/>
+  <rect x="634" y="452" width="290" height="24" rx="10" fill="#0891b2"/>
+  <rect x="634" y="466" width="290" height="10" fill="#0891b2"/>
+  <text x="648" y="469" font-size="11.5" font-weight="bold" fill="#ffffff">W12 · 评估收尾（009）</text>
+  <text x="650" y="498" font-size="10.5" fill="#334155">精读卡 #10 Prompt Report（当字典）</text>
+  <text x="650" y="516" font-size="10.5" fill="#334155">配套：Hamel Husain evals 一篇</text>
+  <text x="650" y="540" font-size="10.5" fill="#059669" font-weight="bold">产出：最小 eval + 十二周总复盘</text>
+
+  <!-- 蛇形推进箭头 -->
+  <path d="M 928 144 C 946 144 946 264 926 264 L 44 264" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#ar5)"/>
+  <path d="M 928 264 C 946 264 946 384 926 384 L 44 384" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#ar5)"/>
+  <path d="M 928 384 C 946 384 946 504 926 504 L 44 504" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#ar5)"/>
+
+  <!-- 间隔重复条 -->
+  <rect x="36" y="578" width="888" height="62" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="52" y="600" font-size="11.5" font-weight="bold" fill="#0f172a">间隔重复：</text>
+  <rect x="130" y="586" width="140" height="42" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1"/>
+  <text x="200" y="604" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1d4ed8">读完当天</text>
+  <text x="200" y="620" text-anchor="middle" font-size="10.5" fill="#334155">口头答自测 2 题</text>
+  <path d="M 272 607 L 300 607" fill="none" stroke="#0f172a" stroke-width="1.8" marker-end="url(#ar5s)"/>
+  <rect x="304" y="586" width="140" height="42" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1"/>
+  <text x="374" y="604" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#6d28d9">3 天后</text>
+  <text x="374" y="620" text-anchor="middle" font-size="10.5" fill="#334155">回想人话+类比</text>
+  <path d="M 446 607 L 474 607" fill="none" stroke="#0f172a" stroke-width="1.8" marker-end="url(#ar5s)"/>
+  <rect x="478" y="586" width="140" height="42" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="1"/>
+  <text x="548" y="604" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#c2410c">1 周后</text>
+  <text x="548" y="620" text-anchor="middle" font-size="10.5" fill="#334155">背贡献 3 点标题</text>
+  <path d="M 620 607 L 648 607" fill="none" stroke="#0f172a" stroke-width="1.8" marker-end="url(#ar5s)"/>
+  <rect x="652" y="586" width="130" height="42" rx="8" fill="#ecfeff" stroke="#0891b2" stroke-width="1"/>
+  <text x="717" y="604" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#0e7490">1 个月后</text>
+  <text x="717" y="620" text-anchor="middle" font-size="10.5" fill="#334155">重读衔接节</text>
+  <path d="M 784 607 L 812 607" fill="none" stroke="#0f172a" stroke-width="1.8" marker-end="url(#ar5s)"/>
+  <rect x="816" y="586" width="100" height="42" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+  <text x="866" y="604" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#334155">3 个月后</text>
+  <text x="866" y="620" text-anchor="middle" font-size="10.5" fill="#334155">随机翻卡</text>
+</svg>

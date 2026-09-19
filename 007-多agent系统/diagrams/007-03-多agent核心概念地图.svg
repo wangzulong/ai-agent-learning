@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 680" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="680" fill="#f8fafc"/>
+  <text x="480" y="38" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">多 Agent 系统核心概念地图（11 个概念卡）</text>
+  <text x="480" y="61" text-anchor="middle" font-size="11" fill="#64748b">围绕一个中心：一群各司其职的 Agent，通过消息协作完成单个 Agent 干不了的事</text>
+
+  <!-- 连线 -->
+  <line x1="480" y1="86" x2="480" y2="312" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="244" y1="152" x2="382" y2="342" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="244" y1="270" x2="382" y2="360" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="244" y1="388" x2="382" y2="380" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="244" y1="506" x2="382" y2="400" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="244" y1="624" x2="382" y2="418" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="716" y1="152" x2="578" y2="342" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="716" y1="270" x2="578" y2="360" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="716" y1="388" x2="578" y2="380" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="716" y1="506" x2="578" y2="400" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="716" y1="624" x2="578" y2="418" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- 顶部横幅：Orchestrator -->
+  <rect x="310" y="24" width="340" height="62" rx="10" fill="#2563eb" stroke="#1d4ed8"/>
+  <text x="480" y="50" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">编排者 Orchestrator / Supervisor</text>
+  <text x="480" y="72" text-anchor="middle" font-size="10.5" fill="#dbeafe">拆任务、派活、收结果的总调度——团队的大脑</text>
+
+  <!-- 左列 5 卡 -->
+  <rect x="48" y="100" width="196" height="104" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="48" y="100" width="196" height="5" rx="2.5" fill="#7c3aed"/>
+  <text x="146" y="126" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">① 角色 Role / Persona</text>
+  <text x="60" y="148" font-size="10.5" fill="#64748b">人设 + 职责边界 + 输出要求</text>
+  <text x="60" y="167" font-size="10.5" fill="#64748b">【类比】部门的岗位 JD：</text>
+  <text x="60" y="186" font-size="10.5" fill="#64748b">先说清你是谁、只干什么</text>
+
+  <rect x="48" y="218" width="196" height="104" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="48" y="218" width="196" height="5" rx="2.5" fill="#0891b2"/>
+  <text x="146" y="244" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">② 通信：消息 / 黑板</text>
+  <text x="60" y="266" font-size="10.5" fill="#64748b">点对点消息 or 共享黑板留言</text>
+  <text x="60" y="285" font-size="10.5" fill="#64748b">【类比】发微信 vs 会议室</text>
+  <text x="60" y="304" font-size="10.5" fill="#64748b">白板上贴便签，谁来谁看</text>
+
+  <rect x="48" y="336" width="196" height="104" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="48" y="336" width="196" height="5" rx="2.5" fill="#059669"/>
+  <text x="146" y="362" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">③ Handoff 交接</text>
+  <text x="60" y="384" font-size="10.5" fill="#64748b">A 连任务带上下文转给 B 接手</text>
+  <text x="60" y="403" font-size="10.5" fill="#64748b">【类比】工单转派：不是</text>
+  <text x="60" y="422" font-size="10.5" fill="#64748b">甩锅，是连材料一起转</text>
+
+  <rect x="48" y="454" width="196" height="104" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="48" y="454" width="196" height="5" rx="2.5" fill="#ea580c"/>
+  <text x="146" y="480" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">④ 共享状态 vs 私有上下文</text>
+  <text x="60" y="502" font-size="10.5" fill="#64748b">公共白板 vs 各自的草稿纸</text>
+  <text x="60" y="521" font-size="10.5" fill="#64748b">【坑】共享太多互相污染，</text>
+  <text x="60" y="540" font-size="10.5" fill="#64748b">全私有又对不齐口径</text>
+
+  <rect x="48" y="572" width="196" height="104" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="48" y="572" width="196" height="5" rx="2.5" fill="#dc2626"/>
+  <text x="146" y="598" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">⑤ 交付物契约</text>
+  <text x="60" y="620" font-size="10.5" fill="#64748b">规定输出的 JSON Schema</text>
+  <text x="60" y="639" font-size="10.5" fill="#64748b">【类比】验收标准写在合同</text>
+  <text x="60" y="658" font-size="10.5" fill="#64748b">里，不合规打回重做</text>
+
+  <!-- 中心大卡 -->
+  <rect x="380" y="318" width="200" height="88" rx="14" fill="#0f172a" stroke="#1e293b"/>
+  <text x="480" y="352" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff">多 Agent 系统</text>
+  <text x="480" y="374" text-anchor="middle" font-size="10" fill="#cbd5e1">一群角色化 Agent</text>
+  <text x="480" y="391" text-anchor="middle" font-size="10" fill="#cbd5e1">靠消息协作完成复杂任务</text>
+
+  <!-- 右列 5 卡 -->
+  <rect x="716" y="100" width="196" height="104" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="716" y="100" width="196" height="5" rx="2.5" fill="#2563eb"/>
+  <text x="814" y="126" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">⑥ 拓扑 Topology</text>
+  <text x="728" y="148" font-size="10.5" fill="#64748b">星型 / 流水线 / 层级 / 网状</text>
+  <text x="728" y="167" font-size="10.5" fill="#64748b">决定谁跟谁能说话、</text>
+  <text x="728" y="186" font-size="10.5" fill="#64748b">信息往哪流、瓶颈在哪</text>
+
+  <rect x="716" y="218" width="196" height="104" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="716" y="218" width="196" height="5" rx="2.5" fill="#7c3aed"/>
+  <text x="814" y="244" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">⑦ A2A 协议</text>
+  <text x="728" y="266" font-size="10.5" fill="#64748b">跨厂商 Agent 互操作标准</text>
+  <text x="728" y="285" font-size="10.5" fill="#64748b">v1.0（2026-04）已稳定，</text>
+  <text x="728" y="304" font-size="10.5" fill="#64748b">Linux 基金会 AAIF 托管</text>
+
+  <rect x="716" y="336" width="196" height="104" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="716" y="336" width="196" height="5" rx="2.5" fill="#0891b2"/>
+  <text x="814" y="362" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">⑧ 并行 SubAgent</text>
+  <text x="728" y="384" font-size="10.5" fill="#64748b">主 Agent 拆单后同时派多个</text>
+  <text x="728" y="403" font-size="10.5" fill="#64748b">子 Agent 分头干、只回摘要</text>
+  <text x="728" y="422" font-size="10.5" fill="#64748b">【类比】老板群发任务</text>
+
+  <rect x="716" y="454" width="196" height="104" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="716" y="454" width="196" height="5" rx="2.5" fill="#059669"/>
+  <text x="814" y="480" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">⑨ Agent 团队</text>
+  <text x="728" y="502" font-size="10.5" fill="#64748b">一组角色化 Agent 的统称</text>
+  <text x="728" y="521" font-size="10.5" fill="#64748b">CrewAI 叫 crew，AutoGen</text>
+  <text x="728" y="540" font-size="10.5" fill="#64748b">叫 group chat，本质相似</text>
+
+  <rect x="716" y="572" width="196" height="104" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="716" y="572" width="196" height="5" rx="2.5" fill="#ea580c"/>
+  <text x="814" y="598" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">⑩ 成本放大（约 15 倍）</text>
+  <text x="728" y="620" font-size="10.5" fill="#64748b">并行 + 隔离 = Token 消耗</text>
+  <text x="728" y="639" font-size="10.5" fill="#64748b">约为单 Agent 聊天的 15 倍</text>
+  <text x="728" y="658" font-size="10.5" fill="#64748b">（Anthropic 实测口径）</text>
+</svg>

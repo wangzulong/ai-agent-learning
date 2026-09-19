@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 650" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="ar-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker>
+  </defs>
+  <rect width="960" height="650" fill="#f8fafc"/>
+  <text x="40" y="48" font-size="23" font-weight="bold" fill="#0f172a">009 · Agent 框架共性架构解剖（五层件）</text>
+  <text x="40" y="74" font-size="12" fill="#64748b">所有框架 = 这五层的不同取舍实现；理解五层，换框架只是换语法</text>
+
+  <!-- 第1层 状态容器 -->
+  <rect x="50" y="95" width="580" height="82" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="50" y="95" width="8" height="82" fill="#2563eb"/>
+  <text x="76" y="121" font-size="15" font-weight="bold" fill="#2563eb">① 状态容器</text>
+  <text x="76" y="145" font-size="11" fill="#475569">定义流动数据的 schema 与合并规则（reducer）</text>
+  <text x="330" y="121" font-size="10.5" fill="#64748b">形态分化：</text>
+  <text x="330" y="139" font-size="10.5" fill="#64748b">显式 State（LangGraph）</text>
+  <text x="330" y="157" font-size="10.5" fill="#64748b">↔ 消息流（AutoGen）/ 隐式上下文（CrewAI）</text>
+
+  <!-- 第2层 调度循环 -->
+  <rect x="50" y="190" width="580" height="82" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="50" y="190" width="8" height="82" fill="#7c3aed"/>
+  <text x="76" y="216" font-size="15" font-weight="bold" fill="#7c3aed">② 调度循环</text>
+  <text x="76" y="240" font-size="11" fill="#475569">决定下一步执行谁：顺序 / 分支 / 并行 / 终止</text>
+  <text x="330" y="216" font-size="10.5" fill="#64748b">形态分化：</text>
+  <text x="330" y="234" font-size="10.5" fill="#64748b">图引擎（LangGraph/MAF）· LLM自主循环</text>
+  <text x="330" y="252" font-size="10.5" fill="#64748b">（AgentsSDK）· 角色剧本（CrewAI）</text>
+
+  <!-- 第3层 工具运行时 -->
+  <rect x="50" y="285" width="580" height="82" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="50" y="285" width="8" height="82" fill="#0891b2"/>
+  <text x="76" y="311" font-size="15" font-weight="bold" fill="#0891b2">③ 工具运行时</text>
+  <text x="76" y="335" font-size="11" fill="#475569">工具注册 · schema校验 · 超时重试 · 结果回填</text>
+  <text x="330" y="311" font-size="10.5" fill="#64748b">统一趋势：</text>
+  <text x="330" y="329" font-size="10.5" fill="#64748b">MCP 协议已成事实标准（2026）</text>
+  <text x="330" y="347" font-size="10.5" fill="#64748b">Spring AI 1.1+ / LangChain4j 1.x 原生支持</text>
+
+  <!-- 第4层 持久化钩子 -->
+  <rect x="50" y="380" width="580" height="82" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="2"/>
+  <rect x="50" y="380" width="8" height="82" fill="#ea580c"/>
+  <text x="76" y="406" font-size="15" font-weight="bold" fill="#ea580c">④ 持久化钩子 ★ 分野核心</text>
+  <text x="76" y="430" font-size="11" fill="#475569">checkpoint · thread 组织 · resume 协议 · time-travel</text>
+  <text x="330" y="406" font-size="10.5" fill="#64748b">差距最大的层：</text>
+  <text x="330" y="424" font-size="10.5" fill="#64748b">LangGraph 内置三后端（内存/SQLite/Postgres）</text>
+  <text x="330" y="442" font-size="10.5" fill="#dc2626">JVM 框架与多数 SDK 均无内置 → 手写代价最高</text>
+
+  <!-- 第5层 可观测钩子 -->
+  <rect x="50" y="475" width="580" height="82" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="50" y="475" width="8" height="82" fill="#059669"/>
+  <text x="76" y="501" font-size="15" font-weight="bold" fill="#059669">⑤ 可观测钩子</text>
+  <text x="76" y="525" font-size="11" fill="#475569">trace/span 自动埋点 · token 统计 · callbacks</text>
+  <text x="330" y="501" font-size="10.5" fill="#64748b">统一趋势：</text>
+  <text x="330" y="519" font-size="10.5" fill="#64748b">OpenTelemetry 最大公约数</text>
+  <text x="330" y="537" font-size="10.5" fill="#64748b">LangSmith / Langfuse 在其上做产品化</text>
+
+  <!-- 右侧：执行闭环 -->
+  <text x="660" y="108" font-size="13" font-weight="bold" fill="#0f172a">执行闭环示例</text>
+  <text x="660" y="126" font-size="10.5" fill="#64748b">以点价 Agent「查价」段为例</text>
+  <rect x="660" y="140" width="250" height="36" rx="6" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2"/>
+  <text x="785" y="163" font-size="11" fill="#334155" text-anchor="middle">调度循环选中节点「查价」</text>
+  <line x1="785" y1="176" x2="785" y2="190" stroke="#64748b" stroke-width="1.2" marker-end="url(#ar-g)"/>
+  <rect x="660" y="192" width="250" height="36" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="785" y="215" font-size="11" fill="#334155" text-anchor="middle">读入共享状态 state</text>
+  <line x1="785" y1="228" x2="785" y2="242" stroke="#64748b" stroke-width="1.2" marker-end="url(#ar-g)"/>
+  <rect x="660" y="244" width="250" height="36" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="785" y="267" font-size="11" fill="#334155" text-anchor="middle">工具运行时调行情接口</text>
+  <line x1="785" y1="280" x2="785" y2="294" stroke="#64748b" stroke-width="1.2" marker-end="url(#ar-g)"/>
+  <rect x="660" y="296" width="250" height="36" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="785" y="319" font-size="11" fill="#334155" text-anchor="middle">增量 patch 合并进状态</text>
+  <line x1="785" y1="332" x2="785" y2="346" stroke="#64748b" stroke-width="1.2" marker-end="url(#ar-g)"/>
+  <rect x="660" y="348" width="250" height="36" rx="6" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="785" y="371" font-size="11" fill="#ea580c" text-anchor="middle" font-weight="bold">持久化钩子写 checkpoint</text>
+  <line x1="785" y1="384" x2="785" y2="398" stroke="#64748b" stroke-width="1.2" marker-end="url(#ar-g)"/>
+  <rect x="660" y="400" width="250" height="36" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="785" y="423" font-size="11" fill="#334155" text-anchor="middle">可观测钩子结束 span 上报</text>
+  <line x1="785" y1="436" x2="785" y2="450" stroke="#64748b" stroke-width="1.2" marker-end="url(#ar-g)"/>
+  <rect x="660" y="452" width="250" height="36" rx="6" fill="#ffffff" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="785" y="475" font-size="11" fill="#dc2626" text-anchor="middle" font-weight="bold">下一节点 / interrupt 挂起</text>
+
+  <!-- 底部总结 -->
+  <rect x="50" y="585" width="860" height="42" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="480" y="604" font-size="11.5" fill="#0f172a" text-anchor="middle" font-weight="bold">五件齐了，Agent 才从 demo 变成系统：状态记什么 · 循环按什么顺序 · 工具怎么干活</text>
+  <text x="480" y="620" font-size="11.5" fill="#0f172a" text-anchor="middle" font-weight="bold">干到哪记住哪 · 干了什么看得见</text>
+</svg>

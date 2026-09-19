@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="arrowC" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrowCR" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrowCG" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#059669"/>
+    </marker>
+    <marker id="arrowCO" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#ea580c"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="620" fill="#f8fafc"/>
+
+  <text x="480" y="38" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">项目 03 架构：客商邮件分流路由（003 Routing：规则先行，LLM 兜底）</text>
+  <text x="480" y="62" text-anchor="middle" font-size="12" fill="#64748b">四分类 → 三条处理链 ｜ 点价类误路由率 &lt; 1%（红线）｜ unknown 永远走人工台</text>
+
+  <!-- 邮件网关 -->
+  <rect x="40" y="120" width="150" height="90" rx="10" fill="#ffffff" stroke="#0891b2" stroke-width="1.5"/>
+  <rect x="40" y="120" width="150" height="28" rx="10" fill="#0891b2"/><rect x="40" y="136" width="150" height="12" fill="#0891b2"/>
+  <text x="115" y="138" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">邮件网关</text>
+  <text x="54" y="170" font-size="10.5" fill="#0f172a">公共客服邮箱</text>
+  <text x="54" y="190" font-size="10.5" fill="#64748b">300+ 封/天，POST /ingest</text>
+
+  <!-- 预处理 -->
+  <rect x="250" y="120" width="160" height="90" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <rect x="250" y="120" width="160" height="28" rx="10" fill="#2563eb"/><rect x="250" y="136" width="160" height="12" fill="#2563eb"/>
+  <text x="330" y="138" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">预处理 clean</text>
+  <text x="264" y="170" font-size="10.5" fill="#0f172a">去历史引用 &gt; 行</text>
+  <text x="264" y="190" font-size="10.5" fill="#0f172a">截签名 / 限 800 字</text>
+
+  <line x1="190" y1="165" x2="244" y2="165" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowC)"/>
+
+  <!-- 第一层 规则 -->
+  <rect x="470" y="70" width="210" height="86" rx="10" fill="#ffffff" stroke="#059669" stroke-width="2"/>
+  <rect x="470" y="70" width="210" height="28" rx="10" fill="#059669"/><rect x="470" y="86" width="210" height="12" fill="#059669"/>
+  <text x="575" y="88" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">第一层：关键词规则</text>
+  <text x="484" y="118" font-size="10.5" fill="#0f172a">点价/基差 ｜ 对账/发票 ｜ 船期/提货</text>
+  <text x="484" y="140" font-size="10.5" fill="#64748b">快、零成本，处理约 80% 明显样本</text>
+
+  <!-- 第二层 LLM -->
+  <rect x="470" y="176" width="210" height="86" rx="10" fill="#ffffff" stroke="#7c3aed" stroke-width="2"/>
+  <rect x="470" y="176" width="210" height="28" rx="10" fill="#7c3aed"/><rect x="470" y="192" width="210" height="12" fill="#7c3aed"/>
+  <text x="575" y="194" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">第二层：LLM 分类</text>
+  <text x="484" y="224" font-size="10.5" fill="#0f172a">只接规则拿不准的 ~20%</text>
+  <text x="484" y="244" font-size="10.5" fill="#64748b">temperature=0 + 枚举输出 + 置信度</text>
+
+  <!-- 人工兜底 -->
+  <rect x="740" y="176" width="180" height="86" rx="10" fill="#ffffff" stroke="#dc2626" stroke-width="1.5"/>
+  <rect x="740" y="176" width="180" height="28" rx="10" fill="#dc2626"/><rect x="740" y="192" width="180" height="12" fill="#dc2626"/>
+  <text x="830" y="194" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">人工分拣台（兜底）</text>
+  <text x="754" y="224" font-size="10.5" fill="#0f172a">unknown / conf 不足</text>
+  <text x="754" y="244" font-size="10.5" fill="#64748b">健康占比 5~10%，安全阀</text>
+
+  <line x1="410" y1="140" x2="464" y2="118" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowC)"/>
+  <line x1="575" y1="156" x2="575" y2="170" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowC)"/>
+  <text x="600" y="166" font-size="10" fill="#64748b">conf&lt;0.8 / 平票</text>
+  <line x1="680" y1="219" x2="734" y2="219" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowCR)"/>
+  <text x="690" y="210" font-size="10" fill="#dc2626">unknown</text>
+
+  <!-- 三条处理链 + spam -->
+  <rect x="40" y="330" width="250" height="130" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <rect x="40" y="330" width="250" height="28" rx="10" fill="#2563eb"/><rect x="40" y="346" width="250" height="12" fill="#2563eb"/>
+  <text x="165" y="348" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">点价链（SLA 5 分钟）</text>
+  <text x="54" y="380" font-size="10.5" fill="#0f172a">调 01 项目 /extract 抽要素</text>
+  <text x="54" y="400" font-size="10.5" fill="#0f172a">→ 待办卡片推交易台</text>
+  <text x="54" y="424" font-size="10" fill="#dc2626">01 服务挂了 → 转人工录入，不重试</text>
+  <text x="54" y="444" font-size="10" fill="#64748b">理由：重试耗时会错过行情窗口</text>
+
+  <rect x="330" y="330" width="250" height="130" rx="10" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <rect x="330" y="330" width="250" height="28" rx="10" fill="#ea580c"/><rect x="330" y="346" width="250" height="12" fill="#ea580c"/>
+  <text x="455" y="348" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">争议链（结算组）</text>
+  <text x="344" y="380" font-size="10.5" fill="#0f172a">抽发票号 INV-xxx / 争议金额</text>
+  <text x="344" y="400" font-size="10.5" fill="#0f172a">→ 建高优工单推结算组</text>
+  <text x="344" y="424" font-size="10" fill="#64748b">字段缺失 → 工单标"信息不全"</text>
+  <text x="344" y="444" font-size="10" fill="#64748b">不编造金额，宁缺勿错</text>
+
+  <rect x="620" y="330" width="250" height="130" rx="10" fill="#ffffff" stroke="#0891b2" stroke-width="1.5"/>
+  <rect x="620" y="330" width="250" height="28" rx="10" fill="#0891b2"/><rect x="620" y="346" width="250" height="12" fill="#0891b2"/>
+  <text x="745" y="348" text-anchor="middle" font-size="12" font-weight="bold" fill="#ffffff">物流链（2 小时跟进）</text>
+  <text x="634" y="380" font-size="10.5" fill="#0f172a">解析船名/港口/日期</text>
+  <text x="634" y="400" font-size="10.5" fill="#0f172a">→ 先回确认模板，专员跟进</text>
+  <text x="634" y="424" font-size="10" fill="#64748b">链内不幻觉船期，只确认收到</text>
+  <text x="634" y="444" font-size="10" fill="#64748b">船期以 T-1 报文为准</text>
+
+  <line x1="470" y1="156" x2="230" y2="324" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowC)"/>
+  <text x="330" y="250" font-size="10.5" fill="#2563eb">pricing</text>
+  <line x1="575" y1="262" x2="465" y2="324" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowCO)"/>
+  <text x="530" y="296" font-size="10.5" fill="#ea580c">dispute</text>
+  <line x1="640" y1="262" x2="730" y2="324" stroke="#0891b2" stroke-width="2" marker-end="url(#arrowC)"/>
+  <text x="700" y="296" font-size="10.5" fill="#0891b2">logistics</text>
+
+  <!-- spam 归档 -->
+  <rect x="740" y="70" width="180" height="86" rx="10" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="830" y="100" text-anchor="middle" font-size="12" font-weight="bold" fill="#64748b">spam 归档</text>
+  <text x="754" y="126" font-size="10.5" fill="#64748b">营销/垃圾邮件</text>
+  <text x="754" y="146" font-size="10.5" fill="#64748b">直接进归档库，不占人工</text>
+
+  <!-- 闭环 -->
+  <path d="M 165 460 Q 165 520 300 545 Q 560 570 690 520 Q 760 495 780 466" fill="none" stroke="#059669" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrowCG)"/>
+  <text x="470" y="560" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#059669">人工纠正的邮件自动登记 bad_case → 周五补规则关键词 → 回归评估</text>
+
+  <!-- 底注 -->
+  <text x="480" y="596" text-anchor="middle" font-size="10.5" fill="#64748b">监控：rule/llm/manual 占比、点价 5 分钟送达率、误路由纠正数 ｜ 降级：LLM 超时→纯规则；规则无信心→全进人工台</text>
+</svg>

@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="640" fill="#f8fafc"/>
+  <text x="480" y="36" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">The Prompt Report：58 种技术的六大门类（六字诀选型坐标系）</text>
+  <text x="480" y="60" text-anchor="middle" font-size="13" fill="#64748b">arXiv:2406.06608 · PRISMA 综述 1565 篇论文 —— 记住六个字，就能给任何任务定位技术</text>
+
+  <defs>
+    <marker id="a5" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- 六门类 3×2 -->
+  <rect x="46" y="90" width="282" height="190" rx="12" fill="#2563eb"/>
+  <text x="66" y="118" font-size="15" font-weight="bold" fill="#fff">学 · ICL（上下文学习）</text>
+  <text x="66" y="142" font-size="11.5" fill="#dbeafe">靠示例教任务</text>
+  <text x="66" y="164" font-size="11.5" fill="#dbeafe">· ICL 六设计决策（02篇）</text>
+  <text x="66" y="184" font-size="11.5" fill="#dbeafe">· KNN 选例 / Vote-K 选例</text>
+  <text x="66" y="204" font-size="11.5" fill="#dbeafe">· SG-ICL 自生成示例</text>
+  <text x="66" y="230" font-size="10.5" fill="#93c5fd">示例的顺序/格式/相似度都能显著影响结果</text>
+  <text x="66" y="256" font-size="10.5" fill="#93c5fd">适用：几乎一切任务的地基</text>
+
+  <rect x="339" y="90" width="282" height="190" rx="12" fill="#0891b2"/>
+  <text x="359" y="118" font-size="15" font-weight="bold" fill="#fff">说 · Zero-Shot（零示例）</text>
+  <text x="359" y="142" font-size="11.5" fill="#cffafe">靠指令/角色/视角触发</text>
+  <text x="359" y="164" font-size="11.5" fill="#cffafe">· Role Prompting（勿过度限定）</text>
+  <text x="359" y="184" font-size="11.5" fill="#cffafe">· Style / 视角声明（官方新口径）</text>
+  <text x="359" y="204" font-size="11.5" fill="#cffafe">· S2A 注意力过滤</text>
+  <text x="359" y="230" font-size="10.5" fill="#67e8f9">情绪技巧（EmotionPrompt）已被内化失效</text>
+  <text x="359" y="256" font-size="10.5" fill="#67e8f9">适用：清晰任务一句话直说</text>
+
+  <rect x="632" y="90" width="282" height="190" rx="12" fill="#7c3aed"/>
+  <text x="652" y="118" font-size="15" font-weight="bold" fill="#fff">想 · Thought Generation</text>
+  <text x="652" y="142" font-size="11.5" fill="#ede9fe">让思考显式化</text>
+  <text x="652" y="164" font-size="11.5" fill="#ede9fe">· CoT 家族（Zero/Few/Auto-CoT）</text>
+  <text x="652" y="184" font-size="11.5" fill="#ede9fe">· Step-Back 先问抽象层</text>
+  <text x="652" y="204" font-size="11.5" fill="#ede9fe">· Analogical 类比迁移</text>
+  <text x="652" y="230" font-size="10.5" fill="#c4b5fd">推理模型已原生思考 → CoT 指令变反模式</text>
+  <text x="652" y="256" font-size="10.5" fill="#c4b5fd">适用：老模型+多步推理任务</text>
+
+  <rect x="46" y="300" width="282" height="190" rx="12" fill="#ea580c"/>
+  <text x="66" y="328" font-size="15" font-weight="bold" fill="#fff">拆 · Decomposition</text>
+  <text x="66" y="352" font-size="11.5" fill="#ffedd5">大题拆小题递推</text>
+  <text x="66" y="374" font-size="11.5" fill="#ffedd5">· Least-to-Most 最难后置</text>
+  <text x="66" y="394" font-size="11.5" fill="#ffedd5">· Plan-and-Solve 先计划后执行</text>
+  <text x="66" y="414" font-size="11.5" fill="#ffedd5">· DECOMP 子问题函数化</text>
+  <text x="66" y="440" font-size="10.5" fill="#fdba74">信号词："然后/接着/在…基础上"</text>
+  <text x="66" y="466" font-size="10.5" fill="#fdba74">适用：多步依赖、长输出任务</text>
+
+  <rect x="339" y="300" width="282" height="190" rx="12" fill="#059669"/>
+  <text x="359" y="328" font-size="15" font-weight="bold" fill="#fff">聚 · Ensembling</text>
+  <text x="359" y="352" font-size="11.5" fill="#d1fae5">多路生成聚合投票</text>
+  <text x="359" y="374" font-size="11.5" fill="#d1fae5">· Self-Consistency 多数投票</text>
+  <text x="359" y="394" font-size="11.5" fill="#d1fae5">· DiVeRSe 多prompt变体</text>
+  <text x="359" y="414" font-size="11.5" fill="#d1fae5">· MoE Prompting 专家聚合</text>
+  <text x="359" y="440" font-size="10.5" fill="#6ee7b7">成本×N，仅"错误代价高+可判定对错"时用</text>
+  <text x="359" y="466" font-size="10.5" fill="#6ee7b7">现代替代：推理模型一次高质量思考</text>
+
+  <rect x="632" y="300" width="282" height="190" rx="12" fill="#dc2626"/>
+  <text x="652" y="328" font-size="15" font-weight="bold" fill="#fff">查 · Self-Criticism</text>
+  <text x="652" y="352" font-size="11.5" fill="#fee2e2">自我检查与修正</text>
+  <text x="652" y="374" font-size="11.5" fill="#fee2e2">· Self-Refine 生成→自评→改</text>
+  <text x="652" y="394" font-size="11.5" fill="#fee2e2">· CoVe 链式核查（专治幻觉）</text>
+  <text x="652" y="414" font-size="11.5" fill="#fee2e2">· Self-Verify 自验证</text>
+  <text x="652" y="440" font-size="10.5" fill="#fca5a5">模型自评有自我偏好，只当参考</text>
+  <text x="652" y="466" font-size="10.5" fill="#fca5a5">适用：写作打磨 / 事实敏感任务</text>
+
+  <!-- 中间枢纽 -->
+  <circle cx="480" cy="290" r="0" fill="none"/>
+
+  <!-- 底部：新范式 -->
+  <rect x="46" y="510" width="560" height="104" rx="12" fill="#0f172a"/>
+  <text x="66" y="536" font-size="13.5" font-weight="bold" fill="#fff">参数化控制：2025-2026 新范式 —— "拧旋钮"取代"写咒语"</text>
+  <text x="66" y="560" font-size="11.5" fill="#cbd5e1">思考深度 reasoning_effort（GPT-5） · 回答长度 verbosity · 思考开关 enable_thinking（Qwen） · effort（Claude Sonnet 5）</text>
+  <text x="66" y="584" font-size="11.5" fill="#cbd5e1">心法：能用参数解决的，不要写进提示词；提示词只保留参数表达不了的领域语义</text>
+  <text x="66" y="604" font-size="10.5" fill="#64748b">→ 04 进阶篇第 9 节有完整对照表</text>
+
+  <rect x="620" y="510" width="294" height="104" rx="12" fill="#0f172a"/>
+  <text x="640" y="536" font-size="13.5" font-weight="bold" fill="#fff">ReAct：通向 Agent 的桥</text>
+  <text x="640" y="560" font-size="11.5" fill="#cbd5e1">Thought → Action → Observation 循环</text>
+  <text x="640" y="584" font-size="11.5" fill="#cbd5e1">一半是提示技术（思考格式），一半是架构（工具循环）</text>
+  <text x="640" y="604" font-size="10.5" fill="#64748b">深入 → 003 Agent原理 / 004 工具调用</text>
+</svg>

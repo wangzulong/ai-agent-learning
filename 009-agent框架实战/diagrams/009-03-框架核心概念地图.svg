@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="580" fill="#f8fafc"/>
+  <text x="40" y="48" font-size="23" font-weight="bold" fill="#0f172a">009 · Agent 框架核心概念地图（12 卡）</text>
+  <text x="40" y="74" font-size="12" fill="#64748b">四组概念：图的骨架 · 运行保障 · 协作扩展 · 记忆观测 —— 配合 02 概念篇逐卡精读</text>
+
+  <!-- 组1 图的骨架 -->
+  <rect x="50" y="95" width="400" height="30" rx="6" fill="#dbeafe"/>
+  <text x="62" y="115" font-size="12.5" font-weight="bold" fill="#2563eb">① 图的骨架（控制流怎么画）</text>
+  <rect x="50" y="140" width="190" height="64" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="62" y="163" font-size="12.5" font-weight="bold" fill="#2563eb">StateGraph 状态图</text>
+  <text x="62" y="181" font-size="10.5" fill="#64748b">显式状态图 · 允许环</text>
+  <text x="62" y="196" font-size="10.5" fill="#64748b">共享状态对象流动</text>
+  <rect x="260" y="140" width="190" height="64" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="272" y="163" font-size="12.5" font-weight="bold" fill="#2563eb">节点 / 边</text>
+  <text x="272" y="181" font-size="10.5" fill="#64748b">节点=函数(读状态返增量)</text>
+  <text x="272" y="196" font-size="10.5" fill="#64748b">边=固定走向 START/END</text>
+  <rect x="50" y="220" width="190" height="64" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="62" y="243" font-size="12.5" font-weight="bold" fill="#2563eb">条件边 Router</text>
+  <text x="62" y="261" font-size="10.5" fill="#64748b">运行时按状态动态分支</text>
+  <text x="62" y="276" font-size="10.5" fill="#64748b">替代散装 if/elif</text>
+  <rect x="260" y="220" width="190" height="64" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="272" y="243" font-size="12.5" font-weight="bold" fill="#2563eb">Command</text>
+  <text x="272" y="261" font-size="10.5" fill="#64748b">goto + update 打包</text>
+  <text x="272" y="276" font-size="10.5" fill="#64748b">节点内局部跳转·1.x 新API</text>
+
+  <!-- 组2 运行保障 -->
+  <rect x="510" y="95" width="400" height="30" rx="6" fill="#ffedd5"/>
+  <text x="522" y="115" font-size="12.5" font-weight="bold" fill="#ea580c">② 运行保障（可靠性三件）</text>
+  <rect x="510" y="140" width="190" height="64" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.2"/>
+  <text x="522" y="163" font-size="12.5" font-weight="bold" fill="#ea580c">checkpointer</text>
+  <text x="522" y="181" font-size="10.5" fill="#64748b">每步自动存档·崩溃恢复</text>
+  <text x="522" y="196" font-size="10.5" fill="#64748b">time-travel 回放</text>
+  <rect x="720" y="140" width="190" height="64" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.2"/>
+  <text x="732" y="163" font-size="12.5" font-weight="bold" fill="#ea580c">interrupt 中断</text>
+  <text x="732" y="181" font-size="10.5" fill="#64748b">人工审批·挂起数天可续</text>
+  <text x="732" y="196" font-size="10.5" fill="#64748b">与 checkpointer 是搭档</text>
+  <rect x="510" y="220" width="400" height="64" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.2"/>
+  <text x="522" y="243" font-size="12.5" font-weight="bold" fill="#ea580c">streaming 流式</text>
+  <text x="522" y="261" font-size="10.5" fill="#64748b">token 级（打字机）/ 事件级 updates（进度条）/ 状态级</text>
+  <text x="522" y="276" font-size="10.5" fill="#64748b">生产最常用 updates：每节点完成推一次增量</text>
+
+  <!-- 组3 协作扩展 -->
+  <rect x="50" y="320" width="400" height="30" rx="6" fill="#ede9fe"/>
+  <text x="62" y="340" font-size="12.5" font-weight="bold" fill="#7c3aed">③ 协作扩展（多Agent与安全）</text>
+  <rect x="50" y="365" width="190" height="64" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2"/>
+  <text x="62" y="388" font-size="12.5" font-weight="bold" fill="#7c3aed">handoff 移交</text>
+  <text x="62" y="406" font-size="10.5" fill="#64748b">多Agent间控制权转交</text>
+  <text x="62" y="421" font-size="10.5" fill="#64748b">客服转接类比</text>
+  <rect x="260" y="365" width="190" height="64" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2"/>
+  <text x="272" y="388" font-size="12.5" font-weight="bold" fill="#7c3aed">subgraph 子图</text>
+  <text x="272" y="406" font-size="10.5" fill="#64748b">图当节点复用·分层组合</text>
+  <text x="272" y="421" font-size="10.5" fill="#64748b">007 多Agent落地处</text>
+  <rect x="50" y="445" width="400" height="64" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.2"/>
+  <text x="62" y="468" font-size="12.5" font-weight="bold" fill="#7c3aed">guardrail 护栏</text>
+  <text x="62" y="486" font-size="10.5" fill="#64748b">输入/输出并联校验关卡：不合规拦截·改写·转人工</text>
+  <text x="62" y="501" font-size="10.5" fill="#64748b">点价例：数量为正·价格在限价带内</text>
+
+  <!-- 组4 记忆观测 -->
+  <rect x="510" y="320" width="400" height="30" rx="6" fill="#cffafe"/>
+  <text x="522" y="340" font-size="12.5" font-weight="bold" fill="#0891b2">④ 记忆观测（长期支撑）</text>
+  <rect x="510" y="365" width="190" height="64" rx="8" fill="#ffffff" stroke="#0891b2" stroke-width="1.2"/>
+  <text x="522" y="388" font-size="12.5" font-weight="bold" fill="#0891b2">memory 记忆</text>
+  <text x="522" y="406" font-size="10.5" fill="#64748b">短期=thread 状态历史</text>
+  <text x="522" y="421" font-size="10.5" fill="#64748b">长期=Store 跨会话</text>
+  <rect x="720" y="365" width="190" height="64" rx="8" fill="#ffffff" stroke="#0891b2" stroke-width="1.2"/>
+  <text x="732" y="388" font-size="12.5" font-weight="bold" fill="#0891b2">trace / span</text>
+  <text x="732" y="406" font-size="10.5" fill="#64748b">trace=全链路·span=分段</text>
+  <text x="732" y="421" font-size="10.5" fill="#64748b">一次节点执行=一个span</text>
+  <rect x="510" y="445" width="400" height="64" rx="8" fill="#fff7ed" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="522" y="468" font-size="12.5" font-weight="bold" fill="#dc2626">贯穿案例：点价 Agent</text>
+  <text x="522" y="486" font-size="10.5" fill="#7c2d12">用到 StateGraph · Router 条件边 · interrupt 人审</text>
+  <text x="522" y="501" font-size="10.5" fill="#7c2d12">SqliteSaver 持久化 · stream updates 进度推送</text>
+
+  <text x="50" y="545" font-size="11" fill="#64748b">记忆口诀：骨架四件画图，保障三件保命，协作两件扩多Agent，记忆观测撑长期 —— 先记组再记卡</text>
+</svg>

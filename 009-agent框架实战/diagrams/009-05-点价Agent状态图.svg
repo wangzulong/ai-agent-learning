@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 660" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="ar-b2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/></marker>
+    <marker id="ar-r2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/></marker>
+    <marker id="ar-p2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/></marker>
+    <marker id="ar-gr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#059669"/></marker>
+  </defs>
+  <rect width="960" height="660" fill="#f8fafc"/>
+  <text x="40" y="48" font-size="23" font-weight="bold" fill="#0f172a">009 · 点价 Agent 状态图（LangGraph StateGraph）</text>
+  <text x="40" y="72" font-size="12" fill="#64748b">贯穿案例：路由 → 抽取 → 查库存查价 → 生成建议单 → 交易员确认（interrupt 中断恢复）</text>
+
+  <!-- START -->
+  <ellipse cx="82" cy="230" rx="24" ry="24" fill="#0f172a"/>
+  <text x="82" y="235" font-size="10.5" fill="#ffffff" text-anchor="middle">开始</text>
+
+  <!-- router -->
+  <rect x="170" y="206" width="120" height="48" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="230" y="235" font-size="12" font-weight="bold" fill="#1e40af" text-anchor="middle">router 路由</text>
+
+  <!-- extract -->
+  <rect x="390" y="206" width="120" height="48" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="450" y="235" font-size="12" font-weight="bold" fill="#1e40af" text-anchor="middle">extract 抽取</text>
+
+  <!-- END -->
+  <ellipse cx="745" cy="230" rx="46" ry="24" fill="#059669"/>
+  <text x="745" y="235" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">END</text>
+
+  <!-- process -->
+  <rect x="170" y="346" width="120" height="48" rx="8" fill="#cffafe" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="230" y="366" font-size="12" font-weight="bold" fill="#0e7490" text-anchor="middle">process 查价</text>
+  <text x="230" y="383" font-size="9.5" fill="#0e7490" text-anchor="middle">查库存 + 查实时价</text>
+
+  <!-- draft_proposal -->
+  <rect x="390" y="338" width="170" height="64" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="475" y="363" font-size="12.5" font-weight="bold" fill="#c2410c" text-anchor="middle">draft_proposal</text>
+  <text x="475" y="384" font-size="10" fill="#c2410c" text-anchor="middle">生成建议单 + interrupt 挂起</text>
+  <rect x="502" y="328" width="58" height="17" rx="4" fill="#dc2626"/>
+  <text x="531" y="340" font-size="9.5" fill="#ffffff" text-anchor="middle">interrupt</text>
+
+  <!-- 主流程箭头 -->
+  <line x1="106" y1="230" x2="166" y2="230" stroke="#2563eb" stroke-width="1.8" marker-end="url(#ar-b2)"/>
+  <line x1="290" y1="230" x2="386" y2="230" stroke="#2563eb" stroke-width="1.8" marker-end="url(#ar-b2)"/>
+  <text x="338" y="222" font-size="10.5" fill="#2563eb" text-anchor="middle">pricing</text>
+  <path d="M450,254 V324 H230 V342" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#ar-gr2)"/>
+  <text x="310" y="317" font-size="10.5" fill="#059669" text-anchor="middle">校验通过</text>
+  <line x1="290" y1="370" x2="386" y2="370" stroke="#2563eb" stroke-width="1.8" marker-end="url(#ar-b2)"/>
+
+  <!-- 拒绝路径（红色虚线） -->
+  <path d="M230,206 V95 H745 V202" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#ar-r2)"/>
+  <text x="490" y="88" font-size="10.5" fill="#dc2626">inquiry / other → 直接结束</text>
+  <path d="M450,206 V120 H728 V202" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#ar-r2)"/>
+  <text x="560" y="113" font-size="10.5" fill="#dc2626">数据异常（guardrail 拦截）</text>
+
+  <!-- draft → END -->
+  <path d="M560,370 H745 V256" fill="none" stroke="#2563eb" stroke-width="1.8" marker-end="url(#ar-b2)"/>
+  <text x="620" y="362" font-size="10.5" fill="#2563eb" text-anchor="middle">确认通过 → 输出</text>
+
+  <!-- 挂起与恢复 -->
+  <path d="M475,402 V470 H616" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#ar-r2)"/>
+  <text x="490" y="440" font-size="10.5" fill="#dc2626">interrupt(建议单 payload)</text>
+  <path d="M620,455 H555 V406" fill="none" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#ar-p2)"/>
+  <text x="596" y="447" font-size="10" fill="#7c3aed">resume</text>
+
+  <!-- 交易员确认卡 -->
+  <rect x="620" y="430" width="280" height="120" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="640" y="458" font-size="13" font-weight="bold" fill="#7c3aed">交易员人工确认</text>
+  <text x="640" y="482" font-size="10.5" fill="#475569">挂起：状态已落盘，进程可退出</text>
+  <text x="640" y="504" font-size="10.5" fill="#475569">恢复：Command(resume=审批结果)</text>
+  <text x="640" y="526" font-size="10.5" fill="#dc2626">必须携带同一 thread_id</text>
+
+  <!-- 底部说明 -->
+  <rect x="50" y="585" width="860" height="40" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="480" y="610" font-size="11.5" fill="#0f172a" text-anchor="middle" font-weight="bold">一单业务 = 一个 thread_id；interrupt 挂起期间进程可死可发版 —— 状态在 Postgres/SQLite，不在内存</text>
+</svg>

@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 660" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <marker id="arrX" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="960" height="660" fill="#f8fafc"/>
+  <text x="480" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#0f172a">CTRM 贸易知识库问答架构（贯穿案例）</text>
+  <text x="480" y="60" text-anchor="middle" font-size="12" fill="#64748b">数据源 → 索引（离线）→ 检索（在线）→ 生成 → 带引用答案</text>
+
+  <!-- ===== 列1 数据源 ===== -->
+  <rect x="28" y="88" width="152" height="30" rx="8" fill="#475569"/>
+  <text x="104" y="108" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">数据源（4 类）</text>
+  <rect x="34" y="128" width="140" height="64" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="104" y="152" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#0f172a">合同模板</text>
+  <text x="104" y="172" text-anchor="middle" font-size="10" fill="#64748b">docx · legal</text>
+  <rect x="34" y="204" width="140" height="64" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="104" y="228" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#0f172a">业务规则</text>
+  <text x="104" y="248" text-anchor="middle" font-size="10" fill="#64748b">Word + 表格</text>
+  <rect x="34" y="280" width="140" height="64" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="104" y="304" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#0f172a">操作手册</text>
+  <text x="104" y="324" text-anchor="middle" font-size="10" fill="#64748b">PDF + 截图</text>
+  <rect x="34" y="356" width="140" height="64" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="104" y="380" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#0f172a">历史点价案例</text>
+  <text x="104" y="400" text-anchor="middle" font-size="10" fill="#64748b">DB 导出 · trading</text>
+
+  <!-- ===== 列2 索引层 ===== -->
+  <rect x="210" y="88" width="170" height="30" rx="8" fill="#7c3aed"/>
+  <text x="295" y="108" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">索引层（离线）</text>
+  <rect x="216" y="128" width="158" height="38" rx="6" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.2"/>
+  <text x="295" y="152" text-anchor="middle" font-size="11" fill="#334155">加载：docx/PDF/DB</text>
+  <rect x="216" y="174" width="158" height="38" rx="6" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.2"/>
+  <text x="295" y="198" text-anchor="middle" font-size="11" fill="#334155">清洗：去页眉·表格转MD</text>
+  <rect x="216" y="220" width="158" height="38" rx="6" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.2"/>
+  <text x="295" y="244" text-anchor="middle" font-size="11" fill="#334155">分块：递归 + overlap</text>
+  <rect x="216" y="266" width="158" height="38" rx="6" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.2"/>
+  <text x="295" y="290" text-anchor="middle" font-size="11" fill="#334155">向量化：bge-m3 批量</text>
+  <rect x="216" y="312" width="158" height="38" rx="6" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.2"/>
+  <text x="295" y="336" text-anchor="middle" font-size="11" fill="#334155">入库：向量+原文+元数据</text>
+  <rect x="216" y="360" width="158" height="30" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.2"/>
+  <text x="295" y="380" text-anchor="middle" font-size="10" font-weight="bold" fill="#b91c1c">权限元数据：tenant/dept/版本</text>
+
+  <!-- ===== 列3 检索层 ===== -->
+  <rect x="410" y="88" width="190" height="30" rx="8" fill="#2563eb"/>
+  <text x="505" y="108" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">检索层（在线）</text>
+  <rect x="416" y="128" width="178" height="38" rx="6" fill="#fffbeb" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="505" y="152" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">① 权限过滤（检索前）★</text>
+  <rect x="416" y="174" width="178" height="38" rx="6" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.2"/>
+  <text x="505" y="198" text-anchor="middle" font-size="11" fill="#334155">② 双路召回：向量 + BM25</text>
+  <rect x="416" y="220" width="178" height="38" rx="6" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.2"/>
+  <text x="505" y="244" text-anchor="middle" font-size="11" fill="#334155">③ RRF 融合</text>
+  <rect x="416" y="266" width="178" height="38" rx="6" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.2"/>
+  <text x="505" y="290" text-anchor="middle" font-size="11" fill="#334155">④ 重排：只跑 top50</text>
+  <rect x="416" y="312" width="178" height="38" rx="6" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.2"/>
+  <text x="505" y="336" text-anchor="middle" font-size="11" fill="#334155">⑤ 打包：预算装填</text>
+  <rect x="416" y="360" width="178" height="30" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+  <text x="505" y="380" text-anchor="middle" font-size="10" font-weight="bold" fill="#166534">query 向量缓存 · 命中免嵌入</text>
+
+  <!-- ===== 列4 生成层 ===== -->
+  <rect x="630" y="88" width="150" height="30" rx="8" fill="#059669"/>
+  <text x="705" y="108" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">生成层</text>
+  <rect x="636" y="128" width="138" height="56" rx="6" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.2"/>
+  <text x="705" y="150" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">接地生成</text>
+  <text x="705" y="168" text-anchor="middle" font-size="10" fill="#64748b">只依据资料 + [资料n]</text>
+  <rect x="636" y="196" width="138" height="56" rx="6" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.2"/>
+  <text x="705" y="218" text-anchor="middle" font-size="11" font-weight="bold" fill="#0f172a">拒答兜底</text>
+  <text x="705" y="236" text-anchor="middle" font-size="10" fill="#64748b">没有依据 → 明确说没有</text>
+  <rect x="636" y="264" width="138" height="28" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+  <text x="705" y="283" text-anchor="middle" font-size="10" font-weight="bold" fill="#166534">temperature 0.1</text>
+
+  <!-- ===== 列5 用户与答案 ===== -->
+  <rect x="810" y="88" width="122" height="30" rx="8" fill="#ea580c"/>
+  <text x="871" y="108" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#ffffff">用户与答案</text>
+  <rect x="816" y="128" width="110" height="32" rx="16" fill="#ffffff" stroke="#fdba74" stroke-width="1.2"/>
+  <text x="871" y="149" text-anchor="middle" font-size="11" fill="#334155">交易员</text>
+  <rect x="816" y="168" width="110" height="32" rx="16" fill="#ffffff" stroke="#fdba74" stroke-width="1.2"/>
+  <text x="871" y="189" text-anchor="middle" font-size="11" fill="#334155">风控</text>
+  <rect x="816" y="208" width="110" height="32" rx="16" fill="#ffffff" stroke="#fdba74" stroke-width="1.2"/>
+  <text x="871" y="229" text-anchor="middle" font-size="11" fill="#334155">合规</text>
+  <rect x="816" y="252" width="110" height="132" rx="8" fill="#ffffff" stroke="#059669" stroke-width="1.8"/>
+  <text x="871" y="276" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#059669">带引用答案</text>
+  <text x="826" y="300" font-size="10" fill="#334155">升贴水 = 现货价</text>
+  <text x="826" y="316" font-size="10" fill="#334155">− 合约结算价</text>
+  <text x="826" y="340" font-size="10" font-weight="bold" fill="#059669">[资料2] 规则汇编 2.1</text>
+  <text x="826" y="364" font-size="10" fill="#64748b">可点击跳转原文</text>
+
+  <!-- 列间箭头 -->
+  <line x1="180" y1="240" x2="206" y2="240" stroke="#64748b" stroke-width="2.5" fill="none" marker-end="url(#arrX)"/>
+  <line x1="380" y1="240" x2="406" y2="240" stroke="#64748b" stroke-width="2.5" stroke-dasharray="6 4" fill="none" marker-end="url(#arrX)"/>
+  <text x="393" y="228" text-anchor="middle" font-size="10" fill="#64748b">查询时</text>
+  <line x1="600" y1="240" x2="626" y2="240" stroke="#64748b" stroke-width="2.5" fill="none" marker-end="url(#arrX)"/>
+  <line x1="780" y1="240" x2="806" y2="240" stroke="#64748b" stroke-width="2.5" fill="none" marker-end="url(#arrX)"/>
+
+  <!-- 底部注释 -->
+  <rect x="28" y="560" width="904" height="66" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="480" y="584" text-anchor="middle" font-size="11" fill="#0f172a">贯穿案例：问「点价流程是什么」→ 命中《操作手册》3.2 节 → 带 [来源] 作答；问「升贴水怎么算」→ 命中《规则汇编》2.1 节</text>
+  <text x="480" y="608" text-anchor="middle" font-size="10.5" fill="#64748b">生产要点：索引常驻 + 增量更新 · 检索前权限过滤 · RAGAS 四指标回归 —— 全代码见 05 实战篇，运维见 06 生产篇</text>
+</svg>

@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="600" fill="#f8fafc"/>
+  <defs>
+    <marker id="arrowG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <text x="480" y="38" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">多 Agent 系统演进时间线（截至 2026-09）</text>
+  <text x="480" y="61" text-anchor="middle" font-size="11" fill="#64748b">从学术 MAS 到协议化协作：A2A 与 MCP 先后进入 Linux 基金会治理</text>
+
+  <!-- 主轴 -->
+  <line x1="40" y1="310" x2="916" y2="310" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrowG)"/>
+
+  <!-- 节点1 上：MAS 学术期 -->
+  <line x1="95" y1="252" x2="95" y2="301" stroke="#94a3b8" stroke-width="1.5"/>
+  <circle cx="95" cy="310" r="7" fill="#64748b" stroke="#ffffff" stroke-width="2"/>
+  <rect x="13" y="140" width="165" height="112" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="13" y="140" width="165" height="6" rx="3" fill="#64748b"/>
+  <text x="95" y="172" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">1980s–2010s 学术期</text>
+  <text x="95" y="192" text-anchor="middle" font-size="10.5" fill="#64748b">多智能体系统 MAS 概念</text>
+  <text x="95" y="209" text-anchor="middle" font-size="10.5" fill="#64748b">分布式 AI 与 CAS 理论</text>
+  <text x="95" y="226" text-anchor="middle" font-size="10.5" fill="#64748b">为「协作」打好地基</text>
+
+  <!-- 节点2 下：2023 AutoGPT -->
+  <line x1="190" y1="319" x2="190" y2="358" stroke="#94a3b8" stroke-width="1.5"/>
+  <circle cx="190" cy="310" r="7" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+  <rect x="108" y="360" width="165" height="112" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="108" y="360" width="165" height="6" rx="3" fill="#2563eb"/>
+  <text x="190" y="392" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">2023 AutoGPT 引爆</text>
+  <text x="190" y="412" text-anchor="middle" font-size="10.5" fill="#64748b">自主拆任务雏形出现</text>
+  <text x="190" y="429" text-anchor="middle" font-size="10.5" fill="#64748b">AutoGen / MetaGPT 跟进</text>
+  <text x="190" y="446" text-anchor="middle" font-size="10.5" fill="#64748b">多角色框架集中涌现</text>
+
+  <!-- 节点3 上：2024 Swarm 与 MCP -->
+  <line x1="285" y1="252" x2="285" y2="301" stroke="#94a3b8" stroke-width="1.5"/>
+  <circle cx="285" cy="310" r="7" fill="#0891b2" stroke="#ffffff" stroke-width="2"/>
+  <rect x="203" y="140" width="165" height="112" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="203" y="140" width="165" height="6" rx="3" fill="#0891b2"/>
+  <text x="285" y="172" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">2024 Swarm 与 MCP</text>
+  <text x="285" y="192" text-anchor="middle" font-size="10.5" fill="#64748b">OpenAI Swarm 提出</text>
+  <text x="285" y="209" text-anchor="middle" font-size="10.5" fill="#64748b">handoff 交接原语</text>
+  <text x="285" y="226" text-anchor="middle" font-size="10.5" fill="#64748b">MCP 发布：连接工具</text>
+
+  <!-- 节点4 下：2025.04 A2A 发布 -->
+  <line x1="380" y1="319" x2="380" y2="358" stroke="#94a3b8" stroke-width="1.5"/>
+  <circle cx="380" cy="310" r="7" fill="#7c3aed" stroke="#ffffff" stroke-width="2"/>
+  <rect x="298" y="360" width="165" height="112" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="298" y="360" width="165" height="6" rx="3" fill="#7c3aed"/>
+  <text x="380" y="392" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">2025.04 Google 发布 A2A</text>
+  <text x="380" y="412" text-anchor="middle" font-size="10.5" fill="#64748b">跨厂商 Agent 互操作协议</text>
+  <text x="380" y="429" text-anchor="middle" font-size="10.5" fill="#64748b">Agent Card + Task 生命周期</text>
+  <text x="380" y="446" text-anchor="middle" font-size="10.5" fill="#64748b">让 Agent 互相看得见</text>
+
+  <!-- 节点5 上：2025.06 捐赠 Linux 基金会 -->
+  <line x1="475" y1="252" x2="475" y2="301" stroke="#94a3b8" stroke-width="1.5"/>
+  <circle cx="475" cy="310" r="7" fill="#059669" stroke="#ffffff" stroke-width="2"/>
+  <rect x="393" y="140" width="165" height="112" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="393" y="140" width="165" height="6" rx="3" fill="#059669"/>
+  <text x="475" y="172" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">2025.06 A2A 捐 Linux 基金会</text>
+  <text x="475" y="192" text-anchor="middle" font-size="10.5" fill="#64748b">AWS / Cisco / 微软等</text>
+  <text x="475" y="209" text-anchor="middle" font-size="10.5" fill="#64748b">7 家 TSC 成员共治</text>
+  <text x="475" y="226" text-anchor="middle" font-size="10.5" fill="#64748b">告别单厂商治理</text>
+
+  <!-- 节点6 下：2025 Anthropic 多 agent 研究系统 -->
+  <line x1="570" y1="319" x2="570" y2="358" stroke="#94a3b8" stroke-width="1.5"/>
+  <circle cx="570" cy="310" r="7" fill="#ea580c" stroke="#ffffff" stroke-width="2"/>
+  <rect x="488" y="360" width="165" height="112" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="488" y="360" width="165" height="6" rx="3" fill="#ea580c"/>
+  <text x="570" y="392" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">2025 Anthropic 多 Agent 研究</text>
+  <text x="570" y="412" text-anchor="middle" font-size="10.5" fill="#64748b">orchestrator-worker 实战</text>
+  <text x="570" y="429" text-anchor="middle" font-size="10.5" fill="#64748b">Lead 拆任务 + 并行 SubAgent</text>
+  <text x="570" y="446" text-anchor="middle" font-size="10.5" fill="#64748b">Token 约 15 倍的成本账</text>
+
+  <!-- 节点7 上：2025.12 AAIF 成立 -->
+  <line x1="665" y1="252" x2="665" y2="301" stroke="#94a3b8" stroke-width="1.5"/>
+  <circle cx="665" cy="310" r="7" fill="#ea580c" stroke="#ffffff" stroke-width="2"/>
+  <rect x="583" y="140" width="165" height="112" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="583" y="140" width="165" height="6" rx="3" fill="#ea580c"/>
+  <text x="665" y="172" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">2025.12 AAIF 成立</text>
+  <text x="665" y="192" text-anchor="middle" font-size="10.5" fill="#64748b">Linux 基金会设</text>
+  <text x="665" y="209" text-anchor="middle" font-size="10.5" fill="#64748b">Agentic AI 基金会（AAIF）</text>
+  <text x="665" y="226" text-anchor="middle" font-size="10.5" fill="#64748b">托管 MCP 等标准</text>
+
+  <!-- 节点8 下：2026.04 A2A v1.0 -->
+  <line x1="760" y1="319" x2="760" y2="358" stroke="#94a3b8" stroke-width="1.5"/>
+  <circle cx="760" cy="310" r="7" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+  <rect x="678" y="360" width="165" height="112" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="678" y="360" width="165" height="6" rx="3" fill="#2563eb"/>
+  <text x="760" y="392" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">2026.04 A2A v1.0 稳定</text>
+  <text x="760" y="412" text-anchor="middle" font-size="10.5" fill="#64748b">签名 Agent Card（JWS）</text>
+  <text x="760" y="429" text-anchor="middle" font-size="10.5" fill="#64748b">150+ 组织支持</text>
+  <text x="760" y="446" text-anchor="middle" font-size="10.5" fill="#64748b">三大云平台 GA 接入</text>
+
+  <!-- 节点9 上：2026.08 入 AAIF -->
+  <line x1="855" y1="252" x2="855" y2="301" stroke="#94a3b8" stroke-width="1.5"/>
+  <circle cx="855" cy="310" r="7" fill="#dc2626" stroke="#ffffff" stroke-width="2"/>
+  <rect x="773" y="140" width="165" height="112" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <rect x="773" y="140" width="165" height="6" rx="3" fill="#dc2626"/>
+  <text x="855" y="172" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">2026.08 A2A 入 AAIF</text>
+  <text x="855" y="192" text-anchor="middle" font-size="10.5" fill="#64748b">Growth Stage 项目</text>
+  <text x="855" y="209" text-anchor="middle" font-size="10.5" fill="#64748b">与 MCP 同门共治</text>
+  <text x="855" y="226" text-anchor="middle" font-size="10.5" fill="#64748b">「谁赢」之争落幕</text>
+
+  <!-- 底部结论条 -->
+  <rect x="120" y="512" width="720" height="56" rx="10" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="480" y="536" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">结论：Agent 之间「怎么对话」已协议化——MCP 管 Agent 连工具，A2A 管 Agent 连 Agent</text>
+  <text x="480" y="556" text-anchor="middle" font-size="10.5" fill="#64748b">来源：Linux Foundation 新闻稿（2025-06、2026-04）、AAIF 公告（2025-12、2026-08）、Google Cloud 博客（2025-04）、Anthropic 工程博客（2025-06）</text>
+</svg>

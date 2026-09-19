@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="620" fill="#f8fafc"/>
+  <text x="480" y="34" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">推理 API：一次调用的时序 与 一张账单的构成</text>
+  <text x="480" y="58" text-anchor="middle" font-size="13" fill="#64748b">上：请求从发出到流式返回的完整链路 · 下：钱花在哪、省从哪省</text>
+
+  <defs>
+    <marker id="a6" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- ===== 上：时序 ===== -->
+  <rect x="36" y="80" width="888" height="250" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="56" y="106" font-size="15" font-weight="bold" fill="#0f172a">① 一次调用的完整时序（流式输出）</text>
+
+  <!-- 参与者 -->
+  <rect x="56" y="122" width="150" height="34" rx="8" fill="#2563eb"/>
+  <text x="131" y="144" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#fff">你的客户端</text>
+  <rect x="256" y="122" width="150" height="34" rx="8" fill="#0891b2"/>
+  <text x="331" y="144" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#fff">API 网关/计费</text>
+  <rect x="456" y="122" width="150" height="34" rx="8" fill="#ea580c"/>
+  <text x="531" y="144" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#fff">推理引擎</text>
+  <rect x="656" y="122" width="150" height="34" rx="8" fill="#7c3aed"/>
+  <text x="731" y="144" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#fff">模型（GPU）</text>
+
+  <!-- 消息线 -->
+  <line x1="131" y1="170" x2="331" y2="170" stroke="#64748b" stroke-width="1.8" marker-end="url(#a6)"/>
+  <text x="231" y="162" text-anchor="middle" font-size="11" fill="#334155">POST /v1/responses（messages + 参数）</text>
+  <line x1="331" y1="198" x2="531" y2="198" stroke="#64748b" stroke-width="1.8" marker-end="url(#a6)"/>
+  <text x="431" y="190" text-anchor="middle" font-size="11" fill="#334155">路由 → 排队 → 分配 GPU</text>
+  <rect x="470" y="216" width="122" height="30" rx="6" fill="#ffedd5" stroke="#fdba74"/>
+  <text x="531" y="236" text-anchor="middle" font-size="11" fill="#9a3412">Prefill：并行吃下全部输入</text>
+  <line x1="531" y1="260" x2="731" y2="260" stroke="#64748b" stroke-width="1.8" marker-end="url(#a6)"/>
+  <text x="631" y="252" text-anchor="middle" font-size="11" fill="#334155">Decode：逐 token 前向（KV Cache 加速）</text>
+  <path d="M 656 286 L 331 286" fill="none" stroke="#16a34a" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#a6)"/>
+  <text x="493" y="278" text-anchor="middle" font-size="11" fill="#166534">SSE 流式：token 一段段推回（首字延迟 TTFT）</text>
+  <line x1="331" y1="306" x2="131" y2="306" stroke="#16a34a" stroke-width="1.8" stroke-dasharray="6,3" marker-end="url(#a6)"/>
+  <text x="231" y="298" text-anchor="middle" font-size="11" fill="#166534">usage 报告：prompt_tokens / completion_tokens / 缓存命中</text>
+
+  <!-- ===== 下：成本 ===== -->
+  <rect x="36" y="348" width="888" height="230" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="56" y="374" font-size="15" font-weight="bold" fill="#0f172a">② 账单的构成（以 2026-09 Claude Sonnet 5 为例：$2 输入 / $10 输出 每 1M token）</text>
+
+  <!-- 条形 -->
+  <text x="66" y="404" font-size="12" fill="#334155">输出 token（5× 于输入价，大头！）</text>
+  <rect x="330" y="390" width="360" height="20" rx="5" fill="#dc2626"/>
+  <text x="700" y="405" font-size="11.5" font-weight="bold" fill="#dc2626">$10.00</text>
+
+  <text x="66" y="434" font-size="12" fill="#334155">输入 token（未命中缓存）</text>
+  <rect x="330" y="420" width="72" height="20" rx="5" fill="#2563eb"/>
+  <text x="410" y="435" font-size="11.5" font-weight="bold" fill="#2563eb">$2.00</text>
+
+  <text x="66" y="464" font-size="12" fill="#334155">输入 token（命中 Prompt Cache，约1折）</text>
+  <rect x="330" y="450" width="10" height="20" rx="3" fill="#059669"/>
+  <text x="348" y="465" font-size="11.5" font-weight="bold" fill="#059669">≈$0.20</text>
+
+  <text x="66" y="494" font-size="12" fill="#334155">思考 token（推理模型独有，按输出计费）</text>
+  <rect x="330" y="480" width="180" height="20" rx="5" fill="#9333ea"/>
+  <text x="518" y="495" font-size="11.5" font-weight="bold" fill="#9333ea">隐蔽成本：可能占输出的 50%+</text>
+
+  <text x="66" y="524" font-size="12" fill="#334155">Batch 批处理（异步，全场约5折）</text>
+  <rect x="330" y="510" width="180" height="20" rx="5" fill="#0d9488"/>
+  <text x="518" y="525" font-size="11.5" font-weight="bold" fill="#0d9488">非实时任务的默认选择</text>
+
+  <text x="66" y="556" font-size="12" fill="#334155">长上下文附加费（GPT-5.6&gt;272K ×2、Gemini&gt;200K 翻倍）</text>
+  <rect x="330" y="542" width="120" height="20" rx="5" fill="#ea580c"/>
+  <text x="458" y="557" font-size="11.5" font-weight="bold" fill="#ea580c">Claude 无附加费</text>
+
+  <text x="480" y="600" text-anchor="middle" font-size="12" fill="#475569">省钱三板斧：① 稳定前缀开缓存（system+示例不变） ② 输出瘦身（verbosity/格式约束） ③ 任务分级路由（简单任务用 Luna/Flash 级小模型）</text>
+</svg>

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="620" fill="#f8fafc"/>
+  <text x="480" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#0f172a">RAG 核心概念地图（12 概念 · 4 组）</text>
+  <text x="480" y="60" text-anchor="middle" font-size="12" fill="#64748b">左上准备数据 · 右上执行检索 · 左下加工查询 · 右下保障质量</text>
+
+  <!-- 连线 -->
+  <line x1="390" y1="290" x2="340" y2="240" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
+  <line x1="570" y1="290" x2="620" y2="240" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
+  <line x1="390" y1="345" x2="340" y2="415" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
+  <line x1="570" y1="345" x2="620" y2="415" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
+
+  <!-- 中心卡 -->
+  <rect x="390" y="275" width="180" height="84" rx="14" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="480" y="312" text-anchor="middle" font-size="20" font-weight="bold" fill="#2563eb">RAG</text>
+  <text x="480" y="336" text-anchor="middle" font-size="11" fill="#64748b">检索增强生成</text>
+
+  <!-- 组1 左上：数据处理（紫） -->
+  <rect x="30" y="90" width="310" height="185" rx="10" fill="#ffffff" stroke="#ddd6fe" stroke-width="1.5"/>
+  <rect x="30" y="90" width="310" height="32" rx="10" fill="#7c3aed"/>
+  <rect x="30" y="106" width="310" height="16" fill="#7c3aed"/>
+  <text x="185" y="112" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">① 数据处理</text>
+  <circle cx="52" cy="146" r="3.5" fill="#7c3aed"/>
+  <text x="64" y="150" font-size="11.5" font-weight="bold" fill="#0f172a">分块<tspan font-size="10.5" font-weight="normal" fill="#334155">：大小×边界的权衡，第一杠杆</tspan></text>
+  <text x="64" y="168" font-size="10.5" fill="#64748b">例：合同按「第X条」自定义分隔符切</text>
+  <circle cx="52" cy="196" r="3.5" fill="#7c3aed"/>
+  <text x="64" y="200" font-size="11.5" font-weight="bold" fill="#0f172a">嵌入<tspan font-size="10.5" font-weight="normal" fill="#334155">：文本→向量，决定召回上限</tspan></text>
+  <text x="64" y="218" font-size="10.5" fill="#64748b">例：换 embedding 模型 = 全量重建索引</text>
+  <text x="52" y="252" font-size="10.5" fill="#64748b">对应概念卡 02 / 03</text>
+
+  <!-- 组2 右上：检索执行（蓝） -->
+  <rect x="620" y="90" width="310" height="185" rx="10" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+  <rect x="620" y="90" width="310" height="32" rx="10" fill="#2563eb"/>
+  <rect x="620" y="106" width="310" height="16" fill="#2563eb"/>
+  <text x="775" y="112" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">② 检索执行</text>
+  <circle cx="642" cy="146" r="3.5" fill="#2563eb"/>
+  <text x="654" y="150" font-size="11.5" font-weight="bold" fill="#0f172a">向量库<tspan font-size="10.5" font-weight="normal" fill="#334155">：ANN 近邻 + 元数据过滤</tspan></text>
+  <circle cx="642" cy="173" r="3.5" fill="#2563eb"/>
+  <text x="654" y="177" font-size="11.5" font-weight="bold" fill="#0f172a">相似度<tspan font-size="10.5" font-weight="normal" fill="#334155">：余弦为主；归一化后≈内积</tspan></text>
+  <circle cx="642" cy="200" r="3.5" fill="#2563eb"/>
+  <text x="654" y="204" font-size="11.5" font-weight="bold" fill="#0f172a">混合检索<tspan font-size="10.5" font-weight="normal" fill="#334155">：BM25+向量，RRF 融合</tspan></text>
+  <circle cx="642" cy="227" r="3.5" fill="#2563eb"/>
+  <text x="654" y="231" font-size="11.5" font-weight="bold" fill="#0f172a">重排<tspan font-size="10.5" font-weight="normal" fill="#334155">：cross-encoder，只跑候选 top50</tspan></text>
+  <text x="642" y="260" font-size="10.5" fill="#64748b">对应概念卡 04 / 05 / 06 / 07</text>
+
+  <!-- 组3 左下：查询加工（青） -->
+  <rect x="30" y="390" width="310" height="185" rx="10" fill="#ffffff" stroke="#a5f3fc" stroke-width="1.5"/>
+  <rect x="30" y="390" width="310" height="32" rx="10" fill="#0891b2"/>
+  <rect x="30" y="406" width="310" height="16" fill="#0891b2"/>
+  <text x="185" y="412" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">③ 查询加工</text>
+  <circle cx="52" cy="446" r="3.5" fill="#0891b2"/>
+  <text x="64" y="450" font-size="11.5" font-weight="bold" fill="#0f172a">query 改写<tspan font-size="10.5" font-weight="normal" fill="#334155">：消解指代 / HyDE / 多查询</tspan></text>
+  <text x="64" y="468" font-size="10.5" fill="#64748b">例：「那升贴水呢」→「铜现货升贴水怎么算」</text>
+  <circle cx="52" cy="496" r="3.5" fill="#0891b2"/>
+  <text x="64" y="500" font-size="11.5" font-weight="bold" fill="#0f172a">上下文打包<tspan font-size="10.5" font-weight="normal" fill="#334155">：预算装填，重点放两头</tspan></text>
+  <text x="64" y="518" font-size="10.5" fill="#64748b">例：关键块放开头结尾，抗 Lost in the Middle</text>
+  <text x="52" y="552" font-size="10.5" fill="#64748b">对应概念卡 08 / 10</text>
+
+  <!-- 组4 右下：质量保障（绿） -->
+  <rect x="620" y="390" width="310" height="185" rx="10" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.5"/>
+  <rect x="620" y="390" width="310" height="32" rx="10" fill="#059669"/>
+  <rect x="620" y="406" width="310" height="16" fill="#059669"/>
+  <text x="775" y="412" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">④ 质量保障</text>
+  <circle cx="642" cy="446" r="3.5" fill="#059669"/>
+  <text x="654" y="450" font-size="11.5" font-weight="bold" fill="#0f172a">引用接地<tspan font-size="10.5" font-weight="normal" fill="#334155">：限范围+标出处+可拒答</tspan></text>
+  <circle cx="642" cy="473" r="3.5" fill="#059669"/>
+  <text x="654" y="477" font-size="11.5" font-weight="bold" fill="#0f172a">知识新鲜度<tspan font-size="10.5" font-weight="normal" fill="#334155">：改索引即生效，不等模型</tspan></text>
+  <circle cx="642" cy="500" r="3.5" fill="#059669"/>
+  <text x="654" y="504" font-size="11.5" font-weight="bold" fill="#0f172a">幻觉残留<tspan font-size="10.5" font-weight="normal" fill="#334155">：召回缺失/版本冲突/越界</tspan></text>
+  <text x="642" y="540" font-size="10.5" fill="#64748b">对应概念卡 09 / 11 / 12</text>
+
+  <text x="480" y="602" text-anchor="middle" font-size="11" fill="#64748b">详解见 02-概念篇 · 概念卡 01–12（每张含【一句话人话】+【生活类比】）</text>
+</svg>

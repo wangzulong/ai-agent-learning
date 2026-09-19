@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect width="960" height="620" fill="#f8fafc"/>
+  <text x="480" y="36" text-anchor="middle" font-size="23" font-weight="bold" fill="#0f172a">工具定义解剖：写工具 = 给实习生写操作手册（004 进阶篇）</text>
+  <text x="480" y="60" text-anchor="middle" font-size="13" fill="#64748b">工具定义就是 prompt 的一部分 —— 模型按"读到的文档"选工具，漏写的细节会被默认行为补上</text>
+
+  <!-- 左：JSON 结构 -->
+  <rect x="40" y="88" width="470" height="470" rx="12" fill="#0f172a"/>
+  <text x="56" y="112" font-size="11" fill="#94a3b8">{</text>
+  <text x="72" y="134" font-size="12" fill="#7dd3fc">"name"</text><text x="150" y="134" font-size="12" fill="#e2e8f0">: "query_inventory",</text>
+  <text x="72" y="158" font-size="10" fill="#fbbf24">① 名字：动词_宾语，前缀当命名空间</text>
+
+  <text x="72" y="186" font-size="12" fill="#7dd3fc">"description"</text><text x="170" y="186" font-size="12" fill="#e2e8f0">: "按品种查询可用库存，返回可用量</text>
+  <text x="170" y="204" font-size="12" fill="#e2e8f0">与仓库列表。不要用它查期货价——那用</text>
+  <text x="170" y="222" font-size="12" fill="#e2e8f0">query_futures_price。品种无效时返回可选品种。",</text>
+  <text x="72" y="246" font-size="10" fill="#fbbf24">② 职责 + 何时用 + 何时不用 + 返回承诺</text>
+
+  <text x="72" y="274" font-size="12" fill="#7dd3fc">"parameters"</text><text x="170" y="274" font-size="12" fill="#e2e8f0">: { "type": "object",</text>
+  <text x="96" y="300" font-size="12" fill="#7dd3fc">"properties"</text><text x="180" y="300" font-size="12" fill="#e2e8f0">: {</text>
+  <text x="112" y="324" font-size="12" fill="#a5b4fc">"variety"</text><text x="180" y="324" font-size="12" fill="#e2e8f0">: {"type":"string",</text>
+  <text x="192" y="342" font-size="12" fill="#e2e8f0">"enum":["M","RM","Y"],</text>
+  <text x="192" y="360" font-size="12" fill="#e2e8f0">"description":"品种代码"}},</text>
+  <text x="96" y="384" font-size="10" fill="#fbbf24">③ 扁平化 + enum 收紧自由度 + 单位格式写清</text>
+
+  <text x="96" y="410" font-size="12" fill="#7dd3fc">"required"</text><text x="176" y="410" font-size="12" fill="#e2e8f0">: ["variety"]</text>
+  <text x="96" y="434" font-size="10" fill="#fbbf24">④ 只把"缺了没法执行"设为必填，防编造</text>
+  <text x="72" y="460" font-size="12" fill="#e2e8f0">},</text>
+  <text x="72" y="484" font-size="12" fill="#7dd3fc">"strict"</text><text x="140" y="484" font-size="12" fill="#e2e8f0">: true</text>
+  <text x="72" y="508" font-size="10" fill="#fbbf24">⑤ 约束解码保证参数合法（值对不对还得业务校验）</text>
+  <text x="56" y="532" font-size="11" fill="#94a3b8">}</text>
+
+  <!-- 右：四条原则 -->
+  <rect x="540" y="88" width="380" height="106" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="556" y="112" font-size="12.5" font-weight="bold" fill="#1e40af">描述工程：四栏位一个不能少</text>
+  <text x="556" y="134" font-size="10.5" fill="#1d4ed8">职责一句话 / 何时用 / 何时不用（防边界混淆）/</text>
+  <text x="556" y="152" font-size="10.5" fill="#1d4ed8">返回承诺（让模型知道会拿到什么形状）</text>
+  <text x="556" y="176" font-size="10.5" fill="#dc2626">工具选错两大来源：边界模糊 + 名字歧义</text>
+
+  <rect x="540" y="206" width="380" height="106" rx="10" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+  <text x="556" y="230" font-size="12.5" font-weight="bold" fill="#065f46">参数设计：少而精</text>
+  <text x="556" y="252" font-size="10.5" fill="#047857">扁平（嵌套是出错重灾区）· enum 收紧 · required 精准</text>
+  <text x="556" y="270" font-size="10.5" fill="#047857">单位格式写进描述："基差（元/吨），如 -80"</text>
+  <text x="556" y="294" font-size="10.5" fill="#dc2626">禁止 JSON-in-string：要结构就给结构参数</text>
+
+  <rect x="540" y="324" width="380" height="106" rx="10" fill="#cffafe" stroke="#0891b2" stroke-width="2"/>
+  <text x="556" y="348" font-size="12.5" font-weight="bold" fill="#155e75">返回值：token 是预算</text>
+  <text x="556" y="370" font-size="10.5" fill="#0e7490">给模型返回 = 人读 API 返回的"摘要投影"</text>
+  <text x="556" y="388" font-size="10.5" fill="#0e7490">topN / 字段裁剪 / 分页 / 截断 + offset</text>
+  <text x="556" y="412" font-size="10.5" fill="#dc2626">30k 大返回 = 贵 + 稀释后续指令注意力</text>
+
+  <rect x="540" y="442" width="380" height="116" rx="10" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="556" y="466" font-size="12.5" font-weight="bold" fill="#9a3412">工程纪律（和提示词同构）</text>
+  <text x="556" y="488" font-size="10.5" fill="#c2410c">工具定义进版本管理 + code review + 评估集</text>
+  <text x="556" y="506" font-size="10.5" fill="#c2410c">工具数 &gt;20 会明显混淆：命名空间 / 动态注入</text>
+  <text x="556" y="524" font-size="10.5" fill="#c2410c">/ 上百工具走"工具检索"（工具版 RAG）</text>
+  <text x="556" y="548" font-size="10.5" fill="#c2410c">读写分级：只读可自动，写必幂等+确认</text>
+
+  <text x="480" y="592" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">记忆锚点：名字管调度，描述管选择，参数管正确，返回管预算</text>
+</svg>
